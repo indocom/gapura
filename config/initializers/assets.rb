@@ -11,4 +11,26 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( admin.js admin.css )
+Rails.application.config.assets.precompile += %w( 
+                                                  font-awesome/*.css 
+                                                  animate/*.css 
+                                                  venobox/*.css 
+                                                  owlcarousel/*.css 
+                                                  magnific-popup/*.css 
+                                                  ionicons/*.css 
+                                                  alstar/*.css 
+                                                  reveal/*.css 
+                                                  the-event/*.css 
+
+                                                  bootstrap/*.js
+                                                  jquery/*.js
+                                                  easing/*.js
+                                                  superfish/*.js
+                                                  wow/*.js
+                                                  venobox/*.js
+                                                  owlcarousel/*.js
+                                                  contactform/*.js
+                                                  alstar/*.js
+                                                  reveal/*.js
+                                                  the-event/*.js
+                                                )

@@ -1,3 +1,47 @@
 // Place all the styles related to the past_events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
+body 
+{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+.timeline
+{
+    position: relative !important;
+    margin: 50px auto !important;
+    padding: 40x 0 !important;
+    width: 1000px !important;
+}
+
+.timeline:before
+{
+    content: '' !important;
+    position: absolute !important;
+    left: 50% !important;
+    width: 2px !important;
+    height: 100% !important;
+    background: #c5c5c5 !important;
+}
+.timeline ul
+{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.timeline ul li
+{
+    list-style: none !important;
+    line-height: normal !important;
+    position: relative !important;
+    width: 50% !important;
+    padding: 20px 40px !important;
+    box-sizing: border-box !important;
+}
+.timeline ul li:nth-child(odd)
+{
+    float: left !important;
+    text-align: right !important;
+}

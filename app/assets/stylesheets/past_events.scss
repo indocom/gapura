@@ -1,47 +1,128 @@
 // Place all the styles related to the past_events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
 body 
 {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-family: 'Montserrat', sans-serif !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 .timeline
 {
-    position: relative !important;
-    margin: 50px auto !important;
-    padding: 40x 0 !important;
-    width: 1000px !important;
+    position: relative;
+    margin: 50px auto;
+    padding: 40x 0;
+    width: 1000px;
+    box-sizing: border-box;
 }
 
 .timeline:before
 {
-    content: '' !important;
-    position: absolute !important;
-    left: 50% !important;
-    width: 2px !important;
-    height: 100% !important;
-    background: #c5c5c5 !important;
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #c5c5c5;
 }
 .timeline ul
 {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
 }
 
 .timeline ul li
 {
-    list-style: none !important;
-    line-height: normal !important;
-    position: relative !important;
-    width: 50% !important;
-    padding: 20px 40px !important;
-    box-sizing: border-box !important;
+    list-style: none;
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    box-sizing: border-box;
 }
 .timeline ul li:nth-child(odd)
 {
-    float: left !important;
-    text-align: right !important;
+    float: left;
+    text-align: right;
+    clear: both;
+}
+.timeline ul li:nth-child(even)
+{
+    float: right;
+    text-align: left;
+    clear: both;
+}
+
+.content
+{
+    padding-bottom:20px;
+}
+
+.timeline ul li:nth-child(odd):before
+{
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: -6px;
+    width: 10px;
+    height: 10px;
+    background: rgba(233, 33, 99, 1);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
+}
+
+.timeline ul li:nth-child(even):before
+{
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background: rgba(233, 33, 99, 1);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
+}
+.timeline ul li h3
+{
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    color: rgba(233, 33, 99, 1);
+}
+.timeline ul li p
+{
+    margin: 10px 0 0;
+    padding: 0;
+}
+.timeline ul li .time h4
+{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+.timeline ul li:nth-child(odd) .time
+{
+    position: absolute;
+    top: 18px;
+    right: -105px;
+    margin: 0;
+    padding: 8px 16px;
+    background: rgba(233, 33, 99, 1);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3)
+}
+.timeline ul li:nth-child(even) .time
+{
+    position: absolute;
+    top: 18px;
+    left: -105px;
+    margin: 0;
+    padding: 8px 16px;
+    background: rgba(233, 33, 99, 1);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3)
 }

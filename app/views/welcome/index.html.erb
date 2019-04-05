@@ -8,3 +8,11 @@
   <% # render 'buy_tickets' %>
   <%= render 'contact_us' %>
 </main>
+
+<% #Simply adding button login-logout in main page %>
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.username %></strong>.
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'to-be-renamed'%>
+<% else %>
+  <%= link_to "Login", new_user_session_path, :class => 'to-be-renamed'%>
+<% end %>

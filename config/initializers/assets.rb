@@ -15,6 +15,10 @@ Rails.application.config.assets.precompile += %w(
                                                   application.css
                                                   past_events.css
                                                   welcome.css
+
+                                                  application.js
+                                                  past_events.js
+                                                  welcome.js
                                                 )
 
 Rails.application.config.assets.precompile += %w( 

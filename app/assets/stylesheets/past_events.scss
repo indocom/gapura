@@ -59,34 +59,12 @@ body
     padding-bottom:20px;
 }
 
-.year2018
+.logo
 {
-    background: image-url('2018logo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    max-width:100%;
+    height:auto;  
 }
-.year2017
-{
-    background: image-url('2017logo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.year2016
-{
-    background: image-url('2016logo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.year2015
-{
-    background: image-url('2015logo.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 .timeline ul li:nth-child(odd):before
 {
     content: '';

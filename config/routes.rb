@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'past_events/index'
-  devise_for :users, controllers: { sessions: 'users/sessions'}
   root 'welcome#index'
+
+  get '/past_events', to: 'past_events#index', as: 'past_events' 
+  
+  devise_for :users, controllers: { sessions: 'users/sessions'}  
 end

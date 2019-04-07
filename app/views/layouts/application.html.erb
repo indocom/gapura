@@ -10,6 +10,49 @@
 
     <%= yield :ext_stylesheets %>
     <%= yield :ext_javascripts %>
+
+    <!-- Temporary usage of CSS libraries for prototype, to be revised. -->
+    <%= stylesheet_link_tag    'font-awesome/css/font-awesome.min.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'animate/animate.min.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'venobox/venobox.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'owlcarousel/owl.carousel.min.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'magnific-popup/magnific-popup.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'ionicons/css/ionicons.min.css', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Temporary usage of JS libraries for prototype, to be revised. -->
+    <%= javascript_include_tag 'bootstrap/bootstrap.bundle.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery/jquery.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'jquery/jquery-migrate.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'superfish/hoverIntent.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'easing/easing.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'superfish/hoverIntent.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'superfish/superfish.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'wow/wow.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'venobox/venobox.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'owlcarousel/owl.carousel.min.js', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Contact form -->
+    <%= javascript_include_tag 'contactform/contactform.js', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- From Alstar -->
+    <%= stylesheet_link_tag    'alstar/style.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'alstar/default.css', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'alstar/custom.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'alstar/modernizr.custom.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'alstar/grid.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'alstar/stellar.js', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- From Reveal -->
+    <!-- Main Stylesheet File -->
+    <%= stylesheet_link_tag    'reveal/style.css', 'data-turbolinks-track': 'reload' %>
+    <!-- Template Main Javascript File -->
+    <%= javascript_include_tag 'reveal/main.js', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- From TheEvent -->
+    <!-- Main Stylesheet File -->
+    <%= stylesheet_link_tag    'the-event/style.css', 'data-turbolinks-track': 'reload' %>
+    <!-- Template Main Javascript File -->
+    <%= javascript_include_tag 'the-event/main.js', 'data-turbolinks-track': 'reload' %>
   
     <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track': 'reload'  %>
   </head>
@@ -17,6 +60,6 @@
   <body>
     <%= render 'layouts/header' %>
     <%= yield %>
-    <!-- render 'layouts/footer' -->
+    <%= render 'layouts/footer' %>
   </body>
 </html>

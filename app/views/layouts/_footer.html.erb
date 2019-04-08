@@ -2,7 +2,6 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-
         <div class="col-lg-4 col-md-6 footer-info">
           <%= image_tag("logo.png", alt: "NUANSA Cultural Productions") %>
           <p>NUANSA is an annual arts and cultural event by a group of Indonesian students in NUS.
@@ -11,8 +10,18 @@
         <div class="col-lg-4 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="fa fa-angle-right"></i> <a href="#intro">Home</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="#about">About us</a></li>
+            <% if params[:controller] == 'welcome' %>
+              <li><i class="fa fa-angle-right"></i>Home</li>
+              <li><i class="fa fa-angle-right"></i>About Us</li>
+              <li><i class="fa fa-angle-right"></i><%= link_to "Past NUANSA", past_events_path %></li>
+              <li><i class="fa fa-angle-right"></i>Buy Tickets</li>
+            <% else %>
+              <li><i class="fa fa-angle-right"></i>Home</li>
+              <li><i class="fa fa-angle-right"></i>About Us</li>
+              <li><i class="fa fa-angle-right"></i><%= link_to "Past NUANSA", past_events_path %></li>
+              <li><i class="fa fa-angle-right"></i>Buy Tickets</li>  
+            <% end %>
+           <!-- <li><i class="fa fa-angle-right"></i> <a href="#about">About us</a></li> -->
           </ul>
         </div>
 

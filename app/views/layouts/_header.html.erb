@@ -1,23 +1,23 @@
-<!--==========================
-  Header from TheEvent
-============================-->
 <header id="header">
   <div class="container">
-
     <div id="logo" class="pull-left">
       <a href="#intro" class="scrollto"><%= image_tag("logo.png") %></a>
     </div>
 
     <nav id="nav-menu-container">
       <ul class="nav-menu">
-        <li class="menu-active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#supporters">Sponsors</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <%= render 'layouts/login_button' %>
-        <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li>
+        <% if params[:controller] == 'welcome' %>
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><%= link_to "Past NUANSA", past_events_path %></li>
+          <li class="buy-tickets"><a href="#intro"> Buy Tickets </a></li>
+        <% else %>
+          <li class="menu-active"><a href="/#intro">Home</a></li>
+          <li><a href="/#about">About Us</a></li>
+          <li><%= link_to "Past NUANSA", past_events_path %></li>
+          <li class="buy-tickets"><a href="/#intro"> Buy Tickets </a></li>  
+        <% end %>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
-</header><!-- #header -->
+</header>

@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nuansacp</title>
+    <title>NUANSA</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'font-awesome/css/font-awesome.min.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'animate/animate.min.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'venobox/venobox.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'owlcarousel/owl.carousel.min.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'magnific-popup/magnific-popup.css', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'ionicons/css/ionicons.min.css', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'easing/easing.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'superfish/superfish.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'wow/wow.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'venobox/venobox.min.js', 'data-turbolinks-track': 'reload' %>
+    
+    <%= stylesheet_link_tag    'the-event/style.css', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'the-event/main.js', 'data-turbolinks-track': 'reload' %>
+  
+    <%= add_stylesheet("#{params[:controller]}") %>
+    <%= add_javascript("#{params[:controller]}") %>
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

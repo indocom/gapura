@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   get '/past_events', to: 'past_events#index', as: 'past_events' 
   
-  devise_for :users, controllers: { sessions: 'users/sessions'}  
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
 end

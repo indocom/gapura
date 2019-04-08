@@ -609,12 +609,14 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #ce8536;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-  background: #a7452f;
+  background:rgba(0, 0, 0, 0.7);
+  border: 2px solid #ce8536;
+  border-radius: 0;
 }
 
 #intro .btn:hover {
   background: #ce8536;
-  color: #a7452f;
+  color: #fff;
 }
 
 @-webkit-keyframes pulsate-btn {

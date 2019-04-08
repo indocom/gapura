@@ -1,6 +1,3 @@
-<!--==========================
-  Header from TheEvent
-============================-->
 <header id="header">
   <div class="container">
 
@@ -12,12 +9,18 @@
 
     <nav id="nav-menu-container">
       <ul class="nav-menu">
-        <li class="menu-active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <!-- <li><a href="#gallery">Gallery</a></li> -->
-        <!-- <li><a href="#contact">Contact</a></li> -->
-        <li class="buy-tickets"><a href="#">Buy Tickets</a></li>
+        <% if params[:controller] == 'welcome' %>
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><%= link_to "Past NUANSA", past_events_path %></li>
+          <li class="buy-tickets"><a href="#intro"> Buy Tickets </a></li>
+        <% else %>
+          <li class="menu-active"><a href="/#intro">Home</a></li>
+          <li><a href="/#about">About Us</a></li>
+          <li><%= link_to "Past NUANSA", past_events_path %></li>
+          <li class="buy-tickets"><a href="/#intro"> Buy Tickets </a></li>  
+        <% end %>
       </ul>
-    </nav><!-- #nav-menu-container -->
+    </nav>
   </div>
-</header><!-- #header -->
+</header>

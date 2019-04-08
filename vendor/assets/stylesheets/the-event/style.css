@@ -362,7 +362,7 @@ h6 {
   margin: 15px 15px 0 0;
   border: 0;
   background: none;
-  font-size: 24px;
+  font-size: 40px;
   display: none;
   transition: all 0.4s;
   outline: none;
@@ -400,7 +400,7 @@ h6 {
 
 #mobile-nav ul li a {
   color: #fff;
-  font-size: 17px;
+  font-size: 20px;
   overflow: hidden;
   padding: 10px 22px 10px 15px;
   position: relative;
@@ -1420,7 +1420,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .footer-top .footer-info p {
   font-size: 14px;
-  line-height: 24px;
+  line-height: auto;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
   color: #fff;
@@ -1624,10 +1624,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     height: auto;
   }
 
-  #intro p {
-    font-size: 1em;
-  }
-
   #intro .play-btn {
     margin-top: 30%;
     margin-bottom: 20%;
@@ -1638,13 +1634,67 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 15%;
   }
 
-  #intro .btn {
-    font-size: 1em;
-  }
-
   #schedule .nav-tabs a {
     padding: 8px 60px;
   }
+
+  /*
+  #intro .btn {
+    font-size: 3em;
+  }
+
+  #intro p {
+    font-size: 3em;
+  }
+
+  #about p {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  #about h2 {
+    font-size: 3em;
+    text-align: center;
+  }
+
+  #about h3 {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  #footer {
+    font-size: 25px;
+  }
+
+  #footer .footer-top .footer-info h3 {
+    font-size: 30px;
+  }
+
+  #footer .footer-top .footer-info p {
+    font-size: 25px;
+  }
+
+  #footer .footer-top .social-links a {
+    font-size: 30px;
+  }
+
+  #footer .footer-top h4 {
+    font-size: 30px;
+  }
+
+  #footer .footer-top .footer-links ul i {
+    font-size: 30px;
+  }
+
+  #footer .credits {
+    font-size: 30px;
+  }
+
+  #footer .footer-top .footer-info img {
+    height: 150px;
+    text-align: center;
+  }
+  */
 }
 
 @media (max-width: 768px) {

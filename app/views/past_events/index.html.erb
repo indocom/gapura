@@ -1,3 +1,7 @@
+<% if can? :create, PastEvent %>
+	<center> <%= link_to "Add Past Event", new_past_event_path %> </center>
+<% end %>
+
 <div class="timeline">
 	<ul>
 		<li>

@@ -11,7 +11,19 @@
     </div>
   <% end %>
 
+  <%= form.label :title, "Title" %> <br>
+  <%= form.text_field :title, :required => true%> <br>
+
+  <%= form.label :subtitle, "Subtitle" %> <br>
+  <%= form.text_field :subtitle %> <br>
+
+  <%= form.label :description, "Description" %> <br>
+  <%= form.text_area :description %> <br>
+
+  <%= form.label :year, "Year" %> <br>
+  <%= form.number_field :year, :required => true%> <br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Upload" %>
   </div>
 <% end %>

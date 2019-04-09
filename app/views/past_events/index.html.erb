@@ -2,6 +2,10 @@
 	<center> <%= link_to "Add Past Event", new_past_event_path %> </center>
 <% end %>
 
+<% @past_events.each do |past_event| %>
+	<li> <%= past_event.title %> </li>
+<% end %>
+
 <div class="timeline">
 	<ul>
 		<li>

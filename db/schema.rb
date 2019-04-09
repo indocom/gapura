@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_125610) do
     t.string "subtitle"
     t.text "description"
     t.integer "year", null: false
+    t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_past_events_on_title", unique: true

@@ -26,6 +26,7 @@ class PastEventsController < ApplicationController
   # POST /past_events
   # POST /past_events.json
   def create
+    #fail
     ensure_admin || return
     @past_event = PastEvent.new(past_event_params)
 
@@ -74,6 +75,21 @@ class PastEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def past_event_params
-      params.require(:past_event).permit(:title, :subtitle, :description, :year)
+      ret = params.require(:past_event).permit(:title, :subtitle, :description, :year, :logo)
+      if ret.has_key? :logo
+        ret[:logo] = convert(ret[:logo])
+      end
+      return ret
+    end
+
+    #parse file name to get the extension
+    def get_extension(file_name)
+      file_name.split('.').last
+    end
+
+    #Converting an uploaded image into Base64 String
+    def convert(file)
+      prefix = "data:image/" + get_extension(file.original_filename) + ";base64,"
+      prefix + Base64.strict_encode64(file.open.read)
     end
 end

@@ -2,35 +2,45 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6 footer-info">
-          <%= image_tag("logo.png", alt: "NUANSA Cultural Productions") %>
-          <p>NUANSA is an annual arts and cultural event by a group of Indonesian students in NUS.
-              It aims to promote the rich and diverse cultures of Indonesia.</p>
+        <div class="col-lg-4 col-md-12">
+          <p align=center>
+          <%= image_tag("logo.png", alt: "NUANSA Cultural Productions", size: "300x100") %>
+          <br>
+          </p>
         </div>
         <div class="col-lg-4 col-md-6 footer-links">
-          <h4>Useful Links</h4>
+          <h4><font size=5>Useful Links</font></h4>
+          <font size=3>
           <ul>
             <% if params[:controller] == 'welcome' %>
               <li><i class="fa fa-angle-right"></i>Home</li>
               <li><i class="fa fa-angle-right"></i>About Us</li>
               <li><i class="fa fa-angle-right"></i><%= link_to "Past NUANSA", past_events_path %></li>
-              <li><i class="fa fa-angle-right"></i>Buy Tickets</li>
+              <!-- <li><i class="fa fa-angle-right"></i>Buy Tickets</li> -->
             <% else %>
               <li><i class="fa fa-angle-right"></i>Home</li>
               <li><i class="fa fa-angle-right"></i>About Us</li>
               <li><i class="fa fa-angle-right"></i><%= link_to "Past NUANSA", past_events_path %></li>
-              <li><i class="fa fa-angle-right"></i>Buy Tickets</li>  
+              <!-- <li><i class="fa fa-angle-right"></i>Buy Tickets</li> -->
             <% end %>
            <!-- <li><i class="fa fa-angle-right"></i> <a href="#about">About us</a></li> -->
           </ul>
+        </font>
         </div>
 
         <div class="col-lg-4 col-md-6 footer-contact">
-          <h4>Contact Us</h4>
+          <h4><font size=5>Contact Us</font></h4>
+          <font size=3>
           <p>
-            <strong>Email:</strong> nuansacp@gmail.com<br>
+            National University of Singapore <br>
+            Yusof Ishak House, Level 3 <br>
+            31 Lower Kent Ridge Road <br>
+            Singapore 119078 <br>
+            <br>
+            <strong>Email:</strong> producer@nuansacp.com<br>
+            <strong>Phone:</strong> (+65) 83351694 <br>
           </p>
-
+          </font>
           <div class="social-links">
             <a href="https://www.facebook.com/nuansa.culturalproductions/" class="facebook"><i class="fa fa-facebook"></i></a>
             <a href="https://www.instagram.com/nuansacp/" class="instagram"><i class="fa fa-instagram"></i></a>

@@ -43,4 +43,5 @@ Rails.application.config.assets.precompile += %w(
                                                   alstar/*.js
                                                   reveal/*.js
                                                   the-event/*.js
+                                                  layouts/*.js
                                                 )

@@ -11,7 +11,7 @@ body {
 
 .logo {
   border-radius: 15px;
-  width: 50%;
+  width: 20%;
   max-width:100%;
   height: auto;  
 }
@@ -135,6 +135,16 @@ body {
   color: #fff;
   border-radius: 18px;
   box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3)
+}
+
+.time {
+  top: 30px;
+  right: -6px;
+  width: 10px;
+  height: 10px;
+  background: #FEB902;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.2);
 }
 
 @media (min-width: 1024px) {

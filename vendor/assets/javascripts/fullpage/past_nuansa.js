@@ -3,6 +3,8 @@ new fullpage('#fullpage', {
   autoScrolling:true,
   scrollHorizontally: true,
   scrollOverflow: true,
+  navigation: true,
+  navigationPosition: 'right',
 });
 
 //methods

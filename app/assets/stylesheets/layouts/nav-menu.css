@@ -187,9 +187,9 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -35%;
+  left: -45%;
   height: 100%;
-  width: 35%;
+  width: 45%;
 
   z-index: 998;
   background: rgba(0, 0, 0, 1);
@@ -269,4 +269,20 @@ body.mobile-nav-active #mobile-nav {
 
 body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
+}
+
+@media (max-width: 991px) {
+  #nav-menu-container {
+    display: none;
+  }
+
+  #mobile-nav-toggle {
+    display: inline;
+  }
+}
+
+@media (max-width: 1199px) {
+  .nav-menu a {
+    padding: 8px 4px;
+  }
 }

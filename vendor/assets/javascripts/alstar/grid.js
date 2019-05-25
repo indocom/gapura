@@ -292,7 +292,7 @@ var Grid = (function() {
 
 		}
 
-		// update previewPos
+		// // update previewPos
 		previewPos = position;
 		// initialize new preview for the clicked item
 		preview = $.data( this, 'preview', new Preview( $item ) );

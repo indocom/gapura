@@ -4,7 +4,9 @@
 
 <% @past_events.each do |past_event| %>
 	<li> <%= past_event.title %> </li>
-	<li> <%= image_tag(past_event.logo, width: 100) %> </li>
+	<% if past_event.logo? %>
+		<li> <%= image_tag(past_event.logo, width:100) %> </li>
+	<% end %>
 	<% if can? :destroy, PastEvent %>
 		<li> <%= link_to "Delete", past_event_path(past_event), method: :delete, 
 			data: {confirm: "Do you want to delete this event?"} %> </li>

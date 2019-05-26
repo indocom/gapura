@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_134039) do
+ActiveRecord::Schema.define(version: 2019_04_08_125610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "galleries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "past_events", force: :cascade do |t|
+    t.string "title", default: "", null: false
+    t.string "subtitle"
+    t.text "description"
+    t.integer "year", null: false
+    t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_past_events_on_title", unique: true
+    t.index ["year"], name: "index_past_events_on_year", unique: true
   end
 
   create_table "roles", force: :cascade do |t|

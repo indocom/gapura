@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :ensure_superuser
 
   # GET /resource/sign_up
   # def new
@@ -38,7 +39,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def ensure_superuser
+    if !user_signed_in? || !current_user.has_role?(:superuser)
+      redirect_to(root_path)
+      return false;
+    end
+    return true
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

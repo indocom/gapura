@@ -1,5 +1,6 @@
 class PastEventsController < ApplicationController
   before_action :set_past_event, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_admin, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /past_events
   def index
@@ -12,18 +13,15 @@ class PastEventsController < ApplicationController
 
   # GET /past_events/new
   def new
-    ensure_admin || return
     @past_event = PastEvent.new
   end
 
   # GET /past_events/1/edit
   def edit
-    ensure_admin || return
   end
 
   # POST /past_events
   def create
-    ensure_admin || return
     @past_event = PastEvent.new(past_event_params)
 
     if @past_event.save
@@ -35,7 +33,6 @@ class PastEventsController < ApplicationController
 
   # PATCH/PUT /past_events/1
   def update
-    ensure_admin || return
     if @past_event.update(past_event_params)
       redirect_to @past_event, notice: 'Past event was successfully updated.'
     else
@@ -45,15 +42,18 @@ class PastEventsController < ApplicationController
 
   # DELETE /past_events/1
   def destroy
-    ensure_admin || return
     @past_event.destroy
     redirect_to past_events_url, notice: 'Past event was successfully destroyed.'
   end
 
   private
+    def ensure_admin
+      super || return
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_past_event
-      @past_event = PastEvent.find(params[:id])
+      @past_event = PastEvent.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

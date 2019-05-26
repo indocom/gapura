@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
     can :read, PastEvent
     if user.present?
-      if user.has_role? :admin || user.has_role? :superuser
+      if user.has_role? :admin or user.has_role? :superuser
         can [:create, :update, :destroy], PastEvent
       end
       if user.has_role? :superuser

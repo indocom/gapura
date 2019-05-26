@@ -1,5 +1,5 @@
 <header id="header">
-  <div class="container" data-turbolinks="false">
+  <div class="container">
     <div id="logo" class="pull-left">
       <%= image_tag("logo.png") %>
     </div>
@@ -8,7 +8,7 @@
       <ul class="nav-menu">
         <% if params[:controller] == 'welcome' %>
           <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about" data-turbolinks="false">About Us</a></li>
+          <li><a href="#about">About Us</a></li>
           <li><%= link_to "Past NUANSA", past_events_path %></li>
           <!-- <li class="buy-tickets"><a href="#intro"> Buy Tickets </a></li> -->
         <% else %>

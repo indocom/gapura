@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# This is a top-level documentation
 class User < ApplicationRecord
   rolify
   # Include default devise modules. Others available are:

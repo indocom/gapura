@@ -1,16 +1,12 @@
-# frozen_string_literal: true
-
-# This is a top-level documentation
 module ApplicationHelper
-  def add_stylesheet(filename, opts = { media: 'all',
-                                       'data-turbolinks-track': 'reload' })
-    if Rails.application.assets.find_asset(filename + '.css')
+  def add_stylesheet(filename, opts = { media: 'all', 'data-turbolinks-track': 'reload'})
+    if Rails.application.assets.find_asset(filename + ".css")
       stylesheet_link_tag(filename, opts)
     end
   end
 
   def add_javascript(filename, opts = { 'data-turbolinks-track': 'reload' })
-    if Rails.application.assets.find_asset(filename + '.js')
+    if Rails.application.assets.find_asset(filename + ".js")
       javascript_include_tag(filename, opts)
     end
   end

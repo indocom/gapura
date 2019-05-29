@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_125610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "past_events", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "subtitle"
     t.text "description"

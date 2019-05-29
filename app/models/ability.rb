@@ -4,10 +4,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, PastEvent
+    can :read, Event
     if user.present?
       if user.has_role? :admin or user.has_role? :superuser
-        can [:create, :update, :destroy], PastEvent
+        can [:create, :update, :destroy], Event
       end
       if user.has_role? :superuser
         can [:create, :update, :destroy], User

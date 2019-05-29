@@ -1,6 +1,6 @@
-class CreatePastEvents < ActiveRecord::Migration[5.2]
+class CreateEvents < ActiveRecord::Migration[5.2]
   def change
-    create_table :past_events do |t|
+    create_table :events do |t|
       t.string :title,      null: false, default: ""
       t.string :subtitle
       t.text :description
@@ -9,7 +9,7 @@ class CreatePastEvents < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :past_events, :title,           unique: true
-    add_index :past_events, :year,            unique: true
+    add_index :events, :title,           unique: true
+    add_index :events, :year,            unique: true
   end
 end

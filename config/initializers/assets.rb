@@ -13,11 +13,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 Rails.application.config.assets.precompile += %w(
                                                   application.css
-                                                  past_events.css
+                                                  events.css
                                                   welcome.css
 
                                                   application.js
-                                                  past_events.js
+                                                  events.js
                                                   welcome.js
                                                 )
 

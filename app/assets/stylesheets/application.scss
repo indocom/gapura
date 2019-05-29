@@ -15,6 +15,8 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import 'bootstrap';
+@import 'layouts/*';
+
 
 body {
 	background-image: image-url("backgrounds/past_events_overview.png");

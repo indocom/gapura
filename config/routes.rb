@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :past_events
   root 'welcome#index'
-
-  get '/past_events', to: 'past_events#index', as: 'past_events' 
   
-  # devise_for :users, controllers: { sessions: 'users/sessions'}
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
 
   get '*path'       , to: 'welcome#index'
 end

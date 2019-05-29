@@ -14,3 +14,6 @@ superuser.add_role :superuser
 admin = User.create(username: 'admin', email: 'admin@example.com',
                     password: '123456')
 admin.add_role :admin
+
+user = User.create(username: 'user', email: 'user@example.com',
+                    password: '123456')

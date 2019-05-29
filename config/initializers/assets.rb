@@ -31,6 +31,7 @@ Rails.application.config.assets.precompile += %w(
                                                   alstar/*.css 
                                                   reveal/*.css 
                                                   the-event/*.css 
+                                                  fullpage/*.css
 
                                                   bootstrap/*.js
                                                   jquery/*.js
@@ -43,5 +44,6 @@ Rails.application.config.assets.precompile += %w(
                                                   alstar/*.js
                                                   reveal/*.js
                                                   the-event/*.js
+                                                  fullpage/*.js
                                                   layouts/*.js
                                                 )

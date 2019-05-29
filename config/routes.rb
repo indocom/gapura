@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :past_events
+  resources :events
   root 'welcome#index'
   
   devise_for :users, controllers: {

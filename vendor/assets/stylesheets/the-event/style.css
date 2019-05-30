@@ -136,10 +136,6 @@ h6 {
   color: #9195a2;
 }
 
-.section-with-bg {
-  background-color: #f6f7fd;
-}
-
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
@@ -551,20 +547,18 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# supporters Section
+# Partners Section
 --------------------------------------------------------------*/
 
-#supporters {
+#partners {
   padding: 60px 0;
 }
 
-#supporters .supporters-wrap {
-  border-top: 1px solid #e0e5fa;
-  border-left: 1px solid #e0e5fa;
+#partners .partner-wrap {
   margin-bottom: 30px;
 }
 
-#supporters .supporter-logo {
+#partners .partner-logo {
   padding: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -575,19 +569,17 @@ h6 {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-right: 1px solid #e0e5fa;
-  border-bottom: 1px solid #e0e5fa;
+  background: #fff;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.5);
   height: 160px;
 }
 
-#supporters .supporter-logo:hover img {
+#partners .partner-logo:hover img {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
 
-#supporters img {
+#partners img {
   transition: all 0.4s ease-in-out;
 }
 

@@ -11,19 +11,19 @@
 
 body {
   background: #fff;
-  color: #2f3138;
+  color: #fff;
   font-family: "Open Sans", sans-serif;
 }
 
 a {
-  color: #f82249;
+  color: #ce8536;
   transition: 0.5s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #f8234a;
+  color: #ce8536;
   outline: none;
   text-decoration: none;
 }
@@ -43,7 +43,7 @@ h6 {
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
-  color: #0e1b4d;
+  color: #fff;
 }
 
 .main-page {
@@ -604,10 +604,6 @@ h6 {
   list-style: none;
 }
 
-#faq #faq-list li {
-  border-bottom: 1px solid #ddd;
-}
-
 #faq #faq-list a {
   padding: 18px 0;
   display: block;
@@ -617,6 +613,8 @@ h6 {
   line-height: 24px;
   font-weight: 600;
   padding-right: 20px;
+  color: #ce8536;
+  transition: 0.4s ease-in-out;
 }
 
 #faq #faq-list i {
@@ -626,20 +624,20 @@ h6 {
   top: 16px;
 }
 
-#faq #faq-list p {
-  margin-bottom: 20px;
-}
-
-#faq #faq-list a.collapse {
-  color: #f82249;
-}
-
 #faq #faq-list a.collapsed {
-  color: #000;
+  color: #fff;
+}
+
+#faq #faq-list a.collapsed:hover {
+  color: #ce8536;
 }
 
 #faq #faq-list a.collapsed i::before {
-  content: "\f055" !important;
+  content: "\f055";
+}
+
+#faq #faq-list p {
+  margin-bottom: 20px;
 }
 
 /*--------------------------------------------------------------

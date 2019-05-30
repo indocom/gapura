@@ -905,8 +905,8 @@ h6 {
 }
 
 #footer .footer-top .footer-info img {
-  height: 60px;
-  margin: 0 10%;
+  width: 300px;
+  height: auto;
 }
 
 #footer .footer-top .footer-info p {

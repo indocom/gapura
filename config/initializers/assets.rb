@@ -48,4 +48,5 @@ Rails.application.config.assets.precompile += %w(
                                                   reveal/*.js
                                                   the-event/*.js
                                                   fullpage/*.js
+                                                  fullpage/*.js.map
                                                 )

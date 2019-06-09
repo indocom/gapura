@@ -43,7 +43,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def ensure_superuser
     if !user_signed_in? || !current_user.has_role?(:superuser)
-      redirect_to(root_path)
       return false;
     end
     return true

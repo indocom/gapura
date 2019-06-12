@@ -515,7 +515,7 @@ h6 {
 
 #gallery .owl-nav,
 #gallery .owl-dots {
-  margin-top: 25px;
+  padding-top: 25px;
   text-align: center;
 }
 
@@ -527,8 +527,8 @@ h6 {
 #gallery .owl-dot {
   display: inline-block;
   margin: 0 5px;
-  width: 12px;
-  height: 12px;
+  width: 8px;
+  height: 25px;
   border-radius: 50%;
   background-color: #ddd;
 }

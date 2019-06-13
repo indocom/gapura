@@ -1,0 +1,34 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p> Current User Profile </p>
+  <ul>
+    <li> Username: <%= user.username %> </li>
+    <li> IsAdmin: <%= user.has_role? :admin %> </li>
+    <li> IsSuperuser: <%= user.has_role? :superuser %> </li>
+  </ul>
+
+  <% if user.has_role? :superuser %>
+    <p> superuser cannot change role </p>
+  <% else %>
+    <% if user.has_role? :admin %>
+      <%= form.label :toggle, "Change this user into a normal user?" %>
+    <% else %>
+      <%= form.label :toggle, "Change this user into an admin?" %>
+    <% end %>
+    <%= check_box_tag(:toggle) %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% end %>

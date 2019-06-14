@@ -8,6 +8,6 @@
   <li> <%= link_to "Login", new_user_session_path, :class => 'to-be-renamed'%> </li>
 <% end %>
 
-<% if can?(:create, User) %>
-  <li> <%= link_to "Create an admin", new_user_registration_path, :class => 'to-be-renamed'%> </li>
+<% if can?(:edit, User) %>
+  <li> <%= link_to "Manage User", users_path, :class => 'to-be-renamed'%> </li>
 <% end %>

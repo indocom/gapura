@@ -3,25 +3,17 @@ class ApplicationController < ActionController::Base
 
   protected
   def ensure_admin
-    if !user_signed_in? || !current_user.has_role?(:admin)
-      redirect_to(root_path)
-      return false
-    end
-    return true
+    not_found unless user_signed_in? && current_user.has_role?(:admin)
   end
 
   def ensure_superuser
-    if !user_signed_in? || !current_user.has_role?(:superuser)
-      redirect_to(root_path)
-      return false
-    end
-      return true
+    not_found unless user_signed_in? && current_user.has_role?(:superuser)
   end
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   rescue
-      render_404
+    render_404
   end
 
   def render_404

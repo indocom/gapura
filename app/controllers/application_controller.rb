@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   rescue
-      ender_404
+      render_404
   end
 
   def render_404

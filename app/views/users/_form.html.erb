@@ -26,7 +26,7 @@
     <% else %>
       <%= form.label :toggle, "Change this user into an admin?" %>
     <% end %>
-    <%= check_box_tag(:toggle) %>
+    <%= radio_button_tag(:toggle, true) %>
     <div class="actions">
       <%= form.submit %>
     </div>

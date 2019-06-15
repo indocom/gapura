@@ -11,22 +11,12 @@
     </div>
   <% end %>
 
-  <p> Current User Profile </p>
-  <ul>
-    <li> Username: <%= user.username %> </li>
-    <li> IsAdmin: <%= user.has_role? :admin %> </li>
-    <li> IsSuperuser: <%= user.has_role? :superuser %> </li>
-  </ul>
-
   <% if user.has_role? :superuser %>
-    <p> superuser cannot change role </p>
+    <p> Superuser cannot change role </p>
   <% else %>
-    <% if user.has_role? :admin %>
-      <%= form.label :toggle, "Change this user into a normal user?" %>
-    <% else %>
-      <%= form.label :toggle, "Change this user into an admin?" %>
-    <% end %>
-    <%= radio_button_tag(:toggle, true) %>
+    Set <%= user.username %> role as: <br \>
+    <%= radio_button_tag(:role, "admin", user.has_role?(:admin)) %> Admin <br \>
+    <%= radio_button_tag(:role, "user", !(user.has_role?(:admin))) %> Normal User <br \>
     <div class="actions">
       <%= form.submit %>
     </div>

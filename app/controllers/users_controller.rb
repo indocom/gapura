@@ -17,12 +17,10 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if params[:toggle]
-      if @user.has_role? :admin
-        @user.remove_role :admin
-      else
-        @user.add_role :admin
-      end
+    if params[:role] == "user" && @user.has_role?(:admin)
+      @user.remove_role :admin
+    elsif params[:role] == "admin" && !(@user.has_role?(:admin))
+      @user.add_role :admin
     end
     redirect_to users_path
   end

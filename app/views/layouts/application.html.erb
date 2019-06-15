@@ -30,6 +30,7 @@
     <%= javascript_include_tag 'layouts/nav-menu.js', 'data-turbolinks-track': 'reload' %>
     
     <%= add_stylesheet("#{params[:controller]}") %>
+    <%= add_stylesheet(yield(:custom_css)) %>
   </head>
 
   <body>

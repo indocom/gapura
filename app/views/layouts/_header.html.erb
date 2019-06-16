@@ -13,7 +13,7 @@
           <li><a href="#partners">Partners</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><%= link_to "Past NUANSA", events_path %></li>
-          <!-- <li class="buy-tickets"><a href="#intro"> Buy Tickets </a></li> -->
+          <li class="buy-tickets"><a href="#buy-tickets"> Buy Tickets </a></li>
         <% else %>
           <li><a href="/#intro">Home</a></li>
           <li><a href="/#about">About Us</a></li>
@@ -21,7 +21,7 @@
           <li><a href="/#partners">Partners</a></li>
           <li><a href="/#faq">FAQ</a></li>
           <li class="menu-active"><%= link_to "Past NUANSA", events_path %></li>
-          <!-- <li class="buy-tickets"><a href="/#intro"> Buy Tickets </a></li> -->
+          <li class="buy-tickets"><a href="/#buy-tickets"> Buy Tickets </a></li>
         <% end %>
         <%= render 'layouts/login_button' %>
       </ul>

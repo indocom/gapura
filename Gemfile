@@ -77,3 +77,5 @@ gem 'devise'
 gem 'rolify'
 #Add privileges
 gem 'cancancan'
+#Add website inline-editing
+gem 'phrasing'

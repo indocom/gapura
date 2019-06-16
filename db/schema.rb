@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_125610) do
+ActiveRecord::Schema.define(version: 2019_06_16_112028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,24 @@ ActiveRecord::Schema.define(version: 2019_04_08_125610) do
     t.text "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_past_events_on_title", unique: true
-    t.index ["year"], name: "index_past_events_on_year", unique: true
+    t.index ["title"], name: "index_events_on_title", unique: true
+    t.index ["year"], name: "index_events_on_year", unique: true
+  end
+
+  create_table "phrasing_phrase_versions", force: :cascade do |t|
+    t.integer "phrasing_phrase_id"
+    t.text "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phrasing_phrase_id"], name: "index_phrasing_phrase_versions_on_phrasing_phrase_id"
+  end
+
+  create_table "phrasing_phrases", force: :cascade do |t|
+    t.string "locale"
+    t.string "key"
+    t.text "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|

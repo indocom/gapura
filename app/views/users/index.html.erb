@@ -27,15 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<% if flash[:alert].present? %>
-  <script>
-    alert("<%= flash[:alert] %>");
-  </script>
-<% end %>
-
-<% if flash[:notice].present? %>
-  <script>
-    alert("<%= flash[:notice] %>");
-  </script>
-<% end %>

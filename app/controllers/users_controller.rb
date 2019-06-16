@@ -28,11 +28,11 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     if @user.has_role? :superuser
-      redirect_to users_url, alert: 'A Superuser cannot be destroyed'
+      redirect_to users_url, flash: { popup_alert: 'A Superuser cannot be destroyed' }
     else
       username = @user.username
       @user.destroy
-      redirect_to users_url, notice: "User #{username} was successfully destroyed."
+      redirect_to users_url, flash: { popup_alert: "User #{username} was successfully destroyed." }
     end
   end
 

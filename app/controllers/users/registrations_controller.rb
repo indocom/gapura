@@ -11,9 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    flash[:popup_alert] = 'Thank you for registering!\n'\
+      'Please confirm your account in your email'
+  end
 
   # GET /resource/edit
   # def edit
@@ -40,14 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-
-  def ensure_superuser
-    if !user_signed_in? || !current_user.has_role?(:superuser)
-      redirect_to(root_path)
-      return false;
-    end
-    return true
-  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

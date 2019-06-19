@@ -66,12 +66,10 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = {:host => 'nuansacp.com'}
-  config.action_mailer.delivery_method = :smtp
-  # Assuming smtp server exist in port 25
-  config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25,
-    :domain  => 'nuansacp.com'
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV['MAILGUN_API_KEY'],
+    domain: ENV['MAILGUN_DOMAIN']
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

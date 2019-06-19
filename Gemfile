@@ -39,7 +39,8 @@ gem 'turbolinks', '~> 5'
 
 # Environment variables
 gem 'dotenv-rails', require: 'dotenv/rails-now'
-
+# Mailgun
+gem 'mailgun-ruby', '~>1.1.6'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

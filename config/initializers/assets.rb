@@ -47,4 +47,5 @@ Rails.application.config.assets.precompile += %w(
                                                   fullpage/*.js
                                                   layouts/*.js
                                                   textboxio-client/textboxio/*.js
+                                                  textboxio-client/events/*.js
                                                 )

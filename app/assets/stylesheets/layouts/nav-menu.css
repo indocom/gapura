@@ -163,17 +163,20 @@
 /* Mobile Nav Toggle */
 
 #mobile-nav-toggle {
-  position: fixed;
-  right: 0;
-  top: 0;
+  font-size: 24px;
+
   z-index: 999;
-  margin: 15px 25px 10px 10px;
-  border: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+
   background: none;
-  font-size: 60px;
   display: none;
-  transition: all 0.4s;
   outline: none;
+  border: 0;
+  margin: 15px 15px 0 0;
+
+  transition: all 0.4s;
   cursor: pointer;
 }
 
@@ -184,41 +187,43 @@
 /* Mobile Nav Styling */
 
 #mobile-nav {
+  background: rgba(0, 0, 0, 0.9);
+
+  z-index: 998;
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -45%;
-  height: 100%;
-  width: 45%;
+  left: -260px;
 
-  z-index: 998;
-  background: rgba(0, 0, 0, 1);
-  overflow-y: auto;
-  transition: 0.4s;
+  height: 100%;
+  width: 260px;
+
   padding-top: 18px;
   
+  overflow-y: auto;
+  transition: 0.4s;
 }
 
 #mobile-nav ul {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 
 #mobile-nav ul li {
   position: relative;
-  border-style: solid;
-  border-width: 0 0 10px 0;
-  border-color: rgba(100, 100, 100, 1);
 }
 
 #mobile-nav ul li a {
   color: #fff;
-  font-size: 35px;
+  font-size: 17px;
   overflow: hidden;
-  padding: 35px 20px 20px 35px;
+  padding: 10px 22px 10px 15px;
   position: relative;
+  text-decoration: none;
   width: 100%;
   display: block;
+  outline: none;
 }
 
 #mobile-nav ul li a:hover {
@@ -246,14 +251,14 @@
   color: #ce8536;
 }
 
-#mobile-body-overly {
-  width: 0%;
-  height: 0%;
+#mobile-body-overlay {
+  width: 100%;
+  height: 100%;
   z-index: 997;
   top: 0;
   left: 0;
   position: fixed;
-  background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.8);
   display: none;
 }
 

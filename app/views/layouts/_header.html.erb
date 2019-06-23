@@ -26,7 +26,9 @@
               is_selected = true
             end
             
-            str += is_selected ? "<li class='menu-active'>" : "<li>"
+            str += (key == "buy-tickets") ? "<li class='buy-tickets'>" : 
+                    is_selected ? "<li class='menu-active'>" : "<li>"
+
             case key
             when "events"
               str += (link_to value, events_path)
@@ -39,7 +41,6 @@
         %>
 
         <%= str.html_safe %>
-        <!-- <%= render 'layouts/login_button' %> -->
       </ul>
     </nav>
   </div>

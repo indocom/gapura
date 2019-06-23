@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+# Partners Section
+--------------------------------------------------------------*/
+
+#partners {
+  padding: 60px 0;
+  background: #fff;
+}
+
+#partners h2 {
+  color: #444;
+}
+
+#partners .partner-wrap {
+  margin-bottom: 30px;
+}
+
+#partners .partner-logo {
+  padding: 30px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100px;
+}
+
+#partners .partner-logo:hover img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#partners img {
+  transition: all 0.4s ease-in-out;
+}

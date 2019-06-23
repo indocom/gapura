@@ -8,7 +8,6 @@
       <ul class="nav-menu">
         <% 
           str = ""
-
           menus = {
             "intro" => "Home",
             "about-us" => "About Us",
@@ -17,32 +16,18 @@
 
           menus.each do |key, value|
             is_selected = false
-
             if current_controller_name == "welcome"
-              if key == "intro"
-                is_selected = true
-              end
+              is_selected = key == "intro"
             elsif current_controller_name == key
               is_selected = true
             end
-
-            if is_selected 
-              str += "<li class='menu-active'>"
-            else 
-              str += "<li>"
-            end
-
+            
+            str += "<li class='menu-active'>" if is_selected else "<li>"
             case key
-            when "intro"
-              if current_controller_name == "welcome"
-                str += (link_to "Home", root_path(anchor: "intro"))
-              else
-                str += (link_to "Home", root_path)
-              end
-            when "about-us"
-              str += (link_to "About Us", root_path(anchor: "about"))
             when "events"
-              str += (link_to "Past NUANSA", events_path)
+              str += (link_to value, events_path)
+            else
+              str += (link_to value, root_path(anchor: key))
             end
 
             str += "</li>"

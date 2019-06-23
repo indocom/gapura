@@ -55,20 +55,16 @@
 
 @media (max-width: 991px) {
   #header {
-    height: 115px;
+    height: 70px;
     padding: 15px 0;
     transition: all 0.5s;
   }
 
-  #header.header-scrolled,
-  #header.header-fixed {
-    height: 115px;
-    padding: 15px 0;
-    transition: all 0.5s;
+  #nav-menu-container {
+    display: none;
   }
 
-  #header #logo img {
-    margin: 10px 0px;
-    max-height: 70px;
+  #mobile-nav-toggle {
+    display: inline;
   }
 }

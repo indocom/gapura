@@ -10,8 +10,12 @@
           str = ""
           menus = {
             "intro" => "Home",
-            "about-us" => "About Us",
+            "about" => "About Us",
+            "testimonials" => "Testimonial",
+            "partners" => "Partners",
+            "faq" => "FAQ",
             "events" => "Past NUANSA",
+            "buy-tickets" => "Buy Tickets"
           }
 
           menus.each do |key, value|
@@ -35,7 +39,7 @@
         %>
 
         <%= str.html_safe %>
-        <%= render 'layouts/login_button' %>
+        <!-- <%= render 'layouts/login_button' %> -->
       </ul>
     </nav>
   </div>

@@ -21,8 +21,6 @@ Rails.application.config.assets.precompile += %w(
                                                   layouts/*.js
                                                   event-components/*.js
                                                   welcome/*.js
-                                                  events.js
-                                                  welcome.js
                                                 )
 
 Rails.application.config.assets.precompile += %w( 

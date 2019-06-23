@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+.section-container {
+  height: 800px;
+  width: 100%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+
+h3 {
+  font-family: Oswald, sans-serif;
+  color: #D2B72C;
+}
+
+.row {
+  margin: 0 -5px;
+  height: 70%;
+  padding-top: 20px;
+}
+
+.sponsor {
+  height: 80%;
+  text-align: center;
+}
+
+.casts {
+  padding-top: 20px;
+  height: 200px;
+}
+
+.cust_container {
+  background-color: #3A3838;
+}
+
+.cust_container2 {
+  background-color: #838383;
+}
+
+.leftbox {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #7C5537;
+  width: 70%;
+  margin: auto;
+  height: 449px;
+}
+
+.rightbox {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #7C5537;
+  width: 70%;
+  margin: auto;
+  height: 200px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #7C5537;
+  width: 70%;
+  margin: auto;
+  height: 500px;
+}
+
+.photos {
+  padding-top: 20px;
+}
+
+.photo_container {
+  margin: auto;
+  width: 80%;
+}

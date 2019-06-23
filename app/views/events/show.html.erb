@@ -1,7 +1,9 @@
+<% provide(:custom_css, 'event-components/single-page') %>
+
 <!-- 
 --- Section Into --
 -->
-<section id="intro">
+<section id="intro" class="section-container">
   <div class="intro-container">  
     <div id="introCarousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
@@ -52,7 +54,7 @@
   </div>
 </section>
 
-<section class="cust_container">
+<section class="cust_container section-container">
   <div class="row">
     <div class="column">
     	<h3> Description </h3>
@@ -65,14 +67,14 @@
   </div>
 </section>
 
-<section class="cust_container2">
+<section class="cust_container2 section-container">
   <div class="casts">
   	<h3> Casts </h3>
   	<p> Coming Soon.... :( </p>
   </div>
 </section>
 
-<section class="cust_container">
+<section class="cust_container section-container">
   <div class="row">
     <div class="column">
     	<h3> Sponsors </h3>
@@ -87,26 +89,20 @@
   </div>
 </section>
 
-<section class="cust_container2">
+<section class="cust_container2 section-container">
   <div class="photo_container">
     <div class="photos">
       <h3> Photos </h3>
-      <section id="gallery" class="wow fadeInUp">
-        <div class="owl-carousel gallery-carousel">
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-          <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></a>
-        </div>
-      </section>
+      
     </div>
   </div>
 </section>
 
-
-<%= javascript_include_tag('fullpage/past_nuansa.js') %> 
-<%= javascript_include_tag('fullpage/fullpage.js') %>
+<%= javascript_include_tag('alstar/jquery.js') %>
+<%= javascript_include_tag('alstar/jquery.scrollTo.min.js') %>
+<%= javascript_include_tag('alstar/jquery.nav.js') %>
+<%= javascript_include_tag('alstar/stellar.js') %>
+<%= javascript_include_tag('alstar/wow.min.js') %>
+<%= javascript_include_tag('alstar/modernizr.custom.js') %>
+<%= javascript_include_tag('alstar/grid.js') %>
+<%= javascript_include_tag('alstar/custom.js') %>

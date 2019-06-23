@@ -10,4 +10,8 @@ module ApplicationHelper
       javascript_include_tag(filename, opts)
     end
   end
+
+  def current_controller_name
+    "#{params[:controller]}"
+  end
 end

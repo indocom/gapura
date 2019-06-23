@@ -42,3 +42,9 @@
     </div>
   </body>
 </html>
+
+<script>
+  <% if flash[:popup_alert].present? %>
+      alert("<%= flash[:popup_alert] %>");
+  <% end %>
+</script>

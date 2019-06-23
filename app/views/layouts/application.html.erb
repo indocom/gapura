@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>NUANSA</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -25,8 +28,9 @@
     
     <%= stylesheet_link_tag    'the-event/style.css', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'the-event/main.js', 'data-turbolinks-track': 'reload' %>
-  
+    <%= javascript_include_tag 'owlcarousel/owl.carousel.min.js', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'layouts/nav-menu.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'welcome/welcome.js', 'data-turbolinks-track': 'reload' %>
     
     <%= add_stylesheet("#{params[:controller]}") %>
     <%= add_stylesheet(yield(:custom_css)) %>
@@ -40,3 +44,9 @@
     </div>
   </body>
 </html>
+
+<script>
+  <% if flash[:popup_alert].present? %>
+      alert("<%= flash[:popup_alert] %>");
+  <% end %>
+</script>

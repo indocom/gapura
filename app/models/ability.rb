@@ -10,7 +10,7 @@ class Ability
         can [:create, :update, :destroy], Event
       end
       if user.has_role? :superuser
-        can [:create, :update, :destroy], User
+        can [:update, :destroy], User
       end
     end
   end

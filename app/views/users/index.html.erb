@@ -1,0 +1,29 @@
+<h1>Users</h1>
+
+<table style="border:2px solid black; width: 100%">
+  <thead>
+    <tr>
+      <th> Username </th>
+      <th> Email </th>
+      <th> Admin </th>
+      <th> Superuser </th>
+      <th> Show </th>
+      <th> Change Role </th>
+      <th> Destroy </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr style="border:2px solid black">
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.has_role? :admin %></td>
+        <td><%= user.has_role? :superuser %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Change Role', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

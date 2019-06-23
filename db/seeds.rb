@@ -7,13 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 superuser = User.create(username: 'superuser', email: 'superuser@example.com',
-                        password: '123456')
+                        password: '123456', confirmed_at: DateTime.now)
 superuser.add_role :admin
 superuser.add_role :superuser
 
 admin = User.create(username: 'admin', email: 'admin@example.com',
-                    password: '123456')
+                    password: '123456', confirmed_at: DateTime.now)
 admin.add_role :admin
 
 user = User.create(username: 'user', email: 'user@example.com',
-                    password: '123456')
+                    password: '123456', confirmed_at: DateTime.now)

@@ -37,12 +37,23 @@ gem 'turbolinks', '~> 5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Environment variables
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+# Mailgun
+gem 'mailgun-ruby', '~>1.1.6'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Rspec testing framework
+  gem 'rspec-rails'
+  # For assert_template (check if view is rendered)
+  gem 'rails-controller-testing'
+  # Factory bot: factories for testing
+  gem 'factory_bot_rails'
 end
 
 group :development do

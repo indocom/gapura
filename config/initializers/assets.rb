@@ -20,6 +20,7 @@ Rails.application.config.assets.precompile += %w(
                                                   application.js
                                                   layouts/*.js
                                                   event-components/*.js
+                                                  welcome/*.js
                                                 )
 
 Rails.application.config.assets.precompile += %w( 
@@ -45,5 +46,4 @@ Rails.application.config.assets.precompile += %w(
                                                   reveal/*.js
                                                   the-event/*.js
                                                   fullpage/*.js
-                                                  fullpage/*.js.map
                                                 )

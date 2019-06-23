@@ -1,0 +1,26 @@
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+
+#about {
+  background-color: #000;
+  // background-color: #211807;
+  position: relative;
+  padding: 60px 0 40px 0;    
+}
+
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#about p {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}

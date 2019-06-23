@@ -34,6 +34,7 @@
     
     <%= add_stylesheet(current_controller_name) %>
     <%= add_javascript(current_controller_name) %>
+    <%= add_stylesheet(yield(:custom_css)) %>
   </head>
 
   <body>

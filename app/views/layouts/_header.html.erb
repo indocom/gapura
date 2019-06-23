@@ -26,7 +26,7 @@
               is_selected = true
             end
             
-            str += "<li class='menu-active'>" if is_selected else "<li>"
+            str += is_selected ? "<li class='menu-active'>" : "<li>"
             case key
             when "events"
               str += (link_to value, events_path)

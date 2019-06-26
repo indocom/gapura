@@ -17,6 +17,7 @@
   <%= form.label :subtitle, "Subtitle" %> <br>
   <%= form.text_field :subtitle %> <br>
 
+  <div id="editor"></div>
   <%= form.label :description, "Description" %> <br>
   <%= form.text_area :description %> <br>
 
@@ -29,4 +30,19 @@
   <div class="actions">
     <%= form.submit "Upload" %>
   </div>
+
+  <script>
+    var quill = new Quill('#editor', {
+      modules: {
+        toolbar: [
+          [{ header: [1, 2, false] }],
+          ['bold', 'italic', 'underline'],
+          ['image', 'code-block']
+        ]
+      },
+      placeholder: 'Compose an epic...',
+      theme: 'snow'  // or 'bubble'
+    });
+    console.log("Hello")
+  </script>
 <% end %>

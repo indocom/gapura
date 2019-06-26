@@ -17,3 +17,7 @@ admin.add_role :admin
 
 user = User.create(username: 'user', email: 'user@example.com',
                     password: '123456', confirmed_at: DateTime.now)
+
+# Dummy events
+Event.create(title: "Seed test event", subtitle: "Seed subtitle",
+              description: "Seed description", year: 1231, logo: "")

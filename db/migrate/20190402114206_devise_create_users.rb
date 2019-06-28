@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      # Omniauth
+      t.string    :provider, limit: 50, null: false, default: ""
+      t.string    :uid, limit: 500, null: false, default: ""
 
       t.timestamps null: false
     end

@@ -1,0 +1,20 @@
+<h2>Login</h2>
+
+<h3> Please complete remaining details! </h3>
+
+<%= form_for(@user, as: 'user', url: registration_path('user')) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <%= hidden_field_tag   'from_provider', true %>
+
+  <div class="actions">
+    <%= f.submit "Sign Up" %>
+  </div>
+<% end %>
+
+<%= link_to "Cancel", cancel_user_registration_path %><br />

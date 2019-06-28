@@ -3,18 +3,35 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :ensure_superuser, except: [:new, :create]
+  before_action :ensure_superuser, except: [:new, :create, :cancel]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    if params[:from_provider]
+      @user = User.new
+      render 'new_from_provider'
+    else
+      super
+    end
+  end
 
   # POST /resource
   def create
-    super
-    flash[:popup_alert] = 'Thank you for registering!\n'\
-      'Please confirm your account in your email'
+    if params[:from_provider]
+      @user = create_user_from_provider_data(session[:provider_data], configure_user_data_from_params)
+
+      if @user.persisted?
+        sign_in(@user, scope: :user)
+        redirect_to after_sign_up_path_for(@user)
+        session.delete(:provider_data)
+      else
+        render 'new_from_provider'
+      end
+    else
+      super
+      flash[:popup_alert] = 'Thank you for registering!\n'\
+        'Please confirm your account in your email'
+    end
   end
 
   # GET /resource/edit
@@ -33,19 +50,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
+  def cancel
+    session.delete(:provider_data) if session[:provider_data]
+    super
+  end
 
   protected
 
+  def configure_user_data_from_params
+    params.require(:user).permit(:username)
+  end
+
+  def create_user_from_provider_data(provider_data, user_data)
+    User.create do |user|
+      user.provider = provider_data['provider']
+      user.uid = provider_data['uid']
+      user.email = provider_data['info']['email']
+      user.username = user_data['username']
+      user.password = Devise.friendly_token[0, 20]
+      user.skip_confirmation!
+    end
+  end
+  
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:user])
   # end
 
   # If you have extra params to permit, append them to the sanitizer.

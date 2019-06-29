@@ -10,7 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use bootstrap
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap-sass', '~> 3.3.7'
 # Use sprockets-rails
 gem 'sprockets-rails', '>= 2.3.2'
 # Use jQuery

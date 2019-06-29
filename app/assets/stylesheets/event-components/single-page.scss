@@ -1,25 +1,14 @@
 @import 'single-page-components/*';
 
 .section-container {
-  height: 800px;
-  width: 100%;
-}
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 0 10px;
+  background-color: black;
+  min-height: 90vh;
+  width: 100vw;
 }
 
 h3 {
   font-family: Oswald, sans-serif;
   color: #D2B72C;
-}
-
-.row {
-  margin: 0 -5px;
-  height: 70%;
-  padding-top: 20px;
 }
 
 .sponsor {
@@ -30,14 +19,6 @@ h3 {
 .casts {
   padding-top: 20px;
   height: 200px;
-}
-
-.cust_container {
-  background-color: #3A3838;
-}
-
-.cust_container2 {
-  background-color: #838383;
 }
 
 .leftbox {

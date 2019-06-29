@@ -38,6 +38,7 @@ Rails.application.config.assets.precompile += %w(
                                                   reveal/*.css 
                                                   the-event/*.css 
                                                   fullpage/*.css
+                                                  bootstrap_v3/*.css
 
                                                   bootstrap/*.js
                                                   easing/*.js

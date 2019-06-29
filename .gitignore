@@ -28,3 +28,5 @@
 
 # dotenv
 .env
+
+/config/database.yml

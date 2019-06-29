@@ -1,25 +1,3 @@
-<!-- 
-<% if can? :create, Event %>
-	<center> <%= link_to "Add Past Event", new_event_path %> </center>
-<% end %>
-
-<div style="color: white">
-<% @events.each do |event| %>
-	<li> <%= "Title: #{event.title}, Year: #{event.year}, ID: #{event.id}" %> </li>
-	<% if event.logo? %>
-		<li> <%= image_tag(event.logo, width:100) %> </li>
-	<% end %>
-	<% if can? :destroy, Event %>
-		<li> <%= link_to "Delete", event_path(event), method: :delete,
-			data: {confirm: "Do you want to delete this event?"} %> </li>
-	<% end %>
-	<% if can? :update, Event %>
-		<li> <%= link_to "Edit", edit_event_path(event) %> </li>
-	<% end %>
-<% end %>
-</div>
- -->
-
 <% provide(:custom_css, 'event-components/overview') %>
 
 <div class="content-box">
@@ -152,4 +130,4 @@
       <div style="clear: both;"></div>
   </div>
 </div>
-<%= javascript_include_tag('event-components/overview-fullpage.js') %>
+<%= javascript_include_tag('event-components/overview.js') %>

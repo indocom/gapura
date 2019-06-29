@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% provide(:custom_css, 'event-components/single-page') %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= render 'events/show-partials/intro' %>
+<%= render 'events/show-partials/info' %>
+<%= render 'events/show-partials/partners' %>
+<%= render 'events/show-partials/gallery' %>

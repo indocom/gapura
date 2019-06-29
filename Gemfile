@@ -46,6 +46,8 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # To catch confirmation email at port 1080
+  gem 'mailcatcher'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Rspec testing framework

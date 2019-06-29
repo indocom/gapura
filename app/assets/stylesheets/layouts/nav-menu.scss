@@ -81,6 +81,14 @@
   color: #fff;
 }
 
+.nav-menu a:hover, 
+.nav-menu a:active,
+.nav-menu a:focus {
+  color: #ce8536;
+  outline: none;
+  text-decoration: none;
+}
+
 .nav-menu > li {
   margin-left: 8px;
 }

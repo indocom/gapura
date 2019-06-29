@@ -8,6 +8,8 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
+Rails.application.config.assets.paths << Rails.root.join('app/assets/images/gallery')
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
@@ -36,6 +38,7 @@ Rails.application.config.assets.precompile += %w(
                                                   reveal/*.css 
                                                   the-event/*.css 
                                                   fullpage/*.css
+                                                  bootstrap_v3/*.css
 
                                                   bootstrap/*.js
                                                   easing/*.js
@@ -47,5 +50,7 @@ Rails.application.config.assets.precompile += %w(
                                                   alstar/*.js
                                                   reveal/*.js
                                                   the-event/*.js
+                                                  jquery/*.js
                                                   fullpage/*.js
+                                                  fullpage/*.js.map
                                                 )

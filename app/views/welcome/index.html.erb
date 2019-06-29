@@ -1,13 +1,11 @@
 <% provide(:custom_js, 'home-components/welcome') %>
 
-<%= render 'intro' %>
-
+<%= render 'welcome/index-partials/intro' %>
 <main id="main">
-  <%= render 'about_us' %>
-  <%= render 'past_nuansa' %>
-  <%= render 'testimonials' %>
-  <%= render 'partners' %>
-  <%= render 'faq' %>
-  <%=  render 'buy_tickets' %>
-  <%# <%= render 'contact_us' %>
+  <%= render 'welcome/index-partials/about_us' %>
+  <%= render 'welcome/index-partials/past_nuansa' %>
+  <%= render 'welcome/index-partials/testimonials' %>
+  <%= render 'welcome/index-partials/partners' %>
+  <%= render 'welcome/index-partials/faq' %>
+  <%= render 'welcome/index-partials/buy_tickets' %>
 </main>

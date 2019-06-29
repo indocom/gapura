@@ -1,63 +1,74 @@
 # frozen_string_literal: true
 
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_action :get_user, except: [:failure, :passthru]
-  before_action :ensure_superuser, only: [:passthru]
+module Users
+  class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    before_action :set_user, except: %i[failure passthru]
+    before_action :ensure_superuser, only: %i[passthru]
 
-  #facebook callback
-  def facebook
-    if @user.persisted?
-      sign_in_and_redirect @user
-      set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
-    else
-      flash[:error] = 'There was a problem signing you in through Facebook. Please register or try signing in later.'
-      redirect_to new_user_registration_url
+    # Facebook callback
+    def facebook
+      if @user.persisted?
+        sign_in_and_redirect @user
+        if is_navigational_format?
+          set_flash_message(:notice, :success, kind: 'Facebook')
+        end
+      else
+        flash[:error] = 'There was a problem signing you in through Facebook.' \
+          ' Please register or try signing in later.'
+        redirect_to new_user_registration_url
+      end
     end
-  end
 
-  # google callback
-  def google_oauth2
-    if @user.persisted?
-      sign_in_and_redirect @user
-      set_flash_message(:notice, :success, kind: 'Google') if is_navigational_format?
-    else
-      flash[:error] = 'There was a problem signing you in through Google. Please register or try signing in later.'
-      redirect_to new_user_registration_url
+    # Google callback
+    def google_oauth2
+      if @user.persisted?
+        sign_in_and_redirect @user
+        if is_navigational_format?
+          set_flash_message(:notice, :success, kind: 'Google')
+        end
+      else
+        flash[:error] = 'There was a problem signing you in through Google.' \
+          ' Please register or try signing in later.'
+        redirect_to new_user_registration_url
+      end
     end
-  end
 
-  # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+    # GET|POST /users/auth/twitter/callback
+    # def failure
+    #   super
+    # end
 
-  protected
+    protected
 
-  def get_user
-    @provider_data = filter_provider_data
-    @user = User.find_by(provider: @provider_data['provider'], uid: @provider_data['uid'])
+    def set_user
+      @provider_data = filter_provider_data
+      @user = User.find_by(
+        provider: @provider_data['provider'], uid: @provider_data['uid']
+      )
 
-    create_new_user unless @user
-  end
-  
-  def filter_provider_data
-    request.env['omniauth.auth'].slice('provider', 'uid', 'info').tap do |data|
+      create_new_user unless @user
+    end
+
+    def filter_provider_data
+      request.env['omniauth.auth'].slice('provider', 'uid', 'info')
+             .tap do |data|
         data['info'] = data['info'].slice('name', 'email')
       end
-  end
+    end
 
-  def create_new_user
-    if User.exists?(email: @provider_data['info']['email'])
+    def create_new_user
+      if User.exists?(email: @provider_data['info']['email'])
         flash[:error] = 'You have signed up with another provider.\n' \
             'Please login using the other providers!'
         return redirect_to new_user_session_url
+      end
+      session[:provider_data] = @provider_data
+      redirect_to new_user_registration_url(from_provider: true)
     end
-    session[:provider_data] = @provider_data
-    redirect_to new_user_registration_url(from_provider: true)
-  end
 
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
-  # end
+    # The path used when OmniAuth fails
+    # def after_omniauth_failure_path_for(scope)
+    #   super(scope)
+    # end
+  end
 end

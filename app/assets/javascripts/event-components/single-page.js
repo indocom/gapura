@@ -1,4 +1,4 @@
-(function ($) {
+jQuery(document).ready(function($) {
   // Intro carousel
   var introCarousel = $("#introCarousel");
   var introCarouselIndicators = $("#intro-carousel-indicators");
@@ -14,4 +14,4 @@
   //animation
   new WOW().init();
 
-})(jQuery);
+});

@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       # Omniauth
       t.string    :provider, limit: 50, null: false, default: ""
-      t.string    :uid, limit: 500, null: false, default: ""
+      t.string    :uid, limit: 50, null: false, default: ""
 
       t.timestamps null: false
     end

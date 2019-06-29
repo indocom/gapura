@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_125610) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "provider", limit: 50, default: "", null: false
-    t.string "uid", limit: 500, default: "", null: false
+    t.string "uid", limit: 50, default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

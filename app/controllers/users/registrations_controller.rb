@@ -29,8 +29,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     else
       super
-      flash[:popup_alert] = 'Thank you for registering!\n'\
-        'Please confirm your account in your email'
+      if resource.persisted?
+        flash[:popup_alert] = 'Thank you for registering!\n'\
+          'Please confirm your account in your email'
+      end
     end
   end
 

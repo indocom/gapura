@@ -1,4 +1,17 @@
 jQuery(document).ready(function ($) {
+  // Header fixed on scroll
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('header-scrolled');
+    } else {
+      $('#header').removeClass('header-scrolled');
+    }
+  });
+
+  if ($(window).scrollTop() > 100) {
+    $('#header').addClass('header-scrolled');
+  }
+  
   // Initiate superfish on nav menu
   $('.nav-menu').superfish({
     animation: {

@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+$(function($) {
   // Intro carousel
   var introCarousel = $("#introCarousel");
   var introCarouselIndicators = $("#intro-carousel-indicators");

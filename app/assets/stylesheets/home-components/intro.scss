@@ -1,7 +1,7 @@
 #intro {
   width: 100%;
   height: 100vh;
-  background: image-url('backgrounds/intro-bg.png') top center;
+  background: image-url('backgrounds/intro-bg.jpg') top center;
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -40,12 +40,12 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  margin-left: 50%;
   width: 50%;
   height: 100%;
 }
 
 #intro .title-logo {
-  margin-top: 10%;
   width: 80%;
   height: auto;
 }
@@ -54,6 +54,9 @@
   color: #ebebeb;
   font-weight: 700;
   font-size: 1.5em;
+
+  padding: 50px 0px;
+  background: rgba(0,0,0,0.3);
 }
 
 #intro .play-btn {
@@ -182,32 +185,19 @@
   }
 }
 
-@media (min-width: 1024px) {
-  #intro {
-    background-attachment: fixed;
-  }
-
-  #about {
-    background-attachment: fixed;
-  }
-
-  #subscribe {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 1199px) {
+@media (max-width: 980px) {
   #intro .title-logo {
-    margin-top: 200px;
     width: 80%;
     height: auto;
   }
-}
 
-@media (max-width: 991px) {
   #intro {
-    background: image-url('backgrounds/intro-bg-mobile.png') top center;
+    background: image-url('backgrounds/intro-bg-mobile.jpg') top center;
     background-size: cover;
+  }
+
+  #intro p {
+    font-size: 16px;
   }
 
   #intro .intro-container {
@@ -216,6 +206,7 @@
 
   #intro .intro-container .intro-content {
     width: 100%;
+    margin-left: 0;
   }
 
   #intro .title-logo {
@@ -224,9 +215,7 @@
   }
 
   #intro .play-btn {
-    margin-top: 30%;
     margin-bottom: 20%;
-    visibility: hidden;
   }
 
   #intro .btn-container {

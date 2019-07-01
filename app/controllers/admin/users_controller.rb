@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+class Admin::UsersController < ApplicationController
+  before_action :set_user, except: :index
   before_action :ensure_superuser
 
   # GET /users
@@ -22,17 +22,17 @@ class UsersController < ApplicationController
     elsif params[:role] == "admin" && !(@user.has_role?(:admin))
       @user.add_role :admin
     end
-    redirect_to users_path
+    redirect_to admin_users_url
   end
 
   # DELETE /users/1
   def destroy
     if @user.has_role? :superuser
-      redirect_to users_url, flash: { popup_alert: 'A Superuser cannot be destroyed' }
+      redirect_to admin_users_url, flash: { popup_alert: 'A Superuser cannot be destroyed' }
     else
       username = @user.username
       @user.destroy
-      redirect_to users_url, flash: { popup_alert: "User #{username} was successfully destroyed." }
+      redirect_to admin_users_url, flash: { popup_alert: "User #{username} was successfully destroyed." }
     end
   end
 

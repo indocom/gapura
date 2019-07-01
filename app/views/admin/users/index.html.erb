@@ -1,6 +1,6 @@
 <h1>Users</h1>
 
-<table style="border:2px solid black; width: 100%">
+<table style="border:2px solid black; width: 100%; background-color: white">
   <thead>
     <tr>
       <th> Username </th>
@@ -13,16 +13,16 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody> 
     <% @users.each do |user| %>
       <tr style="border:2px solid black">
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.has_role? :admin %></td>
         <td><%= user.has_role? :superuser %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Change Role', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_user_path(user) %></td>
+        <td><%= link_to 'Change Role', edit_admin_user_path(user) %></td>
+        <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

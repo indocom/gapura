@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :events
   root 'welcome#index'
   
   devise_for :users, controllers: {
@@ -9,7 +8,13 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :users, except: [:new, :create]
+  resources :events, only: :index
+
+  namespace :admin do
+    root 'admin#index'
+    resources :events, except: :index
+    resources :users, except: [:new, :create]
+  end
 
   get '*path'       , to: 'welcome#index'
 end

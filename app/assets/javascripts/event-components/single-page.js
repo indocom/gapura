@@ -3,6 +3,8 @@ jQuery(document).ready(function($) {
   var introCarousel = $("#introCarousel");
   introCarousel.find(".carousel-inner").children(".item").each(function(index) {
     $(this).css("background-image", "url('" + $(this).children('.carousel-background').children('img').attr('src') +"')");
+    $(this).css("background-size", 'cover');
+    
     $(this).children('.carousel-background').remove();
   });
   

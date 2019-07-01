@@ -157,35 +157,7 @@
   color: #fff;
 }
 
-@-webkit-keyframes pulsate-btn {
-  0% {
-    -webkit-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-    opacity: 0;
-  }
-}
-
-@keyframes pulsate-btn {
-  0% {
-    -webkit-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-
-  100% {
-    -webkit-transform: scale(1, 1);
-    transform: scale(1, 1);
-    opacity: 0;
-  }
-}
-
-@media (max-width: 980px) {
+@media (max-width: 1024px) {
   #intro .title-logo {
     width: 80%;
     height: auto;

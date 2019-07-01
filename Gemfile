@@ -80,8 +80,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Add authentication
 gem 'devise'
-# Enable omniauth in devise
-gem 'omniauth'
 # Use Omniauth Facebook plugin
 gem 'omniauth-facebook'
 # Use Omniauth Google plugin

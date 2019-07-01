@@ -8,11 +8,11 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :events, only: :index
+  resources :events, only: [:index, :show]
 
   namespace :admin do
     root 'admin#index'
-    resources :events, except: :index
+    resources :events
     resources :users, except: [:new, :create]
   end
 

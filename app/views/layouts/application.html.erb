@@ -54,4 +54,7 @@
   <% if flash[:popup_alert].present? %>
       alert("<%= flash[:popup_alert] %>");
   <% end %>
+  <% if flash[:error].present? %>
+      alert("<%= flash[:error] %>");
+  <% end %>
 </script>

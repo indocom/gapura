@@ -28,4 +28,9 @@
 
 # dotenv
 .env
+
+# Ignore database info
+/config/database.yml
+
+# Ignore all .DS_Store files
 *.DS_Store

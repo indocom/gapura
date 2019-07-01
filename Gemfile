@@ -84,6 +84,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 # Use Omniauth Google plugin
 gem 'omniauth-google-oauth2'
+# Security protection for Omniauth
+gem "omniauth-rails_csrf_protection"
 #Add roles
 gem 'rolify'
 #Add privileges

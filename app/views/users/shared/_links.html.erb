@@ -18,5 +18,5 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
-<%= link_to "Login with Facebook", omniauth_authorize_path(resource_name, 'facebook') %><br />
-<%= link_to "Login with Google", omniauth_authorize_path(resource_name, 'google_oauth2') %><br />
+<%= link_to "Login with Facebook", omniauth_authorize_path(resource_name, 'facebook'), method: :post %><br />
+<%= link_to "Login with Google", omniauth_authorize_path(resource_name, 'google_oauth2'), method: :post %><br />

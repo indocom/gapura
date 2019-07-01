@@ -340,7 +340,6 @@ DEPENDENCIES
   mailcatcher
   mailgun-ruby (~> 1.1.6)
   mini_racer
-  omniauth
   omniauth-facebook
   omniauth-google-oauth2
   pg (>= 0.18, < 2.0)

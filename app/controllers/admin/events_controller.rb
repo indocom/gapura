@@ -25,7 +25,7 @@ class Admin::EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      redirect_to admin_events_path(@event), notice: 'Event was successfully created.'
+      redirect_to admin_event_path(@event), notice: 'Event was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class Admin::EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)
-      redirect_to admin_events_path(@event), notice: 'Event was successfully updated.'
+      redirect_to admin_event_path(@event), notice: 'Event was successfully updated.'
     else
       render :edit
     end
@@ -58,21 +58,6 @@ class Admin::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      ret = params.require(:event).permit(:title, :subtitle, :description, :year, :logo)
-      if ret.has_key? :logo
-        ret[:logo] = convert(ret[:logo])
-      end
-      return ret
-    end
-
-    #parse file name to get the extension
-    def get_extension(file_name)
-      file_name.split('.').last
-    end
-
-    #Converting an uploaded image into Base64 String
-    def convert(file)
-      prefix = "data:image/" + get_extension(file.original_filename) + ";base64,"
-      prefix + Base64.strict_encode64(file.open.read)
+      params.require(:event).permit(:title, :subtitle, :description, :year, :logo)
     end
 end

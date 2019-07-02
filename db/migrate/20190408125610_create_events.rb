@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :subtitle
       t.text :description
       t.integer :year,      null: false, default: ""
-      t.text :logo
 
       t.timestamps
     end

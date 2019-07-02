@@ -15,6 +15,4 @@ Rails.application.routes.draw do
     resources :events
     resources :users, except: [:new, :create]
   end
-
-  get '*path'       , to: 'welcome#index'
 end

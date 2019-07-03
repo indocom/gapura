@@ -19,7 +19,7 @@
       <td> <%= event.title %> </td>
       <td> <%= event.year %> </td>
       <td> <%= event.id %> </td>
-      <td> <%= event.logo? ? image_tag(event.logo, width:100) : 'NONE' %> </td>
+      <td> <%= event.logo.attached? ? image_tag(event.logo, height: '100px') : 'NONE' %> </td>
       <td> <%= link_to "Show", admin_event_path(event) %> </td>
       <td> <%= link_to "Edit", edit_admin_event_path(event) %> </td>
       <td> <%= link_to "Delete", admin_event_path(event), method: :delete,
@@ -27,5 +27,3 @@
     </tr>
   <% end %>
 </table>
-
-

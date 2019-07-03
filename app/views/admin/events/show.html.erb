@@ -1,6 +1,27 @@
-<% provide(:custom_css, 'event-components/single-page') %>
+<br> <br> <br> <br> <br>
+<h1> Show Page </h1>
+<table style="background-color: white; border: 2px solid black" width="100%" > 
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> TITLE </td>
+    <td> <%= @event.title %>  </td>
+  </tr>
 
-<%= render 'events/show-partials/intro' %>
-<%= render 'events/show-partials/info' %>
-<%= render 'events/show-partials/partners' %>
-<%= render 'events/show-partials/gallery' %>
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> YEAR </td>
+    <td> <% @event.year %> </td>
+  </tr>
+
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> ID </td>
+    <td> <% @event.id %> </td>
+  </tr>
+
+  <% if @event.logo.attached? %>
+    <tr style="border: 2px solid black">
+      <td style="border: 2px solid black"> LOGO </td>
+      <td> <%= image_tag(@event.logo, width: '100px') %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back To Index', admin_events_path %>

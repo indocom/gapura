@@ -1,8 +1,5 @@
 new fullpage('#fullpage', {
-	// use our own generated key based on the regex checker in fullpage.js 
-  licenseKey: 'u~=U8;um-)V6}]5*wX7{u~mC));Js<9Kt4]bwhq',  
-
-  autoScrolling:true,
+	autoScrolling:true,
   scrollHorizontally: true,
   scrollOverflow: true,
   navigation: true,

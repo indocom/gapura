@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_182506) do
   create_table "events", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "subtitle"
-    t.text "description"
+    t.text "overview"
     t.integer "year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

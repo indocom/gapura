@@ -1,0 +1,12 @@
+<h1> Welcome to Admin Panel </h1>
+
+<h3> Here are list of accesses: </h3>
+<ul>
+  <% if can?(:edit, User) %>
+    <li> <%= link_to "Manage User", admin_users_path %> </li>
+  <% end %>
+
+  <% if can?(:edit, Event) %>
+    <li> <%= link_to "Manage Event", admin_events_path %> </li>
+  <% end %>
+</ul>

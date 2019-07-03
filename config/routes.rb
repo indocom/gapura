@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :events
   root 'welcome#index'
   
 
@@ -18,7 +17,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  resources :users, except: [:new, :create]
+  resources :events, only: [:index, :show]
 
-  get '*path'       , to: 'welcome#index'
+  namespace :admin do
+    root 'admin#index'
+    resources :events
+    resources :users, except: [:new, :create]
+  end
 end

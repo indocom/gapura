@@ -14,9 +14,10 @@
   <% if user.has_role? :superuser %>
     <p> Superuser cannot change role </p>
   <% else %>
-    Set <%= user.username %> role as: <br \>
+    <p> Set <%= user.username %> role as: </p> <br \>
     <%= radio_button_tag(:role, "admin", user.has_role?(:admin)) %> Admin <br \>
     <%= radio_button_tag(:role, "user", !(user.has_role?(:admin))) %> Normal User <br \>
+
     <div class="actions">
       <%= form.submit %>
     </div>

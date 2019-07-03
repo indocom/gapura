@@ -46,6 +46,8 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # To catch confirmation email at port 1080
+  gem 'mailcatcher'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Rspec testing framework
@@ -76,8 +78,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#Add authentication
+# Add authentication
 gem 'devise'
+# Use Omniauth Facebook plugin
+gem 'omniauth-facebook'
+# Use Omniauth Google plugin
+gem 'omniauth-google-oauth2'
+# Security protection for Omniauth
+gem "omniauth-rails_csrf_protection"
 #Add roles
 gem 'rolify'
 #Add privileges

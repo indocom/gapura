@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   rolify
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, :trackable and :omniauthable
+  # :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable
+         :confirmable, :omniauthable,
+         omniauth_providers: [:facebook, :google_oauth2]
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
   # Only allow letter, number, underscore and punctuation.

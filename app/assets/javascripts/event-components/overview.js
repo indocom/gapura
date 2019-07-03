@@ -1,7 +1,5 @@
 new fullpage('#fullpage', {
-  // licenseKey: ...  
-
-  autoScrolling:true,
+	autoScrolling:true,
   scrollHorizontally: true,
   scrollOverflow: true,
   navigation: true,

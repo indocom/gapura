@@ -1,4 +1,5 @@
 class Admin::FrequentlyAskedQuestionsController < ApplicationController
+  before_action :ensure_admin
   before_action :set_faq, only: [:edit, :update, :destroy]
 
   def index

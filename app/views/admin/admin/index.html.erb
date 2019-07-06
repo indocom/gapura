@@ -9,4 +9,6 @@
   <% if can?(:edit, Event) %>
     <li> <%= link_to "Manage Event", admin_events_path %> </li>
   <% end %>
+
+  <li> <%= link_to "Manage FAQ", admin_frequently_asked_questions_path %> </li>
 </ul>

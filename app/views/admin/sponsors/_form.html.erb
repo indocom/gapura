@@ -1,0 +1,32 @@
+<%= form_with(model: sponsor, local: true, url: target_url) do |form| %>
+  <% if sponsor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sponsor.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
+
+      <ul>
+      <% sponsor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :type %> <br>
+    <%= form.text_field :type %> <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %> <br>
+  </div>
+
+  <div class ="field">
+    <%= form.label :logo %> <br>
+    <%= form.file_field :logo, accept: 'image/png,image/gif,image/jpeg'%> <br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

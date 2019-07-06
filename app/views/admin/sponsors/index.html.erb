@@ -1,0 +1,42 @@
+<br> <br> <br>
+<p id="notice"><%= notice %></p>
+
+<h1>Sponsors</h1>
+
+<table style="background-color: white; border: 2px solid black" width='100%'>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Logo</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sponsors.each do |sponsor| %>
+      <tr style="border: 2px solid black">
+        <td><%= sponsor.type %></td>
+        <td><%= sponsor.name %></td>
+        <td>
+          <% if sponsor.logo.attached? %>
+            <%= image_tag(sponsor.logo, height: '100px') %>
+          <% else %>
+            NO LOGO
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', admin_event_sponsor_path(@event, sponsor) %></td>
+        <td><%= link_to 'Edit', edit_admin_event_sponsor_path(@event, sponsor) %></td>
+        <td><%= link_to 'Destroy', admin_event_sponsor_path(@event, sponsor),
+          method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Sponsor', new_admin_event_sponsor_path(@event) %> |
+<%= link_to 'Back to event', admin_event_path(@event) %>

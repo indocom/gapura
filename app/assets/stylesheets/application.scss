@@ -16,11 +16,18 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
 @import 'bootstrap';
-@import 'layouts/*';
+@import 'layouts/footer.css';
+@import 'layouts/header.css';
+@import 'layouts/nav-menu.css';
+
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap');
 
 body {
-	background-image: image-url("backgrounds/past_events_overview.png");
-	background-size: 800px 800px;
+  background-color: black !important;
+  max-width: 100vw;
+}
+
+.row {
+  max-width: 100vw;
 }

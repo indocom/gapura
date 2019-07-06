@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_07_06_102415) do
     t.text "answer", null: false
   end
 
+  create_table "gallery_photos", force: :cascade do |t|
+    t.string "image_link"
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.index ["year"], name: "index_gallery_photos_on_year"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -68,6 +75,15 @@ ActiveRecord::Schema.define(version: 2019_07_06_102415) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string "type", null: false
+    t.string "name", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["year"], name: "index_sponsors_on_year"
   end
 
   create_table "users", force: :cascade do |t|
@@ -101,4 +117,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_102415) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
+  add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
+  add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
 end

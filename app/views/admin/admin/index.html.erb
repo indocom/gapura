@@ -1,14 +1,31 @@
-<h1> Welcome to Admin Panel </h1>
+<% provide(:custom_css, 'admin/home') %>
 
-<h3> Here are list of accesses: </h3>
-<ul>
-  <% if can?(:edit, User) %>
-    <li> <%= link_to "Manage User", admin_users_path %> </li>
-  <% end %>
+<section id="admin-home" class="section-container">
+  <div class="row">
+    <div class="title">
+      Admin Menu List
+    </div>
+    <div class="content">
+      <div class="action-list">
+        <div class="row">
+          <% if can?(:edit, User) %>
+            <div class="col-lg-6 col-md-12">
+              <div class="action-button">
+                <%= link_to "Manage User", admin_users_path %>
+              </div>
+            </div>
+          <% end %>
+          <% if can?(:edit, Event) %>         
+            <div class="col-lg-6 col-md-12">
+              <div class="action-button">
+                <%= link_to "Manage Event", admin_events_path %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <% if can?(:edit, Event) %>
-    <li> <%= link_to "Manage Event", admin_events_path %> </li>
-  <% end %>
-
-  <li> <%= link_to "Manage FAQ", admin_frequently_asked_questions_path %> </li>
-</ul>
+<%= link_to "Manage FAQ", admin_frequently_asked_questions_path %>

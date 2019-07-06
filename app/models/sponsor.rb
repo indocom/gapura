@@ -1,4 +1,6 @@
 class Sponsor < ApplicationRecord
+  self.inheritance_column='inheritance_type'
+
   has_one_attached :logo
   belongs_to  :event, foreign_key: :year, primary_key: :year
 

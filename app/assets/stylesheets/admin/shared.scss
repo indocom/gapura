@@ -88,3 +88,23 @@ a:link, a:visited {
   color: black;
   width: 100px;
 }
+
+#admin-show .info-fields {
+  background-color: rgba(255,255,255,0.2);
+  margin: 10px;
+  padding: 30px 10px;
+  text-align: center;
+}
+
+#admin-show .info-fields .row {
+  padding: 20px 10px;
+}
+
+#admin-show .info-fields .field-key {
+  font-weight: bold;
+}
+
+#admin-show .info-fields .field-value {
+  word-wrap: break-word;
+}
+

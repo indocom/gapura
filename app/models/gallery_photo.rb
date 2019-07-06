@@ -10,6 +10,8 @@ class GalleryPhoto < ApplicationRecord
         image.purge
         errors[:base] << 'Image too big'
       end
+    elsif (image_link.blank?)
+        errors[:base] << 'Image is missing'
     end
   end
 end

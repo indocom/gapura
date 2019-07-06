@@ -4,28 +4,24 @@ class Admin::GalleryPhotosController < ApplicationController
   # GET /admin/gallery_photos
   def index
     @gallery_photos = @event.gallery_photos.order(created_at: :desc)
+  end
+
+  def new
     @gallery_photo = @event.gallery_photos.build
   end
 
   # POST /admin/gallery_photos
   def create
-    @gallery_photos = @event.gallery_photos.order(created_at: :desc)
     @gallery_photo = @event.gallery_photos.build(gallery_photo_params)
-    if (params[:gallery_photo][:image].blank? && params[:gallery_photo][:image_link].blank?)
-      @gallery_photo.errors.add(:image_link, 'cannot be empty without any attachment')
-      flash.now[:error]='Failed to upload an image'
-      render :index
-    else
-      if @gallery_photo.save
-        if @gallery_photo.image.attached?
-          @gallery_photo.image_link = url_for(@gallery_photo.image)
-          @gallery_photo.save
-        end
-
-        redirect_to admin_event_gallery_photos_path, notice: 'Gallery photo was successfully created.'
-      else
-        render :index
+    if @gallery_photo.save
+      if @gallery_photo.image.attached?
+        @gallery_photo.image_link = url_for(@gallery_photo.image)
+        @gallery_photo.save
       end
+
+      redirect_to admin_event_gallery_photos_path, notice: 'Gallery photo was successfully created.'
+    else
+      render :new
     end
   end
 

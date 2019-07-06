@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  
 
   devise_scope :user do
     get '/sign_up'   => "users/registrations#new",   :as => :new_user_registration
@@ -21,7 +20,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'admin#index'
-    resources :events
+    resources :events do
+      resources :sponsors
+    end
     resources :users, except: [:new, :create]
   end
 end

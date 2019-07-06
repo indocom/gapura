@@ -1,0 +1,25 @@
+<br> <br> <br> <br> <br>
+<p id="notice"><%= notice %></p>
+
+<h1>Gallery Photos</h1>
+
+<%= link_to "Upload new image", new_admin_event_gallery_photo_path(@event) %> <br>
+
+<table style="background-color: white; border: 2px solid black;" width="100%">
+  <thead>
+    <tr>
+      <th> Image URL </th>
+      <th> Destroy </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gallery_photos.each do |gallery_photo| %>
+      <tr>
+        <td> <%= image_tag(gallery_photo.image_link, width: "100px") %> </td>
+        <td><%= link_to 'Destroy', admin_event_gallery_photo_path(@event, gallery_photo),
+          method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

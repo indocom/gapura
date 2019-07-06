@@ -36,15 +36,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_082919) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "admin_sponsors", force: :cascade do |t|
-    t.string "type", null: false
-    t.string "name", null: false
-    t.integer "year", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["year"], name: "index_admin_sponsors_on_year"
-  end
-
   create_table "event_info", force: :cascade do |t|
     t.text "synopsis"
     t.text "description"
@@ -72,6 +63,15 @@ ActiveRecord::Schema.define(version: 2019_07_06_082919) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string "type", null: false
+    t.string "name", null: false
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["year"], name: "index_sponsors_on_year"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,6 +104,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_082919) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "admin_sponsors", "events", column: "year", primary_key: "year"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
+  add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
 end

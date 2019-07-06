@@ -1,11 +1,8 @@
 class Admin::FrequentlyAskedQuestionsController < ApplicationController
-  before_action :set_faq, only: [:show, :edit, :update, :destroy]
+  before_action :set_faq, only: [:edit, :update, :destroy]
 
   def index
     @faqs = FrequentlyAskedQuestion.all
-  end
-
-  def show
   end
 
   def new

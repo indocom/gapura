@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     root 'admin#index'
     resources :events
     resources :users, except: [:new, :create]
-    resources :frequently_asked_questions
+    resources :frequently_asked_questions, except: :show
   end
 end

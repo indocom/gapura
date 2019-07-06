@@ -1,7 +1,6 @@
 class Admin::GalleryPhotosController < ApplicationController
   before_action :set_event
 
-  # GET /admin/gallery_photos
   def index
     @gallery_photos = @event.gallery_photos.order(created_at: :desc)
   end
@@ -10,7 +9,6 @@ class Admin::GalleryPhotosController < ApplicationController
     @gallery_photo = @event.gallery_photos.build
   end
 
-  # POST /admin/gallery_photos
   def create
     @gallery_photo = @event.gallery_photos.build(gallery_photo_params)
     if @gallery_photo.save
@@ -25,7 +23,6 @@ class Admin::GalleryPhotosController < ApplicationController
     end
   end
 
-  # DELETE /admin/gallery_photos/1
   def destroy
     @gallery_photo = @event.gallery_photos.find(params[:id])
     @gallery_photo.destroy

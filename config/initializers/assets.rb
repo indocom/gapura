@@ -17,7 +17,9 @@ Rails.application.config.assets.precompile += %w(
                                                   application.css
                                                   events.css
                                                   welcome.css
-                                                  admin/admin.css
+
+                                                  admin/users.css
+                                                  admin/*.css
                                                   events/*.css
 
                                                   application.js

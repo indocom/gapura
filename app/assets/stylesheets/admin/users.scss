@@ -1,6 +1,6 @@
 .section-container {
-	min-height: 100vh;
-	width: 100vw;
+  min-height: 100vh;
+  width: 100vw;
 
   padding: 75px;
   background-color: rgba(0,0,0,1);
@@ -31,4 +31,11 @@
 
 a:link, a:visited {
   color: white;
+}
+
+@media (max-width: 980px) {
+  .section-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

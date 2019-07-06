@@ -14,16 +14,16 @@
             <div class="col-lg-2 col-md-12 col-xs-12 col-item"><%= event.subtitle %></div>
 
             <div class="col-lg-2 col-md-6 col-xs-6 col-item">
-              <%= link_to 'Add Sponsor', new_admin_event_sponsor_path(event) %>
+              <%= link_to 'Add Sponsor', new_admin_event_sponsor_path(event.year) %>
             </div>
             <div class="col-lg-2 col-md-6 col-xs-6 col-item">
-              <%= link_to "Add Photo", new_admin_event_gallery_photo_path(event) %>
+              <%= link_to "Add Photo", new_admin_event_gallery_photo_path(event.year) %>
             </div>
             
-            <div class="col-lg-1 col-md-4 col-xs-4 col-item"><%= link_to "Show", admin_event_path(event) %></div>
-            <div class="col-lg-1 col-md-4 col-xs-4 col-item"><%= link_to "Edit", edit_admin_event_path(event) %></div>
+            <div class="col-lg-1 col-md-4 col-xs-4 col-item"><%= link_to "Show", admin_event_path(event.year) %></div>
+            <div class="col-lg-1 col-md-4 col-xs-4 col-item"><%= link_to "Edit", edit_admin_event_path(event.year) %></div>
             <div class="col-lg-1 col-md-4 col-xs-4 col-item">
-              <%= link_to "Delete", admin_event_path(event), method: :delete,
+              <%= link_to "Delete", admin_event_path(event.year), method: :delete,
                     data: {confirm: "Do you want to delete this event?"} %>
             </div>
           </div>

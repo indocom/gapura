@@ -1,4 +1,6 @@
 class Admin::SponsorsController < ApplicationController
+  include Admin::EventsHelper
+
   before_action :ensure_admin
   before_action :set_event
   before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
@@ -21,7 +23,7 @@ class Admin::SponsorsController < ApplicationController
     @sponsor = @event.sponsors.build(sponsor_params)
 
     if @sponsor.save
-      redirect_to admin_event_sponsor_url(@event, @sponsor), notice: 'Sponsor was successfully created.'
+      redirect_to admin_event_sponsor_url(@event.year, @sponsor), notice: 'Sponsor was successfully created.'
     else
       render :new
     end
@@ -29,7 +31,7 @@ class Admin::SponsorsController < ApplicationController
 
   def update
     if @sponsor.update(sponsor_params)
-      redirect_to admin_event_sponsor_url(@event, @sponsor), notice: 'Sponsor was successfully updated.'
+      redirect_to admin_event_sponsor_url(@event.year, @sponsor), notice: 'Sponsor was successfully updated.'
     else
       render :edit
     end
@@ -37,14 +39,10 @@ class Admin::SponsorsController < ApplicationController
 
   def destroy
     @sponsor.destroy
-    redirect_to admin_event_sponsors_path(@event), notice: 'Sponsor was successfully destroyed.'
+    redirect_to admin_event_sponsors_path(@event.year), notice: 'Sponsor was successfully destroyed.'
   end
 
   private
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     def set_sponsor
       @sponsor = @event.sponsors.find(params[:id])
     end

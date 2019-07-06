@@ -9,10 +9,10 @@
       <div class="col-lg-12">
         <div class="row">
           <div class="col-md-6">
-            <%= link_to "Back to event", admin_event_path(@event) %>
+            <%= link_to "Back to event", admin_event_path(@event.year) %>
           </div>
           <div class="col-md-6">
-            <%= link_to "Upload new image", new_admin_event_gallery_photo_path(@event) %>
+            <%= link_to "Upload new image", new_admin_event_gallery_photo_path(@event.year) %>
           </div>
         </div>
 
@@ -27,7 +27,7 @@
                 </div>
               </div>
               <div class="delete-button">
-                <%= link_to 'Delete', admin_event_gallery_photo_path(@event, gallery_photo),
+                <%= link_to 'Delete', admin_event_gallery_photo_path(@event.year, gallery_photo),
                     method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
             </div>

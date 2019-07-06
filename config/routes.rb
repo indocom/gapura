@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show], param: :year
 
   namespace :admin do
     root 'admin#index'
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :frequently_asked_questions, except: :show
     resources :testimonies
 
-    resources :events do
+    resources :events, param: 'year' do
       resources :sponsors
       resources :gallery_photos, only: [:index, :new, :create, :destroy]
     end

@@ -15,10 +15,10 @@
           <%= link_to "Event Menu", admin_events_path %>
         </div>
         <div class="col-lg-4 col-md-4 col-12-4">
-          <%= link_to "Event Show", admin_event_path(@event) %>
+          <%= link_to "Event Show", admin_event_path(@event.year) %>
         </div>
         <div class="col-lg-4 col-md-4 col-12-4">
-          <%= link_to "Gallery", admin_event_gallery_photos_path(@event) %>
+          <%= link_to "Gallery", admin_event_gallery_photos_path(@event.year) %>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 module EventsHelper
   def set_event
-    @event = Event.find(params[:id]) rescue not_found
+    @event = Event.find_by!(year: params[:year]) rescue not_found
   end
   
   def get_all_event

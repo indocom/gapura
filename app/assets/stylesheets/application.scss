@@ -24,6 +24,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap');
 
 body {
-	background-image: image-url("backgrounds/past_events_overview.png");
-	background-size: 800px 800px;
+	background-color: black !important;
+  max-width: 100vw;
+}
+
+.row {
+  max-width: 100vw;
 }

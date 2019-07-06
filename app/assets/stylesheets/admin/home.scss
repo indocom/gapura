@@ -1,0 +1,14 @@
+#admin-home .action-list {
+  width: 100%;
+}
+
+#admin-home .action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin: 10px;
+  min-height: 50px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 15px;
+}

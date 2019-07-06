@@ -1,55 +1,64 @@
-<br> <br> <br> <br> <br>
-<h1> Show Page </h1>
-<table style="background-color: white; border: 2px solid black" width="100%" > 
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> TITLE </td>
-    <td> <%= @event.title %>  </td>
-  </tr>
+<% provide(:custom_css, 'admin/events/show') %>
 
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> YEAR </td>
-    <td> <%= @event.year %> </td>
-  </tr>
+<section id="admin-events-show" class="section-container">
+  <div class="row">
+    <div class="title">
+      Event Show
+    </div>
+    <div class="content">
+      <div class="event-fields">
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Year</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.year %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Title</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.title %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Subtitle</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.subtitle %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Logo</div>
+          <div class="col-lg-10 col-md-12 field-value">
+            <%= @event.logo.attached? ? image_tag(@event.logo, height: '100px') : 'NO LOGO' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Overview</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.overview %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Description</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.description %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Synopsis</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.synopsis %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Video Link</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.video_link %></div>
+        </div>
+      </div>
+      
+      <br><br>
 
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> ID </td>
-    <td> <%= @event.id %> </td>
-  </tr>
-
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> SUBTITLE </td>
-    <td> <%= @event.subtitle %>  </td>
-  </tr>
-
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> OVERVIEW </td>
-    <td> <%= @event.overview %>  </td>
-  </tr>
-
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> LOGO </td>
-    <% if @event.logo.attached? %>
-      <td> <%= image_tag(@event.logo, width: '100px') %> </td>
-    <% else %>
-      <td> NO LOGO </td>
-    <% end %>
-  </tr>
-
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> DESCRIPTION </td>
-    <td> <%= @event.event_info.description %> </td>
-  </tr>
-
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> SYNOPSIS </td>
-    <td> <%= @event.event_info.synopsis %> </td>
-  </tr>
-
-  <tr style="border: 2px solid black">
-    <td style="border: 2px solid black"> VIDEO LINK </td>
-    <td> <%= @event.event_info.video_link %> </td>
-  </tr>
-</table>
-
-<%= link_to 'Back To Index', admin_events_path %> |
-<%= link_to 'Manage Sponsors', admin_event_sponsors_path(@event) %>
+      <div class="row">
+        <div class="col-lg-3">
+          <%= link_to "Edit", edit_admin_event_path(@event) %>
+        </div>
+        <div class="col-lg-3">
+          <%= link_to "Back", admin_events_path %>
+        </div>
+        <div class="col-lg-3">
+          <%= link_to 'Gallery', admin_event_gallery_photos_path(@event) %>
+        </div>
+        <div class="col-lg-3">
+          <%= link_to 'Sponsors', admin_event_sponsors_path(@event) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

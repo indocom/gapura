@@ -1,11 +1,11 @@
-#about {
+#about-us {
   background-color: #000;
   // background-color: #211807;
   position: relative;
   padding: 60px 0px;    
 }
 
-#about::before {
+#about-us::before {
   content: "";
   position: absolute;
   top: 0;
@@ -14,7 +14,7 @@
   left: 0;
 }
 
-#about p {
+#about-us p {
   color: #fff;
   font-size: 16px;
   text-align: center;

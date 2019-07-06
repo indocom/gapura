@@ -1,5 +1,20 @@
-<h1>Upload an Event</h1>
+<% provide(:custom_css, 'admin/events/form') %>
 
-<%= render 'form', event: @event, target_url: admin_events_path %>
-
-<%= link_to 'Back', admin_events_path %>
+<section id="admin-events-form" class="section-container">
+  <div class="row">
+    <div class="title">
+      New Event
+    </div>
+    <div class="content">
+      <%= render 'form', event: @event, target_url: admin_events_path %>
+      
+      <br><br>
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <%= link_to "Back", admin_events_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

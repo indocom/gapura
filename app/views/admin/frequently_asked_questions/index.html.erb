@@ -1,0 +1,33 @@
+<br> <br> <br>
+<p id="notice"><%= notice %></p>
+
+<h1>Frequently Asked Questions</h1>
+
+<table style="background-color: white; border: 2px solid black" width='100%'>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Distroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @faqs.each do |faq| %>
+      <tr style="border: 2px solid black">
+        <td><%= faq.question %></td>
+        <td><%= faq.answer %></td>
+        <td><%= link_to 'Show', admin_frequently_asked_question_path(faq) %></td>
+        <td><%= link_to 'Edit', edit_admin_frequently_asked_question_path(faq) %></td>
+        <td><%= link_to 'Destroy', admin_frequently_asked_question_path(faq), 
+          method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Frequently Asked Question', new_admin_frequently_asked_question_path %>

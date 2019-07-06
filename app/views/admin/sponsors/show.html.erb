@@ -1,23 +1,19 @@
+<br> <br> <br>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Year:</strong>
-  <%= @sponsor.year %>
-</p>
-
-<p>
-  <strong>Type:</strong>
+  <strong>Type:</strong> <br>
   <%= @sponsor.type %>
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Name:</strong> <br>
   <%= @sponsor.name %>
 </p>
 
 <p>
-  <strong>Logo:</strong>
-  <%= @sponsor.logo %>
+  <strong>Logo:</strong> <br>
+  <%= @sponsor.logo.attached? ? image_tag(@sponsor.logo, height: '100px') : 'NO LOGO'%>
 </p>
 
 <%= link_to 'Edit', edit_admin_event_sponsor_path(@sponsor) %> |

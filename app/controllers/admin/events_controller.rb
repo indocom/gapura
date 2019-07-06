@@ -1,10 +1,12 @@
 class Admin::EventsController < ApplicationController
+  include EventsHelper
+
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :ensure_admin
 
   # GET /events
   def index
-    @events = Event.order(year: :desc)
+    get_all_event
   end
 
   # GET /events/1
@@ -50,11 +52,6 @@ class Admin::EventsController < ApplicationController
   private
     def ensure_admin
       super || return
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id]) rescue not_found
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

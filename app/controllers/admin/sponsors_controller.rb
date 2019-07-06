@@ -1,4 +1,5 @@
 class Admin::SponsorsController < ApplicationController
+  before_action :ensure_admin
   before_action :set_event
   before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
 

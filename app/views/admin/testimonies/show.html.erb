@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name</strong> <br>
+  <%= @testimony.name %> <br>
+</p>
+
+<p>
+  <strong>Profession</strong> <br>
+  <%= @testimony.profession %> <br>
+</p>
+
+<p>
+  <strong>Testimony</strong> <br>
+  <%= @testimony.testimony %> <br>
+</p>
+
+<p>
+  <strong>Photo</strong> <br>
+  <%= @testimony.photo.attached? ? image_tag(@testimony.photo) : 'NO PHOTO' %> <br>
+</p>
+
+<%= link_to 'Edit', edit_admin_testimony_path(@testimony) %> |
+<%= link_to 'Back', admin_testimonies_path %>

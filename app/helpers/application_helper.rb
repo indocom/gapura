@@ -14,4 +14,8 @@ module ApplicationHelper
   def current_controller_name
     "#{params[:controller]}"
   end
+
+  def is_admin_namespace
+    (current_controller_name.split('/'))[0] == "admin"
+  end
 end

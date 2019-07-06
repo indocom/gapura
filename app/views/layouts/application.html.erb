@@ -40,6 +40,10 @@
     
     <%= javascript_include_tag 'layouts/nav-menu.js', 'data-turbolinks-track': 'reload' %>
     
+    <% if is_admin_namespace %>
+      <%= add_stylesheet('admin/shared') %>
+    <% end %>
+    
     <%= add_stylesheet(current_controller_name) %>
     <%= add_javascript(current_controller_name) %>
     <%= add_stylesheet(yield(:custom_css)) %>

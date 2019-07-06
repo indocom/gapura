@@ -46,17 +46,23 @@
       <br><br>
 
       <div class="row">
-        <div class="col-lg-3">
-          <%= link_to "Edit", edit_admin_event_path(@event) %>
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Add Sponsor', new_admin_event_sponsor_path(@event) %>
         </div>
-        <div class="col-lg-3">
-          <%= link_to "Back", admin_events_path %>
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Sponsors', admin_event_sponsors_path(@event) %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
+          <%= link_to "Add Photo", new_admin_event_gallery_photo_path(@event) %>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
           <%= link_to 'Gallery', admin_event_gallery_photos_path(@event) %>
         </div>
-        <div class="col-lg-3">
-          <%= link_to 'Sponsors', admin_event_sponsors_path(@event) %>
+        <div class="col-lg-2 col-md-6 col-xs-6 col-item">
+          <%= link_to "Edit", edit_admin_event_path(@event) %>
+        </div>
+        <div class="col-lg-2 col-md-6 col-xs-6 col-item">
+          <%= link_to "Back", admin_events_path %>
         </div>
       </div>
     </div>

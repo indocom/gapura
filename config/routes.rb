@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     
     resources :users, except: [:new, :create]
     resources :frequently_asked_questions, except: :show
+    resources :testimonies
 
     resources :events do
       resources :sponsors

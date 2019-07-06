@@ -28,10 +28,10 @@
           <%= link_to 'Event Menu', admin_events_path %>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-6 col-item">
-          <%= link_to 'Show Event', admin_event_path(@event) %>
+          <%= link_to 'Show Event', admin_event_path(@event.year) %>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-6 col-item">
-          <%= link_to 'Back to Sponsors', admin_event_sponsors_path(@event) %>
+          <%= link_to 'Back to Sponsors', admin_event_sponsors_path(@event.year) %>
         </div>
         <div class="col-lg-3 col-md-3 col-xs-6 col-item">
           <%= link_to "Edit", edit_admin_event_sponsor_path(@sponsor) %>

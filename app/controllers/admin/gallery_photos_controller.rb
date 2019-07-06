@@ -1,4 +1,6 @@
 class Admin::GalleryPhotosController < ApplicationController
+  include Admin::EventsHelper
+
   before_action :ensure_admin
   before_action :set_event
 
@@ -27,14 +29,10 @@ class Admin::GalleryPhotosController < ApplicationController
   def destroy
     @gallery_photo = @event.gallery_photos.find(params[:id])
     @gallery_photo.destroy
-    redirect_to admin_event_gallery_photos_path(@event), notice: 'Gallery photo was successfully destroyed.'
+    redirect_to admin_event_gallery_photos_path(@event.year), notice: 'Gallery photo was successfully destroyed.'
   end
 
   private
-    def set_event
-      @event = Event.find(params[:event_id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def gallery_photo_params
       params.require(:gallery_photo).permit(:image, :image_link)

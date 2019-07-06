@@ -3,8 +3,8 @@
 
 <h1>Gallery Photos</h1>
 
-<%= link_to "Back to event", admin_event_path(@event) %> |
-<%= link_to "Upload new image", new_admin_event_gallery_photo_path(@event) %> <br>
+<%= link_to "Back to event", admin_event_path(@event.year) %> |
+<%= link_to "Upload new image", new_admin_event_gallery_photo_path(@event.year) %> <br>
 
 <table style="background-color: white; border: 2px solid black;" width="100%">
   <thead>
@@ -18,7 +18,7 @@
     <% @gallery_photos.each do |gallery_photo| %>
       <tr>
         <td> <%= image_tag(gallery_photo.image_link, width: "100px") %> </td>
-        <td><%= link_to 'Destroy', admin_event_gallery_photo_path(@event, gallery_photo),
+        <td><%= link_to 'Destroy', admin_event_gallery_photo_path(@event.year, gallery_photo),
           method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

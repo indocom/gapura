@@ -1,42 +1,55 @@
-<br> <br> <br>
-<p id="notice"><%= notice %></p>
+<% provide(:custom_css, 'admin/sponsors/index') %>
 
-<h1>Sponsors</h1>
+<section id="admin-sponsors-index" class="section-container">
+  <div class="row">
+    <div class="title">
+      Sponsors for NUANSA <%= @event.year %>
+    </div>
+    <div class="content">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-md-6">
+            <%= link_to "Back", admin_event_path(@event.year) %>
+          </div>
+          <div class="col-md-6">
+            <%= link_to "Add Sponsor", new_admin_event_sponsor_path(@event.year) %> 
+          </div>
+        </div>
 
-<table style="background-color: white; border: 2px solid black" width='100%'>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Logo</th>
-      <th>Show</th>
-      <th>Edit</th>
-      <th>Destroy</th>
-    </tr>
-  </thead>
+        <br><br>
 
-  <tbody>
-    <% @sponsors.each do |sponsor| %>
-      <tr style="border: 2px solid black">
-        <td><%= sponsor.type %></td>
-        <td><%= sponsor.name %></td>
-        <td>
-          <% if sponsor.logo.attached? %>
-            <%= image_tag(sponsor.logo, height: '100px') %>
-          <% else %>
-            NO LOGO
+        <div class="row">
+          <% @sponsors.each do |sponsor| %>
+            <div class="col-lg-3 col-md-4 col-xs-12">
+              <div class="image-box">
+                <div class="image-content">
+                  <% if sponsor.logo.attached? %>
+                    <%= image_tag(sponsor.logo) %>
+                  <% else %>
+                    No Logo
+                  <% end %>
+                </div>
+              </div>
+              <div class="caption-name">
+                <%= sponsor.name %>
+              </div>
+              <div class="caption-type">
+                <%= sponsor.type %>
+              </div>
+              <div class="button">
+                <%= link_to 'Show', admin_event_sponsor_path(@event.year, sponsor) %>
+              </div>
+              <div class="button">
+                <%= link_to 'Edit', edit_admin_event_sponsor_path(@event.year, sponsor) %>
+              </div>
+              <div class="button">
+                <%= link_to 'Destroy', admin_event_sponsor_path(@event.year, sponsor),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            </div>
           <% end %>
-        </td>
-        <td><%= link_to 'Show', admin_event_sponsor_path(@event.year, sponsor) %></td>
-        <td><%= link_to 'Edit', edit_admin_event_sponsor_path(@event.year, sponsor) %></td>
-        <td><%= link_to 'Destroy', admin_event_sponsor_path(@event.year, sponsor),
-          method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Admin Sponsor', new_admin_event_sponsor_path(@event.year) %> |
-<%= link_to 'Back to event', admin_event_path(@event.year) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,20 +1,42 @@
-<br> <br> <br>
-<p id="notice"><%= notice %></p>
+<section id="admin-show" class="section-container">
+  <div class="row">
+    <div class="title">
+      Sponsor for NUANSA <%= @event.year %>
+    </div>
+    <div class="content">
+      <div class="info-fields">
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Sponsorship Type</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @sponsor.type %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Subtitle</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @sponsor.name %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Logo</div>
+          <div class="col-lg-10 col-md-12 field-value">
+            <%= @sponsor.logo.attached? ? image_tag(@sponsor.logo, height: '100px') : 'NO LOGO'%>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>Type:</strong> <br>
-  <%= @sponsor.type %>
-</p>
+      <br><br>
 
-<p>
-  <strong>Name:</strong> <br>
-  <%= @sponsor.name %>
-</p>
-
-<p>
-  <strong>Logo:</strong> <br>
-  <%= @sponsor.logo.attached? ? image_tag(@sponsor.logo, height: '100px') : 'NO LOGO'%>
-</p>
-
-<%= link_to 'Edit', edit_admin_event_sponsor_path(@sponsor) %> |
-<%= link_to 'Back', admin_event_sponsors_path %>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Event Menu', admin_events_path %>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Show Event', admin_event_path(@event) %>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Back to Sponsors', admin_event_sponsors_path(@event) %>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+          <%= link_to "Edit", edit_admin_event_sponsor_path(@sponsor) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

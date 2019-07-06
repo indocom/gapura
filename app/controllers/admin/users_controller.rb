@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :set_user, except: :index
   before_action :ensure_superuser
+  before_action :set_user, except: :index
 
   # GET /admin/users
   def index

@@ -117,6 +117,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_102415) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
-  add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
+  add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
 end

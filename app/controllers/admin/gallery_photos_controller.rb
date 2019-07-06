@@ -1,4 +1,5 @@
 class Admin::GalleryPhotosController < ApplicationController
+  before_action :ensure_admin
   before_action :set_event
 
   def index

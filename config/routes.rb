@@ -22,7 +22,8 @@ Rails.application.routes.draw do
     root 'admin#index'
     
     resources :users, except: [:new, :create]
-    
+    resources :frequently_asked_questions, except: :show
+
     resources :events do
       resources :sponsors
       resources :gallery_photos, only: [:index, :new, :create, :destroy]

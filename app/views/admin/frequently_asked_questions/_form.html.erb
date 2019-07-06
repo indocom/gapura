@@ -1,0 +1,27 @@
+<%= form_with(model: faq, local: true, url: target_url) do |form| %>
+  <% if faq.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(faq.errors.count, "error") %> prohibited this faq from being saved:</h2>
+
+      <ul>
+      <% faq.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :question %> <br>
+    <%= form.text_field :question %> <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :answer %> <br>
+    <%= form.text_area :answer %> <br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

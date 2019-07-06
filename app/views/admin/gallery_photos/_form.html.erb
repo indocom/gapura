@@ -11,13 +11,27 @@
     </div>
   <% end %>
 
-  <%= form.label :image, "Attach an Image" %> <br>
-  <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg' %> <br>
-
-  <%= form.label :image_link, "Image Link" %> <br>
-  <%= form.text_field :image_link %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-fields">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :image, "Attach an Image" %>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg', class: "upload-button" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :image_link, "Image Link" %> <br>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.text_field :image_link %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.submit 'Submit', class: "submit-button" %>      
+      </div>
+    </div>
   </div>
 <% end %>

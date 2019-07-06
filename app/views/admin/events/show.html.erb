@@ -1,12 +1,12 @@
 <% provide(:custom_css, 'admin/events/show') %>
 
-<section id="admin-events-show" class="section-container">
+<section id="admin-show" class="section-container">
   <div class="row">
     <div class="title">
       Event Show
     </div>
     <div class="content">
-      <div class="event-fields">
+      <div class="info-fields">
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Year</div>
           <div class="col-lg-10 col-md-12 field-value"><%= @event.year %></div>
@@ -46,17 +46,23 @@
       <br><br>
 
       <div class="row">
-        <div class="col-lg-3">
-          <%= link_to "Edit", edit_admin_event_path(@event) %>
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Add Sponsor', new_admin_event_sponsor_path(@event) %>
         </div>
-        <div class="col-lg-3">
-          <%= link_to "Back", admin_events_path %>
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
+          <%= link_to 'Sponsors', admin_event_sponsors_path(@event) %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
+          <%= link_to "Add Photo", new_admin_event_gallery_photo_path(@event) %>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-6 col-item">
           <%= link_to 'Gallery', admin_event_gallery_photos_path(@event) %>
         </div>
-        <div class="col-lg-3">
-          <%= link_to 'Sponsors', admin_event_sponsors_path(@event) %>
+        <div class="col-lg-2 col-md-6 col-xs-6 col-item">
+          <%= link_to "Edit", edit_admin_event_path(@event) %>
+        </div>
+        <div class="col-lg-2 col-md-6 col-xs-6 col-item">
+          <%= link_to "Back", admin_events_path %>
         </div>
       </div>
     </div>

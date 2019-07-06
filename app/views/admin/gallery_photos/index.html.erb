@@ -20,10 +20,16 @@
 
         <div class="row">
           <% @gallery_photos.each do |gallery_photo| %>
-            <div class="col-lg-2 col-md-4 col-xs-12">
-              <%= image_tag(gallery_photo.image_link, width: "100px") %> <br>
-              <%= link_to 'Destroy', admin_event_gallery_photo_path(@event, gallery_photo),
+            <div class="col-lg-3 col-md-4 col-xs-12">
+              <div class="photo-box">
+                <div class="photo-content">
+                  <%= image_tag(gallery_photo.image_link, width: "100%", height: "100%") %>
+                </div>
+              </div>
+              <div class="delete-button">
+                <%= link_to 'Delete', admin_event_gallery_photo_path(@event, gallery_photo),
                     method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
             </div>
           <% end %>
         </div>

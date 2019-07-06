@@ -8,20 +8,47 @@
 
   <tr style="border: 2px solid black">
     <td style="border: 2px solid black"> YEAR </td>
-    <td> <% @event.year %> </td>
+    <td> <%= @event.year %> </td>
   </tr>
 
   <tr style="border: 2px solid black">
     <td style="border: 2px solid black"> ID </td>
-    <td> <% @event.id %> </td>
+    <td> <%= @event.id %> </td>
   </tr>
 
-  <% if @event.logo.attached? %>
-    <tr style="border: 2px solid black">
-      <td style="border: 2px solid black"> LOGO </td>
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> SUBTITLE </td>
+    <td> <%= @event.subtitle %>  </td>
+  </tr>
+
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> OVERVIEW </td>
+    <td> <%= @event.overview %>  </td>
+  </tr>
+
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> LOGO </td>
+    <% if @event.logo.attached? %>
       <td> <%= image_tag(@event.logo, width: '100px') %> </td>
-    </tr>
-  <% end %>
+    <% else %>
+      <td> NO LOGO </td>
+    <% end %>
+  </tr>
+
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> DESCRIPTION </td>
+    <td> <%= @event.event_info.description %> </td>
+  </tr>
+
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> SYNOPSIS </td>
+    <td> <%= @event.event_info.synopsis %> </td>
+  </tr>
+
+  <tr style="border: 2px solid black">
+    <td style="border: 2px solid black"> VIDEO LINK </td>
+    <td> <%= @event.event_info.video_link %> </td>
+  </tr>
 </table>
 
 <%= link_to 'Back To Index', admin_events_path %>

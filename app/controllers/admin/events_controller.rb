@@ -14,6 +14,7 @@ class Admin::EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.build_event_info
   end
 
   # GET /events/1/edit
@@ -58,6 +59,10 @@ class Admin::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :subtitle, :description, :year, :logo)
+      params.require(:event).permit(:title, :subtitle, :overview, :year, :logo,
+        event_info_attributes: [:id, :synopsis, :description, :video_link])
+        .tap do|event_params|
+          event_params.require(:event_info_attributes)
+        end
     end
 end

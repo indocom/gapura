@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_180302) do
+ActiveRecord::Schema.define(version: 2019_07_06_034606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 2019_07_03_180302) do
     t.index ["year"], name: "index_events_on_year", unique: true
   end
 
+  create_table "gallery_photos", force: :cascade do |t|
+    t.string "image_link"
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.index ["year"], name: "index_gallery_photos_on_year"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -96,4 +103,5 @@ ActiveRecord::Schema.define(version: 2019_07_03_180302) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
+  add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
 end

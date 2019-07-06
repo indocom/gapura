@@ -1,8 +1,7 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true, url: admin_user_path) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -14,12 +13,11 @@
   <% if user.has_role? :superuser %>
     <p> Superuser cannot change role </p>
   <% else %>
-    <p> Set <%= user.username %> role as: </p> <br \>
-    <%= radio_button_tag(:role, "admin", user.has_role?(:admin)) %> Admin <br \>
-    <%= radio_button_tag(:role, "user", !(user.has_role?(:admin))) %> Normal User <br \>
+    <p> Set <%= user.username %> role as: </p>
+    <%= radio_button_tag(:role, "admin", user.has_role?(:admin)) %> Admin <br>
+    <%= radio_button_tag(:role, "user", !(user.has_role?(:admin))) %> Normal User <br>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
+    <br>
+    <%= form.submit 'Update User', class: "submit-button" %>
   <% end %>
 <% end %>

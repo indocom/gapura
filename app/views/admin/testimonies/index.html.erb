@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<h1>Testimonies</h1>
+
+
+<table style="background-color: white; border: 2px solid black", width="100%">
+  <thead>
+    <tr style="border: 2px solid black">
+      <th>Name</th>
+      <th>Profession</th>
+      <th>Testimony</th>
+      <th>Photo</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @testimonies.each do |testimony| %>
+      <tr style="border: 2px solid black">
+        <td><%= testimony.name %></td>
+        <td><%= testimony.profession %></td>
+        <td><%= testimony.testimony %></td>
+        <td><%= testimony.photo.attached? ? image_tag(testimony.photo) : 'NO PHOTO' %></td>
+        <td><%= link_to 'Show', admin_testimony_path(testimony) %></td>
+        <td><%= link_to 'Edit', edit_admin_testimony_path(testimony) %></td>
+        <td><%= link_to 'Destroy', admin_testimony_path(testimony), method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Testimony', new_admin_testimony_path %>

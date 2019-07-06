@@ -1,0 +1,37 @@
+<%= form_with(model: testimony, local: true, url: target_url) do |form| %>
+  <% if testimony.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(testimony.errors.count, "error") %> prohibited this testimony from being saved:</h2>
+
+      <ul>
+      <% testimony.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %> <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :profession %> <br>
+    <%= form.text_field :profession %> <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :testimony %> <br>
+    <%= form.text_area :testimony %> <br>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo %> <br>
+    <%= form.file_field :photo, accept: 'image/png,image/gif,image/jpeg'%> <br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

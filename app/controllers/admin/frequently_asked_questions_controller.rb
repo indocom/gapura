@@ -17,7 +17,7 @@ class Admin::FrequentlyAskedQuestionsController < ApplicationController
     @faq = FrequentlyAskedQuestion.new(faq_params)
 
     if @faq.save
-      redirect_to admin_frequently_asked_question_url(@faq), notice: 'Frequently asked question was successfully created.'
+      redirect_to admin_frequently_asked_questions_url, notice: 'Frequently asked question was successfully created.'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::FrequentlyAskedQuestionsController < ApplicationController
 
   def update
     if @faq.update(faq_params)
-      redirect_to admin_frequently_asked_question_url(@faq), notice: 'Frequently asked question was successfully updated.'
+      redirect_to admin_frequently_asked_questions_url, notice: 'Frequently asked question was successfully updated.'
     else
       render :edit
     end

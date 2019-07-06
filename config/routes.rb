@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'admin#index'
-    resources :events
     resources :users, except: [:new, :create]
+    resources :events do
+      resources :gallery_photos, only: [:index, :new, :create, :destroy]
+    end
   end
 end

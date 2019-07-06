@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
+  include EventsHelper
 
   # GET /events
   def index
-    @events = Event.order(year: :desc)
+    get_all_event
   end
 
   # GET /events/1
   def show
-    @event = Event.find(params[:id]) rescue not_found
+    set_event
   end
 end

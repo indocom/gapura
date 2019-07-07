@@ -128,8 +128,5 @@ a:link, a:visited {
 .info-fields .field-item {
   margin: 10px 0px;
   text-align: center;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  word-wrap: break-word;
 }

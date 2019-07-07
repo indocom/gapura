@@ -6,7 +6,7 @@ class Admin::EventsController < ApplicationController
 
   # GET /events
   def index
-    get_all_event
+    @events = Event.all.order(year: :desc)
   end
 
   # GET /events/1

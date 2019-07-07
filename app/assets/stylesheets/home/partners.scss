@@ -7,23 +7,18 @@
   color: #444;
 }
 
-#partners .partner-wrap {
-  margin-bottom: 30px;
+#partners .partner-box {
+  margin: 15px 0px;
 }
 
 #partners .partner-logo {
-  padding: 30px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   overflow: hidden;
-  height: 100px;
+}
+
+#partners .partner-logo img {
+  border-radius: 15px;
+  transition: all ease-in-out 0.4s;
 }
 
 #partners .partner-logo:hover img {

@@ -1,0 +1,209 @@
+/*
+  Custom CSS file for Past NUANSA overview
+*/
+
+/* Container behind vertical navbar */
+#fp-nav {
+  top: 20%;
+  margin-left: 100px;
+  width: 150px;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Distance between bullets */
+#fp-nav ul li, .fp-slidesNav ul li {
+  height: 50px;
+}
+
+/* Customise color for the bullets */
+#fp-nav ul li a span, .fp-slidesNav ul li a span  {
+  background: rgba(0, 0, 0, 0.0);
+}
+
+/* Customise font for bullet names */
+.fp-sr-only {
+  color: #FFC162;
+  font-weight: bold;
+  text-align: center;
+  clip: rect(0px, 200px, 200px, 0px);
+}
+
+/* Customise shape for unactive bullets */
+#fp-nav ul li a span, .fp-slidesNav ul li a span, 
+#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span {
+  height: auto;
+  width: 120px;
+  border-radius: 10px;
+
+  font-size: 18px;
+  margin: 0px;
+  text-align: center;
+}
+
+/* Customise shape for active bullet */
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, 
+#fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+  height: auto;
+  width: 120px;
+  border-radius: 10px;
+
+  font-size: 30px;
+  margin: 0px;
+  margin-top: -10px;
+  text-align: center;
+}
+
+/* Custom size for content box*/
+.content-box {
+  margin-left: 300px;
+  margin-right: 100px;
+}
+
+/* Custom container size and color behind content */
+.content-container {
+  background-color: rgba(154, 83, 48, 0.7);
+  padding-top: 100px;
+  padding-bottom: 25px;
+  width: 100%;
+  height: 100%;
+}
+
+.fp-tableCell {
+  height: 100%;
+}
+
+/* Custom container offset background coloring */
+$offsetContentContainer: 30px;
+
+.fp-tableCell {
+  margin-left: -$offsetContentContainer;
+  margin-right: -$offsetContentContainer;
+}
+
+.content-container {
+  padding-left: $offsetContentContainer;
+  padding-right: $offsetContentContainer;
+}
+
+/* Make text vertical align to be in the middle */
+.fp-tableCell {
+  padding-bottom: 50px;
+  vertical-align: top;
+}
+
+/* Custom size for Past NUANSA logo */
+.logo {
+  border-radius: 15px;
+  width: 200px;
+}
+
+/* Custom style for content */
+.content {
+  color: white;
+  text-align: center;
+}
+
+.content p {
+  text-align: justify;
+}
+
+/* Custom font for content text */
+.content h4, h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.content p {
+  font-size: 18px;
+}
+
+/* Button */
+.btn-view-more {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+@media (max-width: 800px) {
+  /* Container behind vertical navbar */
+  #fp-nav {
+    top: 100px;
+    width: 75px;
+    height: 500px;
+    margin-left: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  #fp-nav.fp-left {
+    left: 0px;
+  }
+
+  /* Margin left for link in vertical navbar */
+  #fp-nav a {
+    margin-left: -4px;
+  }
+
+  /* Distance between bullets */
+  #fp-nav ul li, .fp-slidesNav ul li {
+    height: 40px;
+  }
+
+  /* Customise shape for unactive bullets */
+  #fp-nav ul li a span, .fp-slidesNav ul li a span, 
+  #fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span {
+    height: 40px;
+    width: 55px;
+
+    font-size: 14px;
+  }
+
+  /* Customise shape for active bullet */
+  #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, 
+  #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+    height: 40px;
+    width: 55px;
+
+    margin-top: -3px;
+    font-size: 18px;
+  }
+
+  /* Custom area for the content */
+  .content-box {
+    margin-left: 85px;
+    margin-right: 5px;
+  }
+
+  /* Custom container size and color behind content */
+  .content-container {
+    padding-top: 85px;
+    padding-bottom: 0px;
+  }
+
+  /* Custom container offset background coloring */
+  $offsetContentContainer: 15px;
+
+  .fp-tableCell {
+    margin-left: -$offsetContentContainer;
+    margin-right: -$offsetContentContainer;
+  }
+
+  .content-container {
+    padding-left: $offsetContentContainer;
+    padding-right: $offsetContentContainer;
+  }
+
+  /* Custom size for Past NUANSA logo */
+  .logo {
+    width: 100px;
+  }
+
+  /* Custom font for content text */
+  .content h4, h3 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .content p {
+    font-size: 12px;
+  }
+}

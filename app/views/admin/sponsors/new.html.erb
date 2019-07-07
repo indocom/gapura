@@ -1,0 +1,24 @@
+<section id="admin-form" class="section-container">
+  <div class="row">
+    <div class="title">
+      New Sponsor for NUANSA <%= @event.year %>
+    </div>
+    <div class="content">
+      <%= render 'form', sponsor: @sponsor, target_url: admin_event_sponsors_path %>
+
+      <br><br>
+      
+      <div class="row">
+        <div class="col-lg-4">
+          <%= link_to "Event Menu", admin_events_path %>
+        </div>
+        <div class="col-lg-4">
+          <%= link_to "Show Event", admin_event_path(@event.year) %>
+        </div>
+        <div class="col-lg-4">
+          <%= link_to 'Sponsors', admin_event_sponsors_path(@event.year) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

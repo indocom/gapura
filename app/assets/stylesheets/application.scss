@@ -14,9 +14,106 @@
  */
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+
 @import 'bootstrap';
+@import 'layouts/footer.css';
+@import 'layouts/header.css';
+@import 'layouts/nav-menu.css';
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap');
 
 body {
-	background-image: image-url("backgrounds/past_events_overview.png");
-	background-size: 800px 800px;
+  background-color: black !important;
+  max-width: 100vw;
+}
+
+.row {
+  max-width: 100vw;
+}
+
+#notice {
+  color: green; 
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+  width: 100%;
+}
+
+#error_explanation {
+  width: 100%;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; 
+
+  word-wrap: break-word;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff; 
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square; 
+  color: black;
+}
+
+// MARK: - Fix ratio for images
+
+.image-box-1-1, .image-box-2-1, .image-box-1-2, 
+.image-box-4-3, .image-box-16-9 {
+    position: relative;
+    width: 100%;
+}
+
+.image-box-1-1:before, .image-box-2-1:before, .image-box-1-2:before, 
+.image-box-4-3:before, .image-box-16-9:before {
+  content: "";
+  display: block;
+}
+
+.image-box-1-1:before {
+  padding-top: 100%;
+}
+
+.image-box-2-1:before {
+  padding-top: 50%;
+}
+
+.image-box-1-2:before {
+  padding-top: 200%;
+}
+
+.image-box-4-3:before {
+  padding-top: 75%;
+}
+
+.image-box-16-9:before {
+  padding-top: 56.25%;
+}
+
+.image-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: none;
+}
+
+.image-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

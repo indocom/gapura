@@ -1,21 +1,48 @@
 <header id="header">
   <div class="container">
     <div id="logo" class="pull-left">
-      <%= image_tag("logo.png") %>
+      <%= link_to image_tag("logo.png", height: '200'), root_path %>
     </div>
 
     <nav id="nav-menu-container">
       <ul class="nav-menu">
-        <% if params[:controller] == 'welcome' %>
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><%= link_to "Past NUANSA", past_events_path %></li>
-          <!-- <li class="buy-tickets"><a href="#intro"> Buy Tickets </a></li> -->
-        <% else %>
-          <li><a href="/#intro">Home</a></li>
-          <li><a href="/#about">About Us</a></li>
-          <li class="menu-active"><%= link_to "Past NUANSA", past_events_path %></li>
-          <!-- <li class="buy-tickets"><a href="/#intro"> Buy Tickets </a></li> -->
+        <% 
+          str = ""
+          menus = {
+            "intro" => "Home",
+            "about-us" => "About Us",
+            "testimonials" => "Testimonial",
+            "partners" => "Partners",
+            "faq" => "FAQ",
+            "events" => "Past NUANSA",
+            "buy-tickets" => "Buy Tickets"
+          }
+
+          menus.each do |key, value|
+            is_selected = false
+            if current_controller_name == "welcome"
+              is_selected = key == "intro"
+            elsif current_controller_name == key
+              is_selected = true
+            end
+            
+            str += (key == "buy-tickets") ? "<li class='buy-tickets'>" : 
+                    is_selected ? "<li class='menu-active'>" : "<li>"
+
+            case key
+            when "events"
+              str += (link_to value, events_path)
+            else
+              str += (link_to value, root_path(anchor: key))
+            end
+
+            str += "</li>"
+          end
+        %>
+
+        <%= str.html_safe %>
+        <% if user_signed_in? %>
+          <li> <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
         <% end %>
       </ul>
     </nav>

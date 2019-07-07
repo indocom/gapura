@@ -1,7 +1,7 @@
 # nuansa-cp/gapura
 
-The 'master' branch will used for deployment.
-All of the deployments are still for testing only.
+The 'master' branch is used for deployment.
+All of the deployments so far have only been used for testing.
 
 If you want to contribute, please create a merge request to the 'development' branch.
 

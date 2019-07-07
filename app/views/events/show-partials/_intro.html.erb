@@ -3,34 +3,19 @@
     <div id="introCarousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <div class='carousel-background'><%= image_tag('nuansa_logo/2018.jpg', alt: 'Tasasek') %></div>
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <h2 class="animated fadeInDown">Alstar web studio</h2>
-              <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="https://www.youtube.com/watch?v=kENe1-ZcBFs" class="venobox btn-get-started animated fadeInUp" data-vbtype="video" data-autoplay="true">Trailer</a>
-            </div>
+          <div class='carousel-background'>
+            <%= image_tag(@event.logo) %>    
           </div>
-        </div>
-        
-        <div class="item">
-          <div class='carousel-background'><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></div>
           <div class="carousel-container">
             <div class="carousel-content">
-              <h2 class="animated fadeInDown">Creativity and technology</span></h2>
-              <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="https://www.youtube.com/watch?v=kENe1-ZcBFs" class="venobox btn-get-started animated fadeInUp" data-vbtype="video" data-autoplay="true">Trailer</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="item">
-          <div class='carousel-background'><%= image_tag('nuansa_logo/2015.jpg', alt: 'Flowers of Asmat') %></div>
-          <div class="carousel-container">
-            <div class="carousel-content">
-              <h2 class="animated fadeInDown">Sequi ea ut et est quaerat</span></h2>
-              <p class="animated fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-              <a href="https://www.youtube.com/watch?v=kENe1-ZcBFs" class="venobox btn-get-started animated fadeInUp" data-vbtype="video" data-autoplay="true">Trailer</a>
+              <h2 class="animated fadeInDown">
+                NUANSA <%= @event.year %> <br>
+                <%= @event.title %> <br>
+                <%= @event.subtitle %> <br>   
+              </h2>
+              <p class="animated fadeInUp"><%= @event.overview %></p>
+              <%= link_to "Trailer", @event.event_info.video_link, class: "venobox btn-get-started animated fadeInUp", 
+                    data: {vbtype: "video", autoplay: "true"} %>
             </div>
           </div>
         </div>

@@ -1,0 +1,26 @@
+<% provide(:custom_css, 'admin/gallery_photos/form') %>
+
+<section id="admin-form" class="section-container">
+  <div class="row">
+    <div class="title">
+      Add New Photo for NUANSA <%= @event.year %>
+    </div>
+    <div class="content">
+      <%= render 'form', gallery_photo: @gallery_photo %>
+      
+      <br><br>
+      
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-4">
+          <%= link_to "Event Menu", admin_events_path %>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-4">
+          <%= link_to "Event Show", admin_event_path(@event.year) %>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-4">
+          <%= link_to "Gallery", admin_event_gallery_photos_path(@event.year) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

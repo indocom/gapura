@@ -1,0 +1,40 @@
+<section id="admin-show" class="section-container">
+  <div class="row">
+    <div class="title">
+      Testimony
+    </div>
+    <div class="content">
+      <div class="info-fields">
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Name</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @testimony.name %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Profession</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @testimony.profession %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Testimony</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @testimony.testimony %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Photo</div>
+          <div class="col-lg-10 col-md-12 field-value">
+            <%= @testimony.photo.attached? ? image_tag(@testimony.photo, height: "150px") : 'NO PHOTO' %>
+          </div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <%= link_to 'Back', admin_testimonies_path %>
+        </div>
+        <div class="col-lg-6">
+          <%= link_to 'Edit', edit_admin_testimony_path(@testimony) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

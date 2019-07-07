@@ -1,0 +1,70 @@
+<% provide(:custom_css, 'admin/events/show') %>
+
+<section id="admin-show" class="section-container">
+  <div class="row">
+    <div class="title">
+      Event Show
+    </div>
+    <div class="content">
+      <div class="info-fields">
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Year</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.year %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Title</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.title %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Subtitle</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.subtitle %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Logo</div>
+          <div class="col-lg-10 col-md-12 field-value">
+            <%= @event.logo.attached? ? image_tag(@event.logo, height: '100px') : 'NO LOGO' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Overview</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.overview %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Description</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.description %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Synopsis</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.synopsis %></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Video Link</div>
+          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.video_link %></div>
+        </div>
+      </div>
+      
+      <br><br>
+
+      <div class="row">
+        <div class="col-lg-2 col-md-3 col-xs-6">
+          <%= link_to 'Add Sponsor', new_admin_event_sponsor_path(@event.year) %>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-6">
+          <%= link_to 'Sponsors', admin_event_sponsors_path(@event.year) %>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-6">
+          <%= link_to "Add Photo", new_admin_event_gallery_photo_path(@event.year) %>
+        </div>
+        <div class="col-lg-2 col-md-3 col-xs-6">
+          <%= link_to 'Gallery', admin_event_gallery_photos_path(@event.year) %>
+        </div>
+        <div class="col-lg-2 col-md-6 col-xs-6">
+          <%= link_to "Edit", edit_admin_event_path(@event.year) %>
+        </div>
+        <div class="col-lg-2 col-md-6 col-xs-6">
+          <%= link_to "Back", admin_events_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

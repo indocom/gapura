@@ -1,0 +1,36 @@
+<section id="partners" class="section-container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 sponsors">
+      <div class="title">
+        Sponsors
+      </div>
+      <div class="content">
+        <div class="clearfix wow fadeInUp">
+          <% @event.sponsors.each do |sponsor| %>
+            <div class="col-lg-3 col-md-6 col-xs-12">
+              <div class="image-box-4-3 partner-box">
+                <div class="image-content partner-logo">
+                  <%= image_tag(sponsor.logo) %>
+                </div>
+              </div>
+            </div>
+          <%  end %>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-lg-6 col-md-12 supported-by">
+    	<div class="title">
+        Supported By
+      </div>
+      <div class="content">
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 media-partners">
+      <div class="title">
+        Media Partners
+      </div>
+      <div class="content">
+      </div>
+    </div> -->
+  </div>
+</section>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  before_action :ensure_superuser
   # GET /resource/password/new
   # def new
   #   super
@@ -21,7 +22,15 @@ class Users::PasswordsController < Devise::PasswordsController
   #   super
   # end
 
-  # protected
+  protected
+  
+  def ensure_superuser
+    if !user_signed_in? || !current_user.has_role?(:superuser)
+      redirect_to(root_path)
+      return false;
+    end
+    return true
+  end
 
   # def after_resetting_password_path_for(resource)
   #   super(resource)

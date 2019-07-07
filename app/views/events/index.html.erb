@@ -15,6 +15,10 @@
           <% end %>
           <br>
           <p><%= event.overview %></p>
+          <br>
+          <div class="btn btn-info btn-view-more">
+            <%= link_to "View More", event_path(event.year) %>
+          </div>
         </div>
       </div>
     <% end %>

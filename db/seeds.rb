@@ -23,7 +23,7 @@ if (Rails.env == "development")
     testimonial = Testimony.create(name: "Pokemon #{i}", profession: "Audience #{i}",
                                    testimony: "Good #{i}. " * 20)
     testimonial.photo.attach(
-      io: File.open( Rails.root.join('app', 'assets', 'images', 'testimonials', "testimonial-#{i % 3}.png")),
+      io: File.open(Rails.root.join('app', 'assets', 'images', 'testimonials', "testimonial-#{i % 3}.png")),
       filename: "testimonial-#{i % 3}.png", content_type: 'image/png'
     )
 
@@ -32,5 +32,21 @@ if (Rails.env == "development")
 
   10.times do |i|
     FrequentlyAskedQuestion.create(question: "Question #{i} " * 5 + "?", answer: "Answer #{i} " * 20 + "." )
+  end
+
+  current_event = Event.create(title: 'Title', subtitle: 'Subtitle', year: 2019, overview: 'Overview')
+  current_event.create_event_info(synopsis: 'Synopsis', description: 'Description', video_link: 'www.youtube.com')
+
+  10.times do |i|
+    sponsor  = current_event.sponsors.create(
+      name: "Sponsor #{i} for event #{current_event.year}", type: "Type #{i}"
+    )
+
+    sponsor.logo.attach(
+      io: File.open(Rails.root.join('app', 'assets', 'images', 'sponsors', "sponsor-#{i % 3}.png")),
+      filename: "sponsor-#{i % 3}.png", content_type: 'image/png'
+    )
+
+    sponsor.save
   end
 end

@@ -1,12 +1,12 @@
 module ApplicationHelper
   def add_stylesheet(filename='', opts = { media: 'all', 'data-turbolinks-track': 'reload'})
-    if ::Sprockets::Railtie.build_environment(Rails.application).find_asset(filename + ".css")
+    if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset(filename + ".css")
       stylesheet_link_tag(filename, opts)
     end
   end
 
   def add_javascript(filename='', opts = { 'data-turbolinks-track': 'reload' })
-    if ::Sprockets::Railtie.build_environment(Rails.application).find_asset(filename + ".js")
+    if (Rails.application.assets || ::Sprockets::Railtie.build_environment(Rails.application)).find_asset(filename + ".js")
       javascript_include_tag(filename, opts)
     end
   end

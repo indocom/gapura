@@ -16,10 +16,9 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
 @import 'bootstrap';
-@import 'layouts/footer.css';
-@import 'layouts/header.css';
-@import 'layouts/nav-menu.css';
-
+@import 'layouts/footer.scss';
+@import 'layouts/header.scss';
+@import 'layouts/nav-menu.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap');
 

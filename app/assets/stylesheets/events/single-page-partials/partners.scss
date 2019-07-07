@@ -30,9 +30,19 @@
   margin: 15px 0px;
 }
 
+#partners .partner-logo {
+  align-items: center;
+  overflow: hidden;
+}
+
 #partners .partner-logo img {
   border-radius: 15px;
   transition: all ease-in-out 0.4s;
+}
+
+#partners .partner-logo:hover img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 @media (max-width: 980px) {

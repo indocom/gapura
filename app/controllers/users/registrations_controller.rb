@@ -58,7 +58,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/cancel
   def cancel
     session.delete(:provider_data) if session[:provider_data]
-    super
+    expire_data_after_sign_in!
+
+    redirect_to new_user_session_url
   end
 
   protected

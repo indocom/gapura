@@ -5,49 +5,13 @@
     </div>
 
     <div class="row no-gutters partners-wrap clearfix justify-content-center wow fadeInUp">
-
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-1.png", class: "img-fluid") %>
+      <% @partners.each do |partner| %>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <div class="partner-logo">
+            <%= image_tag(partner.logo, class: "img-fluid") %>
+          </div>
         </div>
-      </div>
-      
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-2.png", class: "img-fluid") %>
-        </div>
-      </div>
-    
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-3.png", class: "img-fluid") %>
-        </div>
-      </div>
-      
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-4.png", class: "img-fluid") %>
-        </div>
-      </div>
-      
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-5.png", class: "img-fluid") %>
-        </div>
-      </div>
-    
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-6.png", class: "img-fluid") %>
-        </div>
-      </div>
-      
-      <div class="col-lg-3 col-md-4 col-xs-6">
-        <div class="partner-logo">
-          <%= image_tag("clients/client-7.png", class: "img-fluid") %>
-        </div>
-      </div>
-
+      <% end %>
     </div>
   </div>
 </section>

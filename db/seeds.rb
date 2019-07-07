@@ -6,10 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-superuser = User.create(username: ENV['DEFAULT_USERNAME'], email: ENV['DEFAULT_EMAIL'],
-                        password: ENV['DEFAULT_PASSWORD'], confirmed_at: DateTime.now)
-superuser.add_role :admin
-superuser.add_role :superuser
+superuser = User.find_by(username: ENV['SUPERUSER_USERNAME'])
+if (superuser.nil?)
+  superuser = User.create(username: ENV['SUPERUSER_USERNAME'], email: ENV['SUPERUSER_EMAIL'],
+                          password: ENV['SUPERUSER_PASSWORD'], confirmed_at: DateTime.now)
+  superuser.add_role :admin
+  superuser.add_role :superuser
+end
+
+admin = User.find_by(username: ENV['ADMIN_USERNAME'])
+if (admin.nil?)
+  admin = User.create(username: ENV['ADMIN_USERNAME'], email: ENV['ADMIN_EMAIL'],
+                      password: ENV['ADMIN_PASSWORD'], confirmed_at: DateTime.now)
+  admin.add_role :admin
+end
 
 if (Rails.env == "development")
   admin = User.create(username: 'admin', email: 'admin@example.com',

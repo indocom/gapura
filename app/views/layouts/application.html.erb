@@ -43,6 +43,10 @@
     <% if is_admin_namespace %>
       <%= add_stylesheet('admin/shared') %>
     <% end %>
+
+    <% if is_users_controller %>
+      <%= add_stylesheet('users/shared') %>
+    <% end %>
     
     <%= add_stylesheet(current_controller_name) %>
     <%= add_javascript(current_controller_name) %>

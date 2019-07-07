@@ -1,5 +1,18 @@
-<h1>New Admin Testimony</h1>
+<section id="admin-form" class="section-container">
+  <div class="row">
+    <div class="title">
+      New Testimony
+    </div>
+    <div class="content">
+      <%= render 'form', testimony: @testimony, target_url: admin_testimonies_path %>
 
-<%= render 'form', testimony: @testimony, target_url: admin_testimonies_path %>
-
-<%= link_to 'Back', admin_testimonies_path %>
+      <br><br>
+      
+      <div class="row">
+        <div class="col-lg-12">
+          <%= link_to 'Back', admin_testimonies_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

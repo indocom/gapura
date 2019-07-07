@@ -22,11 +22,22 @@
               </div>
             </div>
           <% end %>
+          <% if can?(:edit, FrequentlyAskedQuestion) %>         
+            <div class="col-lg-6 col-md-12">
+              <div class="action-button">
+                <%= link_to "Manage FAQ", admin_frequently_asked_questions_path %>
+              </div>
+            </div>
+          <% end %>
+          <% if can?(:edit, Testimony) %>         
+            <div class="col-lg-6 col-md-12">
+              <div class="action-button">
+                <%= link_to "Manage Testimony", admin_testimonies_path %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<%= link_to "Manage FAQ", admin_frequently_asked_questions_path %> <br>
-<%= link_to "Manage Testimonies", admin_testimonies_path %>

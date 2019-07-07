@@ -6,6 +6,8 @@ class Sponsor < ApplicationRecord
 
   validate :logo_validation
 
+  validates :type, :name, presence: true
+
   def logo_validation
     if logo.attached?
       if logo.blob.byte_size > 2097152

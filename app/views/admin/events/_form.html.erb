@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col-lg-2 col-md-12 field-key">
-        <%= form.label :subtitle, "Title" %>
+        <%= form.label :title, "Title" %>
       </div>
       <div class="col-lg-10 col-md-12 field-value">
         <%= form.text_field :title, required: true %>
@@ -30,7 +30,7 @@
     </div>
     <div class="row">
       <div class="col-lg-2 col-md-12 field-key">
-        <%= form.label :subtitle, "Subtitle", required: true %>
+        <%= form.label :subtitle, "Subtitle" %>
       </div>
       <div class="col-lg-10 col-md-12 field-value">
         <%= form.text_field :subtitle %> <br>
@@ -74,7 +74,7 @@
           <%= event_info_form.label :video_link %>
         </div>
         <div class="col-lg-10 col-md-12 field-value">
-          <%= event_info_form.text_field :video_link, required: true %>
+          <%= event_info_form.text_field :video_link %>
         </div>
       </div>
     <% end %>

@@ -24,16 +24,16 @@
       <br><br>
 
       <div class="row">
-        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+        <div class="col-lg-3 col-md-3 col-xs-6">
           <%= link_to 'Event Menu', admin_events_path %>
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+        <div class="col-lg-3 col-md-3 col-xs-6">
           <%= link_to 'Show Event', admin_event_path(@event.year) %>
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+        <div class="col-lg-3 col-md-3 col-xs-6">
           <%= link_to 'Back to Sponsors', admin_event_sponsors_path(@event.year) %>
         </div>
-        <div class="col-lg-3 col-md-3 col-xs-6 col-item">
+        <div class="col-lg-3 col-md-3 col-xs-6">
           <%= link_to "Edit", edit_admin_event_sponsor_path(@sponsor) %>
         </div>
       </div>

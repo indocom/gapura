@@ -12,6 +12,8 @@ class Event < ApplicationRecord
 
   validate :logo_validation
 
+  validates :year, :title, :overview, presence: true
+
   def logo_validation
     if logo.attached?
       if logo.blob.byte_size > 2097152

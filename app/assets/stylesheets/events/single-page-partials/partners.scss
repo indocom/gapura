@@ -26,42 +26,13 @@
   font-size: 16px;
 }
 
-@media (max-width: 980px) {
-  #partners {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
+#partners .partner-box {
+  margin: 15px 0px;
 }
 
-#partners .partners-logo {
-  padding: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-
-  border-right: 1px solid #e0e5fa;
-  border-bottom: 1px solid #e0e5fa;
-
-  height: 160px;
-
-  background: rgba(255, 255, 255, 1);
-  border-radius: 10px;
-}
-
-#partners .partners-logo:hover img {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
-
-#partners img {
-  transition: all 0.4s ease-in-out;
-  width: 100%;
+#partners .partner-logo img {
+  border-radius: 15px;
+  transition: all ease-in-out 0.4s;
 }
 
 @media (max-width: 980px) {

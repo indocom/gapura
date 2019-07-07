@@ -12,7 +12,7 @@ class Sponsor < ApplicationRecord
     if logo.attached?
       if logo.blob.byte_size > 2097152
         logo.purge
-        errors[:base] << 'Sponsor logo too big'
+        errors[:base] << 'Sponsor logo too big (max 2 MB)'
       end
     end
   end

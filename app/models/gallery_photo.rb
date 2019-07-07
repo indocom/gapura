@@ -8,7 +8,7 @@ class GalleryPhoto < ApplicationRecord
     if image.attached?
       if image.blob.byte_size > 2097152
         image.purge
-        errors[:base] << 'Image too big'
+        errors[:base] << 'Image too big (max 2 MB)'
       end
     elsif (image_link.blank?)
         errors[:base] << 'Image is missing'

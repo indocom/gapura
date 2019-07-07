@@ -5,52 +5,24 @@
         Sponsors
       </div>
       <div class="content">
-        <div class="no-gutters partners-wrap clearfix justify-content-center wow fadeInUp">
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-1.png") %>
+        <div class="clearfix wow fadeInUp">
+          <% @event.sponsors.each do |sponsor| %>
+            <div class="col-lg-3 col-md-6 col-xs-12">
+              <div class="image-box-4-3 partner-box">
+                <div class="image-content partner-logo">
+                  <%= image_tag(sponsor.logo) %>
+                </div>
+              </div>
             </div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-2.png") %>
-            </div>
-          </div>
-        
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-3.png") %>
-            </div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-4.png") %>
-            </div>
-          </div>
+          <%  end %>
         </div>
       </div>
     </div>
-
-    <div class="col-lg-6 col-md-12 supported-by">
+    <!-- <div class="col-lg-6 col-md-12 supported-by">
     	<div class="title">
         Supported By
       </div>
       <div class="content">
-        <div class="no-gutters partners-wrap clearfix justify-content-center wow fadeInUp">
-          <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-1.png", class: "img-fluid") %>
-            </div>
-          </div>
-          
-          <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-2.png", class: "img-fluid") %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <div class="col-lg-6 col-md-12 media-partners">
@@ -58,20 +30,7 @@
         Media Partners
       </div>
       <div class="content">
-        <div class="no-gutters partners-wrap clearfix justify-content-center wow fadeInUp">
-          <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-1.png", class: "img-fluid") %>
-            </div>
-          </div>
-          
-          <div class="col-lg-6 col-md-12 col-xs-12">
-            <div class="partners-logo">
-              <%= image_tag("clients/client-2.png", class: "img-fluid") %>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>

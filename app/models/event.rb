@@ -18,7 +18,7 @@ class Event < ApplicationRecord
     if logo.attached?
       if logo.blob.byte_size > 2097152
         logo.purge
-        errors[:base] << 'Logo too big'
+        errors[:base] << 'Logo too big (max 2 MB)'
       end
     end
   end

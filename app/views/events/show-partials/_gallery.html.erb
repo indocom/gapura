@@ -4,54 +4,17 @@
       Our Gallery
     </div>
     <div class="content">
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
+      <div class="clearfix wow fadeInUp">
+        <% @event.gallery_photos.each do |photo| %>
+          <div class="col-lg-3 col-md-6 col-xs-12">
+            <div class="image-box-4-3 photo-box">
+              <div class="image-content photo">
+                <%= link_to image_tag(photo.image_link, class: "img-fluid"), photo.image_link, 
+                    class: "venobox", data: { gall: "photo-gallery" } %>
+              </div>
+            </div>
           </div>
-        </div>
-        
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-4">
-          <div class="photo-gallery">
-            <%= link_to image_tag("gallery/1.jpg", class: "img-fluid"), image_url("1.jpg"), class: "venobox", data: { gall: "photo-gallery" } %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

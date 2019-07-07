@@ -2,132 +2,27 @@
 
 <div class="content-box">
   <div id="fullpage">
-    <div class="content section" id="nuansa2018">
-      <div class="content-container">
-        <h4>2018</h4>
-        <h3>
-          Tasasek: <br> 
-          The Courage To Choose <br>
-        </h3>
-        <br>
-        <%= image_tag('nuansa_logo/2018.jpg', class: 'logo', alt: 'Tasasek') %>
-        <br><br>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
+    <% @events.each do |event| %>
+      <div class="content section">
+        <div class="content-container">
+          <h4><%= event.year %></h4>
+          <h3>
+            <%= event.title %><br> 
+            <%= event.subtitle %><br>
+          </h3>
+          <% if event.logo.attached? %>
+            <br> <%= event.logo.attached? ? image_tag(event.logo, class: 'logo', alt: 'Tasasek') : '' %> <br>
+          <% end %>
+          <br>
+          <p><%= event.overview %></p>
+          <br>
+          <div class="btn btn-info btn-view-more">
+            <%= link_to "View More", event_path(event.year) %>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="content section" id="nuansa2017">
-      <div class="content-container">
-        <h4>2017</h4>
-        <h3>
-          Galigo: <br>
-          The Chaos Within <br>
-        </h3>
-        <br>
-        <%= image_tag('nuansa_logo/2017.jpg', class: 'logo', alt: 'Galigo') %>
-        <br><br>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2015">
-      <div class="content-container">
-        <h4>2015</h4>
-        <h3>Flowers of Asmat</h3>
-        <br>
-        <%= image_tag('nuansa_logo/2015.jpg', class: 'logo', alt: 'Flowers of Asmat') %>
-        <br><br>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2014">
-      <div class="content-container">
-        <h4>2014</h4>
-        <h3>The Priyayi</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2013">
-      <div class="content-container">
-        <h4>2013</h4>
-        <h3>Dance of the Earth</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2012">
-      <div class="content-container">
-        <h4>2012</h4>
-        <h3>
-          Canting: <br>
-          A Dying Family, A Dyeing Tradition <br>
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2011">
-      <div class="content-container">
-        <h4>2011</h4>
-        <h3>Ca Bau Kan</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2010">
-      <div class="content-container">
-        <h4>2010</h4>
-        <h3>
-          This Earth of Mankind
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2009">
-      <div class="content-container">
-        <h4>2009</h4>
-        <h3>
-          Sitti Nurbaya: <br>
-          Unfulfilled Love <br>
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-
-    <div class="content section" id="nuansa2008">
-      <div class="content-container">
-        <h4>2008</h4>
-        <h3>
-          Prambanan: <br>
-          A Thousand Beauties <br>
-        </h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis eu volutpat odio facilisis mauris. Ullamcorper malesuada proin libero nunc consequat interdum varius. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Pellentesque eu tincidunt tortor aliquam nulla. Cras tincidunt lobortis feugiat vivamus at. Congue eu consequat ac felis donec et odio pellentesque diam. Cras adipiscing enim eu turpis egestas pretium aenean pharetra. Sit amet consectetur adipiscing elit duis. At auctor urna nunc id cursus metus. Ornare massa eget egestas purus viverra accumsan in. Et malesuada fames ac turpis egestas. Elementum facilisis leo vel fringilla.
-        </p>
-      </div>
-    </div>
-      <div style="clear: both;"></div>
+    <% end %>
+    <div style="clear: both;"></div>
   </div>
 </div>
 

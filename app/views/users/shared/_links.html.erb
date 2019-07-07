@@ -21,12 +21,7 @@
 -->
 
 <div class="row">
-  <div class="col-lg-6 col-btn">
-    <div class="btn btn-secondary">
-      <%= link_to "Login with Facebook", omniauth_authorize_path(resource_name, 'facebook'), method: :post %>
-    </div>
-  </div>
-  <div class="col-lg-6 col-btn">
+  <div class="col-lg-12 col-btn">
     <div class="btn btn-secondary">
       <%= link_to "Login with Google", omniauth_authorize_path(resource_name, 'google_oauth2'), method: :post %>
     </div>

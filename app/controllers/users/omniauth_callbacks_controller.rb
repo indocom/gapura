@@ -6,18 +6,18 @@ module Users
     before_action :ensure_superuser, only: %i[passthru]
 
     # Facebook callback
-    def facebook
-      if @user.persisted?
-        sign_in_and_redirect @user
-        if is_navigational_format?
-          set_flash_message(:notice, :success, kind: 'Facebook')
-        end
-      else
-        flash[:error] = 'There was a problem signing you in through Facebook.' \
-          ' Please register or try signing in later.'
-        redirect_to new_user_registration_url
-      end
-    end
+    # def facebook
+    #   if @user.persisted?
+    #     sign_in_and_redirect @user
+    #     if is_navigational_format?
+    #       set_flash_message(:notice, :success, kind: 'Facebook')
+    #     end
+    #   else
+    #     flash[:error] = 'There was a problem signing you in through Facebook.' \
+    #       ' Please register or try signing in later.'
+    #     redirect_to new_user_registration_url
+    #   end
+    # end
 
     # Google callback
     def google_oauth2

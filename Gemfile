@@ -86,7 +86,10 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 # Security protection for Omniauth
 gem "omniauth-rails_csrf_protection"
-#Add roles
+# Add roles
 gem 'rolify'
-#Add privileges
+# Add privileges
 gem 'cancancan'
+
+# Add Amazon S3 
+gem "aws-sdk-s3", require: false

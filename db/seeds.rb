@@ -19,11 +19,11 @@ if (Rails.env == "development")
   user = User.create(username: 'user', email: 'user@example.com',
                      password: '123456', confirmed_at: DateTime.now)
 
-  10.times do |i|
+  9.times do |i|
     testimonial = Testimony.create(name: "Pokemon #{i}", profession: "Audience #{i}",
                                    testimony: "Good #{i}. " * 20)
     testimonial.photo.attach(
-      io: File.open(Rails.root.join('app', 'assets', 'images', 'testimonials', "testimonial-#{i % 3}.png")),
+      io: File.open(Rails.root.join('app', 'assets', 'images', 'mock_datas', "testimonial-#{i % 3}.png")),
       filename: "testimonial-#{i % 3}.png", content_type: 'image/png'
     )
 
@@ -37,13 +37,13 @@ if (Rails.env == "development")
   current_event = Event.create(title: 'Title', subtitle: 'Subtitle', year: 2019, overview: 'Overview')
   current_event.create_event_info(synopsis: 'Synopsis', description: 'Description', video_link: 'www.youtube.com')
 
-  10.times do |i|
+  9.times do |i|
     sponsor  = current_event.sponsors.create(
       name: "Sponsor #{i} for event #{current_event.year}", type: "Type #{i}"
     )
 
     sponsor.logo.attach(
-      io: File.open(Rails.root.join('app', 'assets', 'images', 'sponsors', "sponsor-#{i % 3}.png")),
+      io: File.open(Rails.root.join('app', 'assets', 'images', 'mock_datas', "sponsor-#{i % 3}.png")),
       filename: "sponsor-#{i % 3}.png", content_type: 'image/png'
     )
 

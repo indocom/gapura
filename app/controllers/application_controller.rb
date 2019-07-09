@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def unauthorized_access
-    user_signed_in? ? not_found : redirect_to new_user_session_path
+    user_signed_in? ? not_found : redirect_to(new_user_session_url)
   end
 
   def not_found

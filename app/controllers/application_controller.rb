@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+  def current_year
+    2019
+  end
+
   def ensure_admin
     unauthorized_access unless user_signed_in? && current_user.has_role?(:admin)
   end

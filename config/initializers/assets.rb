@@ -52,6 +52,7 @@ Rails.application.config.assets.precompile += %w(
                                                   the-event/*.css 
                                                   fullpage/fullpage.css
                                                   bootstrap_v3/*.css
+                                                  quill/*.css
 
                                                   bootstrap/*.js
                                                   easing/*.js
@@ -64,6 +65,7 @@ Rails.application.config.assets.precompile += %w(
                                                   reveal/*.js
                                                   the-event/*.js
                                                   jquery/*.js
+                                                  quill/*.js
 
                                                   fullpage/fullpage.js
                                                   fullpage/fullpage.extensions.min.js

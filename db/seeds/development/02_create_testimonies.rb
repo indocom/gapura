@@ -1,5 +1,5 @@
 for i in Testimony.count..11 do
-  testimonial = Testimony.create(name: "Pokemon #{i}", profession: "Audience #{i}",
+  testimonial = Testimony.new(name: "Pokemon #{i}", profession: "Audience #{i}",
                                   testimony: "Good #{i}. " * 20)
 
   filename = "testimonial-#{i % 3}.png"

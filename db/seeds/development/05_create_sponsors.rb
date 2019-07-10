@@ -1,6 +1,6 @@
 Event.all.each do |event|
   for i in event.sponsors.count..8
-    sponsor  = event.sponsors.create(
+    sponsor  = event.sponsors.build(
       name: "Sponsor #{i} for event #{event.year}", type: "Type #{i}"
     )
 

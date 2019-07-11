@@ -89,6 +89,7 @@
   </div>
   
   <script>
+    // Initialises the div with id='editor-container' to be a quill editor
     var quill = new Quill('#editor-container', {
       modules: {
         toolbar: [
@@ -96,13 +97,20 @@
           ['bold', 'italic', 'underline'],
         ]
       },
-      placeholder: 'Compose an epic...',
-      theme: 'snow'  // or 'bubble'
+      placeholder: 'Insert full description here...',
+      theme: 'snow'
     });
 
+    /* If we are editing an event, this code will retrieve the html text from the database that is loaded 
+       into the form, and inject it to the quill editor
+    */
     var postContentInput = document.querySelector('#event_event_info_attributes_description');
     quill.root.innerHTML = postContentInput.value
 
+    /* Copied from StackOverflow, but this is the piece of code that allows any changes in html text to be
+       injected into the hidden_field: 
+       <%= event_info_form.hidden_field :description, required: true %>
+    */ 
     quill.on('text-change', function() {
       $("#event_event_info_attributes_description").val(quill.root.innerHTML);
     });

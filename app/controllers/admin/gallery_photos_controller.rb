@@ -34,7 +34,6 @@ module Admin
     end
 
     private
-      # Only allow a trusted parameter "white list" through.
       def gallery_photo_params
         params.require(:gallery_photo).permit(:image, :image_link)
       end

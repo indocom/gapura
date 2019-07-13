@@ -15,9 +15,11 @@ module Admin
     def new
       @event = Event.new
       @event.build_event_info
+      @event.build_logo
     end
 
     def edit
+      @event.build_logo if @event.logo.nil?
     end
 
     def create
@@ -50,7 +52,8 @@ module Admin
 
       def event_params
         params.require(:event).permit(:title, :subtitle, :overview, :year, :logo,
-          event_info_attributes: [:id, :synopsis, :description, :video_link])
+          event_info_attributes: [:id, :synopsis, :description, :video_link],
+          logo_attributes: [:id, :file, :_destroy])
           .tap do|event_params|
             event_params.require(:event_info_attributes)
           end

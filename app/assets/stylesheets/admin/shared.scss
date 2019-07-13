@@ -44,8 +44,12 @@
 
 // MARK: - Custom CSS for hyperlink
 
-a:link, a:visited {
-  color: white;
+a:link {
+  color: #0645AD;
+}
+
+a:visited {
+  color: #663366;
 }
 
 // MARK: - Form default setting
@@ -88,11 +92,6 @@ a:link, a:visited {
   height: 150px;
   background-color: white;
   color: black;
-}
-
-#editor-container a {
-  // links
-  color: blue;
 }
 
 // MARK: - Custom display for buttons

@@ -10,8 +10,10 @@ event_years.each_with_index do |year, i|
     description: "Description #{year}" * 100, video_link: 'www.youtube.com')
 
   filename = "event_logo-#{i %3}.jpg"
-  event.logo.attach(
-    io: get_mock_file(filename), filename: filename, content_type: 'image/jpg'
-  )
+  event.build_logo({
+    data: get_binary_data(filename),
+    mime_type: get_image_mime_type(filename),
+    filename: filename,
+  })
   event.save
 end

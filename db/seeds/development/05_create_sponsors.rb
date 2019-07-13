@@ -5,10 +5,11 @@ Event.all.each do |event|
     )
 
     filename = "sponsor-#{i % 3}.png"
-    sponsor.logo.attach(
-      io: get_mock_file(filename), filename: filename, content_type: 'image/png'
-    )
-
+    sponsor.build_logo({
+      data: get_binary_data(filename),
+      mime_type: get_image_mime_type(filename),
+      filename: filename,
+    })
     sponsor.save
   end
 end

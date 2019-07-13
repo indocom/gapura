@@ -3,9 +3,11 @@ for i in Testimony.count..11 do
                                   testimony: "Good #{i}. " * 20)
 
   filename = "testimonial-#{i % 3}.png"
-  testimonial.photo.attach(
-    io: get_mock_file(filename), filename: filename, content_type: 'image/png'
-  )
+  testimonial.build_photo({
+    data: get_binary_data(filename),
+    mime_type: get_image_mime_type(filename),
+    filename: filename,
+  })
 
   testimonial.save
 end

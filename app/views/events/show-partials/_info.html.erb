@@ -3,7 +3,7 @@
     <div class="col-lg-6 col-md-12 description">
     	<div class="title">Description</div>
       <div class="content">
-        <%= raw sanitize @event.event_info.description, tags: %w(strong em a br), attributes: %w(href) %>
+        <%= raw sanitize @event.event_info.description, tags: %w(strong em a u br), attributes: %w(href) %>
       </div>
     </div>
     <div class="col-lg-6 col-md-12 synopsis">

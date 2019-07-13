@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Description</div>
           <div class="col-lg-10 col-md-12 field-value">
-            <%= raw sanitize @event.event_info.description, tags: %w(strong em a br), attributes: %w(href) %>
+            <%= raw sanitize @event.event_info.description, tags: %w(strong em a u br), attributes: %w(href) %>
           </div>
         </div>
         <div class="row">

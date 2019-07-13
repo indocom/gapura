@@ -89,13 +89,28 @@
   </div>
   
   <script>
-    // Initialises the div with id='editor-container' to be a quill editor
+    var toolbarOptions = {
+      container: [
+        ['bold', 'italic', 'underline'],
+        ['link'],
+      ],
+      handlers: {
+        // UI improvements. The original had an ugly-looking input field
+        'link': function(value) {
+          if (value) {
+            var href = prompt('Enter the URL');
+            this.quill.format('link', href);
+          } else {
+            this.quill.format('link', false);
+          }
+        }
+      }
+    }
+
+    // Initialises the div with id='editor-container' to be a quill editor, with toolbarOptions specified above
     var quill = new Quill('#editor-container', {
       modules: {
-        toolbar: [
-          ['bold', 'italic', 'underline'],
-          ['link'],
-        ]
+        toolbar: toolbarOptions
       },
       placeholder: 'Insert full description here...',
       theme: 'snow'

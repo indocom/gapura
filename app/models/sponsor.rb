@@ -1,10 +1,12 @@
 class Sponsor < ApplicationRecord
   self.inheritance_column='inheritance_type'
 
-  has_one_attached :logo
+  has_one :logo, as: :imageable, dependent: :destroy, class_name: "Image"
   belongs_to  :event, foreign_key: :year, primary_key: :year
 
-  validate :logo_validation
+  accepts_nested_attributes_for :logo, reject_if: :all_blank, allow_destroy: true
+
+#  validate :logo_validation
 
   validates :type, :name, presence: true
 

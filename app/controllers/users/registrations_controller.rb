@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new
       render 'new_from_provider'
     else
-      not_found && return
+      unauthorized_access && return
       super
     end
   end
@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         render 'new_from_provider'
       end
     else
-      not_found && return
+      unauthorized_access && return
       super
       if resource.persisted?
         flash[:popup_alert] = 'Thank you for registering!\n'\

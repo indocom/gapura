@@ -7,6 +7,5 @@ class EventsController < ApplicationController
 
   def show
     set_event
-    not_found if !performed? && (@event.year >= 2019)
   end
 end

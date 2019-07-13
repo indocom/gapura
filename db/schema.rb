@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_162643) do
+ActiveRecord::Schema.define(version: 2019_07_13_084514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2019_07_06_162643) do
     t.integer "year", null: false
     t.datetime "created_at", null: false
     t.index ["year"], name: "index_gallery_photos_on_year"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.binary "data", null: false
+    t.string "mime_type"
+    t.string "filename"
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
   create_table "roles", force: :cascade do |t|

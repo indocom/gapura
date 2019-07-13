@@ -82,11 +82,17 @@ a:link, a:visited {
   color: black;
   background-color: white;
 }
+
 // Quill editor, color is for the text color; if not specified it will be white
 #editor-container {
   height: 150px;
   background-color: white;
   color: black;
+}
+
+#editor-container a {
+  // links
+  color: blue;
 }
 
 // MARK: - Custom display for buttons

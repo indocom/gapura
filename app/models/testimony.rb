@@ -1,7 +1,8 @@
 class Testimony < ApplicationRecord
-  has_one_attached :photo
+  has_one :photo, as: :imageable, dependent: :destroy, class_name: "Image"
+  accepts_nested_attributes_for :photo, reject_if: :all_blank, allow_destroy: true
 
-  validate :photo_validation
+#  validate :photo_validation
 
   validates :name, :profession, :testimony, presence: true
 

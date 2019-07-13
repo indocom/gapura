@@ -20,7 +20,7 @@
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Photo</div>
           <div class="col-lg-10 col-md-12 field-value">
-            <%= @testimony.photo.attached? ? image_tag(@testimony.photo, height: "150px") : 'NO PHOTO' %>
+            <%= @testimony.photo.present? ? image_tag(serve_image_path(@testimony.photo), height: "150px") : 'NO PHOTO' %>
           </div>
         </div>
       </div>

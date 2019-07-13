@@ -76,12 +76,17 @@ a:link, a:visited {
   background-color: white;
 }
 
-
 #admin-form textarea {
   width: 100%;
   height: 150px;
   color: black;
   background-color: white;
+}
+// Quill editor, color is for the text color; if not specified it will be white
+#editor-container {
+  height: 150px;
+  background-color: white;
+  color: black;
 }
 
 // MARK: - Custom display for buttons

@@ -7,7 +7,7 @@ class Image < ApplicationRecord
   private
     def populate_fields_from_file
       return if file.nil?
-      self.data = file.read
+      self.data = file.open.read
       self.filename = file.original_filename
       self.mime_type = file.content_type
     end

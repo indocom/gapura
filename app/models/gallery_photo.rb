@@ -1,8 +1,9 @@
 class GalleryPhoto < ApplicationRecord
-  has_one_attached :image
+  has_one :image, as: :imageable, dependent: :destroy
   belongs_to :event, foreign_key: :year, primary_key: :year, touch: true
 
-  validate :image_validation
+  accepts_nested_attributes_for :image, reject_if: :all_blank, allow_destroy: true
+#  validate :image_validation
 
   def image_validation
     if image.attached?

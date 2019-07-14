@@ -17,11 +17,6 @@ module Admin
     def create
       @gallery_photo = @event.gallery_photos.build(gallery_photo_params)
       if @gallery_photo.save
-        if @gallery_photo.image.present?
-          @gallery_photo.image_link = serve_image_url(@gallery_photo.image)
-          @gallery_photo.save
-        end
-
         redirect_to admin_event_gallery_photos_path, notice: 'Gallery photo was successfully created.'
       else
         render :new

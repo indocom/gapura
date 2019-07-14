@@ -8,8 +8,5 @@ Event.all.each do |event|
       filename: filename,
     })
     gallery_photo.save
-    gallery_photo.image_link = Rails.application.routes.url_helpers
-      .serve_image_url(gallery_photo.image, only_path: true)
-    gallery_photo.save
   end
 end

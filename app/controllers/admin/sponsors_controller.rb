@@ -51,7 +51,7 @@ module Admin
       end
 
       def sponsor_params
-        params.require(:sponsor).permit(:type, :name, logo_attributes: [:id, :file, :_destroy])
+        params.require(:sponsor).permit(:type, :name, :link, logo_attributes: [:id, :file, :_destroy])
       end
   end
 end

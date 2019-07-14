@@ -14,9 +14,15 @@
           <div class="col-lg-10 col-md-12 field-value"><%= @sponsor.name %></div>
         </div>
         <div class="row">
+          <div class="col-lg-2 col-md-12 field-key">Sponsor Link</div>
+          <div class="col-lg-10 col-md-12 field-value">
+           <%= @sponsor.link.blank? ? 'No Link' : link_to(nil, @sponsor.link, target: '_blank') %>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Logo</div>
           <div class="col-lg-10 col-md-12 field-value">
-            <%= @sponsor.logo.present? ? image_tag(serve_image_path(@sponsor.logo), height: '100px') : 'NO LOGO'%>
+            <%= @sponsor.logo.present? ? image_tag(serve_image_path(@sponsor.logo), height: '100px') : 'NO LOGO' %>
           </div>
         </div>
       </div>

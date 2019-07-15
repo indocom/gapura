@@ -1,6 +1,7 @@
 module Admin
   class SponsorsController < ApplicationController
     include EventsHelper
+    include UrlHelper
 
     before_action :ensure_admin
     before_action :set_event

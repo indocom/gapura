@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  include UrlHelper
+
   def index
     @testimonies = Testimony.all
     @faqs = FrequentlyAskedQuestion.all

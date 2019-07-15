@@ -16,7 +16,11 @@
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Sponsor Link</div>
           <div class="col-lg-10 col-md-12 field-value">
-           <%= @sponsor.link.blank? ? 'No Link' : link_to(nil, @sponsor.link, target: '_blank') %>
+            <% if @sponsor.link.blank?  %>
+              No Link
+            <% else %>
+              <%= link_to(@sponsor.link, url_with_default_protocol(@sponsor.link), target: '_blank') %>
+            <% end %>
           </div>
         </div>
         <div class="row">

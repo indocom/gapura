@@ -117,7 +117,11 @@
     });
 
     /* If we are editing an event, this code will retrieve the html text from the database that is loaded 
-       into the form, and inject it to the quill editor
+       into the form, and inject it to the quill editor.
+
+       During runtime, the code `event_info_form.hidden_field :description, required: true` gets resolved 
+       to have `id="event_event_info_attributes_description"`. For more details, you can read at
+       `https://github.com/nuansa-cp/gapura/pull/84#discussion_r302797872`.
     */
     var postContentInput = document.querySelector('#event_event_info_attributes_description');
     quill.root.innerHTML = postContentInput.value

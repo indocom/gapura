@@ -10,13 +10,13 @@
       
       <div class="row">
         <div class="col-lg-4">
-          <%= link_to "Event Menu", admin_events_path %>
+          <%= button_to("Event Menu", admin_events_path, method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-4">
-          <%= link_to "Show Event", admin_event_path(@event.year) %>
+          <%= button_to("Show Event", admin_event_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-4">
-          <%= link_to 'Sponsors', admin_event_sponsors_path(@event.year) %>
+          <%= button_to('Sponsors', admin_event_sponsors_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
       </div>
     </div>

@@ -29,10 +29,10 @@
 
       <div class="row">
         <div class="col-lg-6">
-          <%= link_to 'Back', admin_testimonies_path %>
+          <%= button_to('Back', admin_testimonies_path, method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-6">
-          <%= link_to 'Edit', edit_admin_testimony_path(@testimony) %>
+          <%= button_to('Edit', edit_admin_testimony_path(@testimony), method: "get", class: "btn btn-info") %>
         </div>
       </div>
     </div>

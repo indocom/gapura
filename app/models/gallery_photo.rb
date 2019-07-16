@@ -9,6 +9,11 @@ class GalleryPhoto < ApplicationRecord
 
   private
     def fill_image_link
+      if self.image.nil?
+        errors.add(:image_link,'have to be provided if you are not attaching an image')
+        raise ActiveRecord::RecordInvalid
+      end
+
       self.image_link = Rails.application.routes.url_helpers.serve_image_url(self.image)
       self.save
     end

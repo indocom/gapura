@@ -19,6 +19,7 @@ module Admin
       if @gallery_photo.save
         redirect_to admin_event_gallery_photos_path, notice: 'Gallery photo was successfully created.'
       else
+        @gallery_photo.build_image
         render :new
       end
     end

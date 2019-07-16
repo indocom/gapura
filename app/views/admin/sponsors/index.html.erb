@@ -36,6 +36,13 @@
               <div class="caption-type">
                 <%= sponsor.type %>
               </div>
+              <div class="caption-type">
+                <% if sponsor.link.blank?  %>
+                  No Link
+                <% else %>
+                  <%= link_to(sponsor.link, url_with_default_protocol(sponsor.link), target: '_blank') %>
+                <% end %>
+              </div>
               <div class="button">
                 <%= button_to('Show', admin_event_sponsor_path(@event.year, sponsor), method: "get", class: "btn btn-info") %>
               </div>

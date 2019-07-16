@@ -1,7 +1,9 @@
 Event.all.each do |event|
   for i in event.sponsors.count..8
+    sponsor_name = "Sponsor #{i} for event #{event.year}"
     sponsor  = event.sponsors.build(
-      name: "Sponsor #{i} for event #{event.year}", type: "Type #{i}"
+      name: sponsor_name, type: "Type #{i}",
+      link: "https://www.google.com/search?q=#{sponsor_name}"
     )
 
     filename = "sponsor-#{i % 3}.png"

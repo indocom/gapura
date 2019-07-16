@@ -1,6 +1,7 @@
 module Admin
   class SponsorsController < ApplicationController
     include EventsHelper
+    include UrlHelper
 
     before_action :ensure_admin
     before_action :set_event
@@ -51,7 +52,7 @@ module Admin
       end
 
       def sponsor_params
-        params.require(:sponsor).permit(:type, :name, logo_attributes: [:id, :file, :_destroy])
+        params.require(:sponsor).permit(:type, :name, :link, logo_attributes: [:id, :file, :_destroy])
       end
   end
 end

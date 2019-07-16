@@ -23,8 +23,8 @@
             <div class="col-lg-3 col-md-4 col-xs-12">
               <div class="image-box-4-3">
                 <div class="image-content">
-                  <% if sponsor.logo.attached? %>
-                    <%= image_tag(sponsor.logo) %>
+                  <% if sponsor.logo.present? %>
+                    <%= image_tag(serve_image_path(sponsor.logo)) %>
                   <% else %>
                     No Logo
                   <% end %>

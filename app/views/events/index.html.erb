@@ -10,8 +10,8 @@
             <%= event.title %><br> 
             <%= event.subtitle %><br>
           </h3>
-          <% if event.logo.attached? %>
-            <br> <%= event.logo.attached? ? image_tag(event.logo, class: 'logo', alt: 'Tasasek') : '' %> <br>
+          <% if event.logo.present? %>
+            <br> <%= event.logo.present? ? image_tag(serve_image_path(event.logo), class: 'logo', alt: 'Tasasek') : '' %> <br>
           <% end %>
           <br>
           <p><%= event.overview %></p>

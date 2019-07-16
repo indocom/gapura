@@ -11,18 +11,15 @@ module Admin
 
     def new
       @gallery_photo = @event.gallery_photos.build
+      @gallery_photo.build_image
     end
 
     def create
       @gallery_photo = @event.gallery_photos.build(gallery_photo_params)
       if @gallery_photo.save
-        if @gallery_photo.image.attached?
-          @gallery_photo.image_link = url_for(@gallery_photo.image)
-          @gallery_photo.save
-        end
-
         redirect_to admin_event_gallery_photos_path, notice: 'Gallery photo was successfully created.'
       else
+        @gallery_photo.build_image
         render :new
       end
     end
@@ -35,7 +32,7 @@ module Admin
 
     private
       def gallery_photo_params
-        params.require(:gallery_photo).permit(:image, :image_link)
+        params.require(:gallery_photo).permit(:image_link, image_attributes: [:id, :file, :_destroy])
       end
   end
 end

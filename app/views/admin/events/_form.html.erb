@@ -36,14 +36,7 @@
         <%= form.text_field :subtitle %> <br>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-2 col-md-12 field-key">
-        <%= form.label :logo, "Logo" %>
-      </div>
-      <div class="col-lg-10 col-md-12 field-value">
-        <%= form.file_field :logo, accept: 'image/png,image/gif,image/jpeg', class: "upload-button" %>
-      </div>
-    </div>
+    <%= render "admin/image/image_form", form: form, field: :logo %>
     <div class="row">
       <div class="col-lg-2 col-md-12 field-key">
         <%= form.label :overview, "Short Description" %>

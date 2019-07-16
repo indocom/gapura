@@ -15,9 +15,11 @@ module Admin
 
     def new
       @sponsor = @event.sponsors.build
+      @sponsor.build_logo
     end
 
     def edit
+      @sponsor.build_logo if @sponsor.logo.nil?
     end
 
     def create
@@ -49,7 +51,7 @@ module Admin
       end
 
       def sponsor_params
-        params.require(:sponsor).permit(:type, :name, :logo)
+        params.require(:sponsor).permit(:type, :name, logo_attributes: [:id, :file, :_destroy])
       end
   end
 end

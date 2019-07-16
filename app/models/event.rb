@@ -12,16 +12,5 @@ class Event < ApplicationRecord
   has_many :gallery_photos, dependent: :destroy, foreign_key: :year,
     primary_key: :year, inverse_of: :event
 
-#  validate :logo_validation
-
   validates :year, :title, :overview, presence: true
-
-  def logo_validation
-    if logo.attached?
-      if logo.blob.byte_size > 2097152
-        logo.purge
-        errors[:base] << 'Logo too big (max 2 MB)'
-      end
-    end
-  end
 end

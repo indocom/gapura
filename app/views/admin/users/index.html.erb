@@ -25,10 +25,14 @@
                 -
               <% end %>
             </div>
-            <div class="col-lg-1 col-md-4 col-xs-4 field-item"><%= link_to 'Show', admin_user_path(user) %></div>
-            <div class="col-lg-2 col-md-4 col-xs-4 field-item"><%= link_to 'Privilege', edit_admin_user_path(user) %></div>
+            <div class="col-lg-1 col-md-4 col-xs-4 field-item">
+              <%= button_to('Show', admin_user_path(user), method: "get", class: "btn btn-info") %>
+            </div>
             <div class="col-lg-2 col-md-4 col-xs-4 field-item">
-              <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= button_to('Privilege', edit_admin_user_path(user), method: "get", class: "btn btn-info") %>
+            </div>
+            <div class="col-lg-2 col-md-4 col-xs-4 field-item">
+              <%= button_to('Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info") %>
             </div>
           <% end %>
         </div>
@@ -37,7 +41,7 @@
 
         <div class="row">
           <div class="col-lg-12" style="text-align: center;">
-            <%= link_to "Back", admin_root_path %>
+            <%= button_to("Back", admin_root_path, method: "get", class: "btn btn-info") %>
           </div>
         </div>
       </div>

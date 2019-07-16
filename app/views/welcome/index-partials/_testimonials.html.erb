@@ -12,7 +12,9 @@
             <%= testimony.testimony %>
             <%= image_tag("testimonials/quote-sign-right.png", class: "quote-sign-left") %>
           </p>
-          <%= image_tag(serve_image_path(testimony.photo), class: "testimonial-img") %>
+          <% if testimony.photo.present? %>
+            <%= image_tag(serve_image_path(testimony.photo), class: "testimonial-img") %>
+          <% end %>
           <h3><%= testimony.name %></h3>
           <h4><%= testimony.profession %></h4>
         </div>

@@ -31,6 +31,11 @@
   font-size: 16px;
 }
 
+.section-container .content a {
+  text-decoration: underline;
+  color: #34E3FF;
+}
+
 .section-container .content .row {
   text-align: center;
 }
@@ -76,12 +81,30 @@ a:link, a:visited {
   background-color: white;
 }
 
-
 #admin-form textarea {
   width: 100%;
   height: 150px;
   color: black;
   background-color: white;
+}
+
+#admin-form a:link {
+  color: #0645AD;
+}
+
+#admin-form a:visited {
+  color: #663366;
+}
+
+#admin-form .ql-toolbar.ql-snow {
+  background: white;
+}
+
+// Quill editor, color is for the text color; if not specified it will be white
+#editor-container {
+  height: 150px;
+  background-color: white;
+  color: black;
 }
 
 // MARK: - Custom display for buttons

@@ -12,10 +12,10 @@
       
       <div class="row">
         <div class="col-lg-6 col-md-6 col-xs-6">
-          <%= link_to 'Admin Menu', admin_root_path %>
+          <%= button_to('Admin Menu', admin_root_path, method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-6">
-          <%= link_to 'FAQ List', admin_frequently_asked_questions_path %>
+          <%= button_to('FAQ List', admin_frequently_asked_questions_path, method: "get", class: "btn btn-info") %>
         </div>
       </div>
     </div>

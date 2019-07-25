@@ -8,6 +8,8 @@ Rails.application.config.assets.version = '1.0'
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
+Rails.application.config.assets.paths << Rails.root.join('app/assets/images/gallery')
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
@@ -16,9 +18,26 @@ Rails.application.config.assets.precompile += %w(
                                                   events.css
                                                   welcome.css
 
+                                                  admin/admin/index.css
+                                                  admin/sponsors/index.css
+                                                  admin/users/edit.css
+                                                  admin/users/index.css
+                                                  admin/users/show.css
+                                                  admin/shared.css
+                                                  
+                                                  events/*.css
+                                                  users/*.css
+
                                                   application.js
+                                                  layouts/*.js
+                                                  events/*.js
+                                                  home/*.js
                                                   events.js
                                                   welcome.js
+                                                  admin/admin.js
+                                                  admin/frequently_asked_questions.js
+                                                  admin/sponsors.js
+                                                  admin/testimonies.js
                                                 )
 
 Rails.application.config.assets.precompile += %w( 
@@ -31,10 +50,10 @@ Rails.application.config.assets.precompile += %w(
                                                   alstar/*.css 
                                                   reveal/*.css 
                                                   the-event/*.css 
-                                                  fullpage/*.css
+                                                  fullpage/fullpage.css
+                                                  bootstrap_v3/*.css
 
                                                   bootstrap/*.js
-                                                  jquery/*.js
                                                   easing/*.js
                                                   superfish/*.js
                                                   wow/*.js
@@ -44,6 +63,10 @@ Rails.application.config.assets.precompile += %w(
                                                   alstar/*.js
                                                   reveal/*.js
                                                   the-event/*.js
-                                                  fullpage/*.js
-                                                  layouts/*.js
+                                                  jquery/*.js
+
+                                                  fullpage/fullpage.js
+                                                  fullpage/fullpage.extensions.min.js
+                                                  fullpage/vendors/scrolloverflow.min.js
+                                                  fullpage/vendors/scrolloverflow.min.js.map
                                                 )

@@ -3,9 +3,8 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.string :title,      null: false, default: ""
       t.string :subtitle
-      t.text :description
+      t.text :overview
       t.integer :year,      null: false, default: ""
-      t.text :logo
 
       t.timestamps
     end

@@ -16,3 +16,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+jQuery(document).ready(function($) {
+  // Initiate the wowjs animation library
+  new WOW().init();
+});

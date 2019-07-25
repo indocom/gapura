@@ -8,9 +8,11 @@ class Ability
     if user.present?
       if user.has_role? :admin or user.has_role? :superuser
         can [:create, :update, :destroy], Event
+        can [:create, :update, :destroy], FrequentlyAskedQuestion
+        can [:create, :update, :destroy], Testimony
       end
       if user.has_role? :superuser
-        can [:create, :update, :destroy], User
+        can [:update, :destroy], User
       end
     end
   end

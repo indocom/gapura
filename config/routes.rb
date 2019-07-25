@@ -1,12 +1,33 @@
 Rails.application.routes.draw do
-  resources :events
   root 'welcome#index'
-  
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
+  resources :scroll_photos
+  devise_scope :user do
+    get '/sign_up'   => "users/registrations#new",   :as => :new_user_registration
+
+    get '/login'   => "users/sessions#new",       :as => :new_user_session
+    post '/login'  => 'users/sessions#create',    :as => :user_session
+    delete '/logout'  => 'users/sessions#destroy',   :as => :destroy_user_session
+  end
+
+  devise_for :users, skip: [:sessions], controllers: {
     passwords: 'users/passwords',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  get '*path'       , to: 'welcome#index'
+  resources :events, only: [:index, :show], param: :year
+
+  namespace :admin do
+    root 'admin#index'
+    
+    resources :users, except: [:new, :create]
+    resources :frequently_asked_questions, except: :show
+    resources :testimonies
+
+    resources :events, param: 'year' do
+      resources :sponsors
+      resources :gallery_photos, only: [:index, :new, :create, :destroy]
+    end
+  end
 end

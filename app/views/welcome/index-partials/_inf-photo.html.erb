@@ -1,0 +1,18 @@
+<section id='inf-photo'>
+	<div class = 'container'>
+		<div class = 'section-header'>
+			<h2> Let's Rewind! </h2>
+		</div>
+		<div class='row'>
+			<div class = 'container'>
+				<div class='customized-container'>
+					<%= render @scroll_photos %>
+				</div>
+			</div>
+		</div>
+		<div class="load-more-container">
+			<%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
+			<%= link_to "Load More", scroll_photos_path, class: "load-more" %>
+		</div>
+	</div>
+</section>

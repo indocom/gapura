@@ -1,0 +1,53 @@
+<%= form_with(model: testimony, local: true, url: target_url) do |form| %>
+  <% if testimony.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(testimony.errors.count, "error") %> prohibited this testimony from being saved:</h2>
+
+      <ul>
+      <% testimony.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-fields">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :name %>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.text_field :name, required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :profession %>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.text_field :profession, required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :testimony %>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.text_area :testimony, required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :photo %>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.file_field :photo, accept: 'image/png,image/gif,image/jpeg'%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.submit 'Submit', class: "submit-button" %>      
+      </div>
+    </div>
+  </div>
+<% end %>

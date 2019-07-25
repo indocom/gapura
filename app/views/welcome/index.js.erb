@@ -1,0 +1,7 @@
+// append the users partial to our div with class of container
+<% if ScrollPhoto.where('year < ?', @scroll_photos.last.year).empty? %>
+	$('.customized-container').append('<%= escape_javascript(render(:partial => @scroll_photos)) %>');
+	$('.load-more-container').hide();
+<% else %>
+	$('.customized-container').append('<%= escape_javascript(render(:partial => @scroll_photos)) %>');
+<% end %>

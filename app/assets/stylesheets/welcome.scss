@@ -1,5 +1,111 @@
-@import 'home-components/*';
+@import 'home/about_us.scss';
+@import 'home/buy_tickets.scss';
+@import 'home/faq.scss';
+@import 'home/intro.scss';
+@import 'home/partners.scss';
+@import 'home/past_nuansa.scss';
+@import 'home/testimonials.scss';
 
 body {
-	background-image: image-url("backgrounds/past_events_overview.png")
+  background: #fff;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  color: #ce8536;
+  transition: 0.5s;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #ce8536;
+  outline: none;
+  text-decoration: none;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.wow {
+  visibility: hidden;
+}
+
+.section-header {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.section-header::before {
+  content: "";
+  background-color: #ce8536;
+
+  display: block;
+  width: 60px;
+  height: 5px;
+
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.section-header h2 {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+}
+
+.container .record {
+  padding: 10px;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+}
+.container .cust-cont {
+  top-padding: 10px;
+}
+
+.load-more-container{
+  @extend .container;
+  text-align: center;
+}
+
+.load-more{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  transition: 0.5s;
+  color: #ce8536;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #ce8536;
+  border-radius: 0;
+}
+
+.load-more:hover {
+  background: #ce8536;
+  color: #fff;
 }

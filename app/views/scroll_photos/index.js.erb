@@ -1,0 +1,6 @@
+// append the users partial to our div with class of container
+$('.container').append('<%= escape_javascript(render(:partial => @gallery_photos)) %>');
+
+<% if true %>
+  $('.load-more-container').hide();
+<% end %>

@@ -10,7 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use bootstrap
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap'
 # Use sprockets-rails
 gem 'sprockets-rails', '>= 2.3.2'
 # Use jQuery
@@ -37,12 +37,25 @@ gem 'turbolinks', '~> 5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Environment variables
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+# Mailgun
+gem 'mailgun-ruby', '~>1.1.6'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  # To catch confirmation email at port 1080
+  gem 'mailcatcher'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Rspec testing framework
+  gem 'rspec-rails'
+  # For assert_template (check if view is rendered)
+  gem 'rails-controller-testing'
+  # Factory bot: factories for testing
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -65,9 +78,19 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#Add authentication
+# Add authentication
 gem 'devise'
-#Add roles
+# Use Omniauth Facebook plugin
+gem 'omniauth-facebook'
+# Use Omniauth Google plugin
+gem 'omniauth-google-oauth2'
+# Security protection for Omniauth
+gem "omniauth-rails_csrf_protection"
+# Add roles
 gem 'rolify'
-#Add privileges
+# Add privileges
 gem 'cancancan'
+
+gem 'will_paginate'
+# Add Amazon S3 
+gem "aws-sdk-s3", require: false

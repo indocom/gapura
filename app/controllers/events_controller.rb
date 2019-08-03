@@ -24,8 +24,7 @@ class EventsController < ApplicationController
     @more_photos = (offset + take) < event.gallery_photos.count
 
     respond_to do |format|
-      format.json { render json: {more_photos: @more_photos,
-        gallery_photos: @gallery_photos } }
+      format.js
     end
   end
 end

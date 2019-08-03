@@ -1,19 +1,15 @@
 function get_more_photos(endpoint, take) {
-  console.log("Fetching more photos!!!");
-  console.log(`The endpoint is ${endpoint}`);
-  var len_record = $('.record').length;
-
-  $.getJSON(endpoint, { offset: len_record, take: take }, function(response) {
-    console.log(response.more_photos);
-    console.log(response.gallery_photos);
-
-    $('.loading-gif').hide();
-    if (response.more_photos) {
+  let len_record = $('.record').length;
+  $.ajax({
+    type: "GET",
+    url: endpoint,
+    data: { offset: len_record, take: take },
+    dataType: "script",
+    success() {
+      $('.loading-gif').hide();
       $('.load-more').show();
-    } else {
-      $('.load-more-container').hide();
     }
-  });
+  })
 }
 
 jQuery(document).ready(function($) {
@@ -42,7 +38,6 @@ jQuery(document).ready(function($) {
 
   // when the load more link is clicked
   $('a.load-more').click(function(e){
-    console.log("I'm clicked")
     e.preventDefault();
 
     $('.load-more').hide();

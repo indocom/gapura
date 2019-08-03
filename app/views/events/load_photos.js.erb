@@ -1,0 +1,5 @@
+$('.customized-container').append('<%= escape_javascript(render(partial: @gallery_photos)) %>');
+
+<% if !@more_photos %>
+  $('.load-more-container').hide();
+<% end %>

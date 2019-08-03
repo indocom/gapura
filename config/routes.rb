@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show], param: :year do
     get 'load_photos', to: 'events#load_photos', as: :load_photos,
-      constraints: lambda { |req| req.format == :json }
+      constraints: lambda { |req| req.format == :js }
   end
 
   namespace :admin do

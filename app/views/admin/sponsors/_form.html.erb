@@ -30,12 +30,13 @@
     </div>
     <div class="row">
       <div class="col-lg-2 col-md-12 field-key">
-        <%= form.label :logo %>
+        <%= form.label :link %>
       </div>
       <div class="col-lg-10 col-md-12 field-value">
-        <%= form.file_field :logo, accept: 'image/png,image/gif,image/jpeg' %>
+        <%= form.text_field :link %>
       </div>
     </div>
+    <%= render "admin/image/image_form", form: form, field: :logo %>
     <div class="row">
       <div class="col-lg-12">
         <%= form.submit 'Submit', class: "submit-button" %>      

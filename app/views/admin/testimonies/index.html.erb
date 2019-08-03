@@ -12,11 +12,15 @@
             <div class="col-lg-4 col-md-12 col-xs-12 info-item"><%= testimony.name %></div>
             <div class="col-lg-5 col-md-12 col-xs-12 info-item"><%= testimony.profession %></div>
 
-            <div class="col-lg-1 col-md-4 col-xs-4 info-item"><%= link_to 'Show', admin_testimony_path(testimony) %></div>
-            <div class="col-lg-1 col-md-4 col-xs-4 info-item"><%= link_to 'Edit', edit_admin_testimony_path(testimony) %></div>
             <div class="col-lg-1 col-md-4 col-xs-4 info-item">
-              <%= link_to 'Delete', admin_testimony_path(testimony), method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
+              <%= button_to('Show', admin_testimony_path(testimony), method: "get", class: "btn btn-info") %>
+            </div>
+            <div class="col-lg-1 col-md-4 col-xs-4 info-item">
+              <%= button_to('Edit', edit_admin_testimony_path(testimony), method: "get", class: "btn btn-info") %>
+            </div>
+            <div class="col-lg-1 col-md-4 col-xs-4 info-item">
+              <%= button_to('Delete', admin_testimony_path(testimony), method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: "btn btn-info") %>
             </div>
           </div>
         <% end %>
@@ -25,10 +29,10 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <%= link_to "Back", admin_root_path %>
+            <%= button_to("Back", admin_root_path, method: "get", class: "btn btn-info") %>
           </div>
           <div class="col-lg-6">
-            <%= link_to 'New Testimony', new_admin_testimony_path %>
+            <%= button_to('New Testimony', new_admin_testimony_path, method: "get", class: "btn btn-info") %>
           </div>
         </div>
       </div>

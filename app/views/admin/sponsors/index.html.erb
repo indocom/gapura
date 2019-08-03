@@ -9,10 +9,10 @@
       <div class="col-lg-12">
         <div class="row">
           <div class="col-md-6">
-            <%= link_to "Back", admin_event_path(@event.year) %>
+            <%= button_to("Back", admin_event_path(@event.year), method: "get", class: "btn btn-info") %>
           </div>
           <div class="col-md-6">
-            <%= link_to "Add Sponsor", new_admin_event_sponsor_path(@event.year) %> 
+            <%= button_to("Add Sponsor", new_admin_event_sponsor_path(@event.year) , method: "get", class: "btn btn-info")%>
           </div>
         </div>
 
@@ -23,8 +23,8 @@
             <div class="col-lg-3 col-md-4 col-xs-12">
               <div class="image-box-4-3">
                 <div class="image-content">
-                  <% if sponsor.logo.attached? %>
-                    <%= image_tag(sponsor.logo) %>
+                  <% if sponsor.logo.present? %>
+                    <%= image_tag(serve_image_path(sponsor.logo)) %>
                   <% else %>
                     No Logo
                   <% end %>
@@ -36,15 +36,22 @@
               <div class="caption-type">
                 <%= sponsor.type %>
               </div>
-              <div class="button">
-                <%= link_to 'Show', admin_event_sponsor_path(@event.year, sponsor) %>
+              <div class="caption-type">
+                <% if sponsor.link.blank?  %>
+                  No Link
+                <% else %>
+                  <%= link_to(sponsor.link, url_with_default_protocol(sponsor.link), target: '_blank') %>
+                <% end %>
               </div>
               <div class="button">
-                <%= link_to 'Edit', edit_admin_event_sponsor_path(@event.year, sponsor) %>
+                <%= button_to('Show', admin_event_sponsor_path(@event.year, sponsor), method: "get", class: "btn btn-info") %>
               </div>
               <div class="button">
-                <%= link_to 'Destroy', admin_event_sponsor_path(@event.year, sponsor),
-                    method: :delete, data: { confirm: 'Are you sure?' } %>
+                <%= button_to('Edit', edit_admin_event_sponsor_path(@event.year, sponsor), method: "get", class: "btn btn-info") %>
+              </div>
+              <div class="button">
+                <%= button_to('Destroy', admin_event_sponsor_path(@event.year, sponsor),
+                    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info") %>
               </div>
             </div>
           <% end %>

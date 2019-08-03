@@ -37,12 +37,10 @@ class Admin::FrequentlyAskedQuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_faq
       @faq = FrequentlyAskedQuestion.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def faq_params
       params.require(:frequently_asked_question).permit(:question, :answer)
     end

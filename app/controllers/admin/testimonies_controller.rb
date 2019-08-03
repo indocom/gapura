@@ -11,9 +11,11 @@ class Admin::TestimoniesController < ApplicationController
 
   def new
     @testimony = Testimony.new
+    @testimony.build_photo
   end
 
   def edit
+    @testimony.build_photo if @testimony.photo.nil?
   end
 
   def create
@@ -40,13 +42,12 @@ class Admin::TestimoniesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_testimony
       @testimony = Testimony.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def testimony_params
-      params.require(:testimony).permit(:name, :profession, :testimony, :photo)
+      params.require(:testimony).permit(:name, :profession, :testimony,
+        photo_attributes: [:id, :file, :_destroy])
     end
 end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
+  get 'image/:id/serve', to: 'images#serve', as: :serve_image
+
   devise_scope :user do
     get '/sign_up'   => "users/registrations#new",   :as => :new_user_registration
 

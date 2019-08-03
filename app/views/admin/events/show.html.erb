@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Logo</div>
           <div class="col-lg-10 col-md-12 field-value">
-            <%= @event.logo.attached? ? image_tag(@event.logo, height: '100px') : 'NO LOGO' %>
+            <%= @event.logo.present? ? image_tag(serve_image_path(@event.logo), height: '100px') : 'NO LOGO' %>
           </div>
         </div>
         <div class="row">
@@ -31,7 +31,9 @@
         </div>
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Description</div>
-          <div class="col-lg-10 col-md-12 field-value"><%= @event.event_info.description %></div>
+          <div class="col-lg-10 col-md-12 field-value">
+            <%= raw sanitize @event.event_info.description, tags: %w(strong em a u br), attributes: %w(href) %>
+          </div>
         </div>
         <div class="row">
           <div class="col-lg-2 col-md-12 field-key">Synopsis</div>
@@ -47,22 +49,22 @@
 
       <div class="row">
         <div class="col-lg-2 col-md-3 col-xs-6">
-          <%= link_to 'Add Sponsor', new_admin_event_sponsor_path(@event.year) %>
+          <%= button_to('Add Sponsor', new_admin_event_sponsor_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-6">
-          <%= link_to 'Sponsors', admin_event_sponsors_path(@event.year) %>
+          <%= button_to('Sponsors', admin_event_sponsors_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-6">
-          <%= link_to "Add Photo", new_admin_event_gallery_photo_path(@event.year) %>
+          <%= button_to("Add Photo", new_admin_event_gallery_photo_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-2 col-md-3 col-xs-6">
-          <%= link_to 'Gallery', admin_event_gallery_photos_path(@event.year) %>
+          <%= button_to('Gallery', admin_event_gallery_photos_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-2 col-md-6 col-xs-6">
-          <%= link_to "Edit", edit_admin_event_path(@event.year) %>
+          <%= button_to("Edit", edit_admin_event_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-2 col-md-6 col-xs-6">
-          <%= link_to "Back", admin_events_path %>
+          <%= button_to("Back", admin_events_path, method: "get", class: "btn btn-info") %>
         </div>
       </div>
     </div>

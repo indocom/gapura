@@ -1,21 +1,9 @@
-<section id='gallery-photo'>
-	<div class = 'container'>
-		<div class = 'section-header'>
-			<h2> Galleries </h2>
-		</div>
-		<div class='row'>
-			<div class = 'container'>
-				<div class='customized-container'>
-					<%= render @gallery_photos %>
-				</div>
-			</div>
-		</div>
-		<% if @more_photos %>
-			<div class="load-more-container">
-        <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-        <%= link_to "Load More", "#", class: "load-more", data: { source:
-          event_load_photos_url(2019, format: :json), take: 8 } %>
-			</div>
-		<% end %>
+<div class="col-lg-3 col-md-4 col-xs-12">
+  <div class="image-box-4-3">
+    <div class="record">
+      <div class="image-content">
+        <%= image_tag(gallery_photo.image_link, width: "100%") %>
+      </div>
+    </div>
 	</div>
-</section>
+</div>

@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
     @faqs = FrequentlyAskedQuestion.all
     @partners = @current_event.sponsors
     @gallery_photos = @current_event.gallery_photos.limit(8)
+    @more_photos = @current_event.gallery_photos.count > 8
   rescue
     not_found
   end

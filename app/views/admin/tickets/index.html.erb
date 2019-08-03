@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Tickets</h1>
+
+<%= button_to 'Buy Ticket (Mock Ticket)', admin_tickets_path %>
+
+<br>
+
+<table width=100% style="background-color: white">
+  <thead>
+    <tr style="border: 2px solid black">
+      <th>User</th>
+      <th>Date Purchased</th>
+      <th>Date Claimed</th>
+      <th>Note</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr style="border: 2px solid black">
+        <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
+        <td><%= ticket.created_at %></td>
+        <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
+        <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
+        <td>
+          <%= button_to("Show", admin_ticket_path(ticket), method: "get", class: "btn btn-info") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

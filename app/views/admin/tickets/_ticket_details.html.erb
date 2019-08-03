@@ -1,0 +1,22 @@
+<table width=50% style="background-color: white"
+<tr>
+  <td>Username</td>
+  <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
+</tr>
+<tr>
+  <td>Date Purchased</td>
+  <td><%= ticket.created_at %></td>
+</tr>
+<tr>
+  <td>Date Claimed</td>
+  <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
+</tr>
+<tr>
+  <td>Note</td>
+  <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
+</tr>
+<tr>
+  <td>Receipt</td>
+  <td><%= ticket.receipt.empty? ? '-' : ticket.receipt %></td>
+</tr>
+</table>

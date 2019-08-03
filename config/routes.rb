@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   }
 
   resources :events, only: [:index, :show], param: :year do
-    post 'load_photos', to: 'events#load_photos', as: :load_photos,
+    get 'load_photos', to: 'events#load_photos', as: :load_photos,
       constraints: lambda { |req| req.format == :json }
   end
 

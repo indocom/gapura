@@ -1,3 +1,10 @@
+@font-face {
+  font-family:"Porter Bold DEMO";
+  src:url("Porter_Bold.ttf");
+  font-weight:normal;
+  font-style:normal;
+}
+
 #gallery {
   padding: 50px;
   background-color: rgba(0,0,0,0.7);
@@ -12,6 +19,7 @@
   color: white;
   text-align: center;
 
+  font-family: "Porter Bold DEMO", Helvetica;
   font-size: 20px;
   font-weight: bold;
 }

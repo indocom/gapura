@@ -6,6 +6,13 @@ function get_more_photos(endpoint, take) {
   $.getJSON(endpoint, { offset: len_record, take: take }, function(response) {
     console.log(response.more_photos);
     console.log(response.gallery_photos);
+
+    $('.loading-gif').hide();
+    if (response.more_photos) {
+      $('.load-more').show();
+    } else {
+      $('.load-more-container').hide();
+    }
   });
 }
 

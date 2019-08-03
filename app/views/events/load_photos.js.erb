@@ -3,3 +3,5 @@ $('.customized-container').append('<%= escape_javascript(render(partial: @galler
 <% if !@more_photos %>
   $('.load-more-container').hide();
 <% end %>
+
+$('.venobox').venobox();

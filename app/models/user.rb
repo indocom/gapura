@@ -11,6 +11,8 @@ class User < ApplicationRecord
   # Only allow letter, number, underscore and punctuation.
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
+  has_many :tickets, inverse_of: :user, dependent: :nullify
+
   attr_writer :login
 
   def login

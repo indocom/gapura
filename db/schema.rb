@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_144402) do
+ActiveRecord::Schema.define(version: 2019_08_03_042135) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +104,18 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "claimed_at"
+    t.bigint "user_id"
+    t.string "claim_token", default: "", null: false
+    t.string "note", default: "", null: false
+    t.string "receipt", default: "", null: false
+    t.datetime "updated_at", null: false
+    t.index ["claim_token"], name: "index_tickets_on_claim_token", unique: true
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
@@ -136,4 +149,5 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
   add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
+  add_foreign_key "tickets", "users"
 end

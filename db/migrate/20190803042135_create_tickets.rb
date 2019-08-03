@@ -7,8 +7,6 @@ class CreateTickets < ActiveRecord::Migration[5.2]
       t.string :claim_token, null: false, default: ""
       t.string :note, null: false, default: ""
       t.string :receipt, null: false, default: ""
-
-      t.timestamps
     end
     add_index :tickets, :claim_token, unique: true
   end

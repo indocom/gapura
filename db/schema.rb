@@ -111,7 +111,6 @@ ActiveRecord::Schema.define(version: 2019_08_03_042135) do
     t.string "claim_token", default: "", null: false
     t.string "note", default: "", null: false
     t.string "receipt", default: "", null: false
-    t.datetime "updated_at", null: false
     t.index ["claim_token"], name: "index_tickets_on_claim_token", unique: true
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end

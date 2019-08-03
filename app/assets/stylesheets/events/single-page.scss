@@ -63,12 +63,16 @@ h3 {
   width: 80%;
 }
 
-.vdivide > [class*="col-lg-6"]:nth-child(n + 3):after {
+.vdivide > [class*="col-"]:nth-child(n + 3):after {
   content: "";
   background-color: #FFC162;
   position: absolute;
   top: 0;
   bottom: 0;
+
+  @media (max-width: 400px) {
+    display: none;
+  }
 
   @media (max-width: 767px) {
     width: 100%;

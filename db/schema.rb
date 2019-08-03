@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_08_03_042135) do
   create_table "tickets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "claimed_at"
+    t.string "claimed_by"
     t.bigint "user_id"
     t.string "claim_token", default: "", null: false
     t.string "note", default: "", null: false

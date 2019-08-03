@@ -12,6 +12,7 @@
       <th>User</th>
       <th>Date Purchased</th>
       <th>Date Claimed</th>
+      <th>Claimed By</th>
       <th>Note</th>
       <th>Show</th>
     </tr>
@@ -23,6 +24,7 @@
         <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
         <td><%= ticket.created_at %></td>
         <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
+        <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
         <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
         <td>
           <%= button_to("Show", admin_ticket_path(ticket), method: "get", class: "btn btn-info") %>

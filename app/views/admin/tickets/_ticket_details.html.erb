@@ -12,6 +12,10 @@
   <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
 </tr>
 <tr>
+  <td>Claimed By</td>
+  <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
+</tr>
+<tr>
   <td>Note</td>
   <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
 </tr>

@@ -5,6 +5,7 @@
 @import 'home/partners.scss';
 @import 'home/past_nuansa.scss';
 @import 'home/testimonials.scss';
+@import 'home/gallery.scss';
 
 body {
   background: #fff;
@@ -74,4 +75,19 @@ h6 {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   margin-bottom: 10px;
+}
+
+.load-more-container{
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.load-more {
+  display: inline-block;
+}
+
+.load-more-arrow {
+  width: 10%;
+  height: 10%;
 }

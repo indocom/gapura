@@ -77,14 +77,31 @@ h6 {
   margin-bottom: 10px;
 }
 
-.load-more-container{
-  text-align: center;
-  margin-bottom: 10px;
+.container .record {
   padding: 10px;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+}
+.container .customized-container {
+  top-padding: 10px;
 }
 
-.load-more {
+.load-more-container{
+  @extend .container;
+  text-align: center;
+}
+
+.load-more{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
   display: inline-block;
+  padding: 12px 32px;
+  transition: 0.5s;
+  color: #ce8536;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
 }
 
 .load-more-arrow {

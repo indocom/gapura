@@ -5,6 +5,7 @@
 @import 'home/partners.scss';
 @import 'home/past_nuansa.scss';
 @import 'home/testimonials.scss';
+@import 'home/gallery.scss';
 
 body {
   background: #fff;
@@ -108,4 +109,9 @@ h6 {
 .load-more:hover {
   background: #ce8536;
   color: #fff;
+}
+
+.load-more-arrow {
+  width: 10%;
+  height: 10%;
 }

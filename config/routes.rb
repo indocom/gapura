@@ -20,7 +20,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  resources :events, only: [:index, :show], param: :year
+  resources :events, only: [:index, :show], param: :year do
+    get 'load_photos', to: 'events#load_photos', as: :load_photos,
+      constraints: lambda { |req| req.format == :js }
+  end
 
   namespace :admin do
     root 'admin#index'

@@ -1,3 +1,17 @@
+function get_more_photos(endpoint, take) {
+  let len_record = $('.record').length;
+  $.ajax({
+    type: "GET",
+    url: endpoint,
+    data: { offset: len_record, take: take },
+    dataType: "script",
+    success() {
+      $('.loading-gif').hide();
+      $('.load-more').show();
+    }
+  })
+}
+
 jQuery(document).ready(function($) {
   // Real view height for mobile devices
   if (window.matchMedia("(max-width: 767px)").matches) {
@@ -22,47 +36,14 @@ jQuery(document).ready(function($) {
     }
   });
 
-  // when the page is ready for manipulation
-  $(document).ready(function(){
-    // when the load more link is clicked
-    $('a.load-more').click(function(e){
+  // when the load more link is clicked
+  $('a.load-more').click(function(e){
+    e.preventDefault();
 
-      // prevent the default click action
-      e.preventDefault();
+    $('.load-more').hide();
+    $('.loading-gif').show();
 
-          // hide load more link
-          $('.load-more').hide();
-
-          // show loading gif
-          $('.loading-gif').show();
-
-      // get the last id and save it in a variable 'last-id'
-          var len_record = $('.record').length;
-          // make an ajax call passing along our last user id
-          $.ajax({
-
-            // make a get request to the server
-              type: "GET",
-              // get the url from the href attribute of our link
-              url: $(this).attr('created_at'),
-              // send the last id to our rails app
-              data: {total: len_record},
-              // the response will be a script
-              dataType: "script",
-
-              // upon success 
-              success: function(){
-                  // hide the loading gif
-                  $('.loading-gif').hide();
-                  // show our load more link
-                  $('.load-more').show();
-              }
-
-          });
-
-
-    });
-
+    get_more_photos($(this).data("source"), $(this).data("take"))
   });
 
   // Initialize Venobox

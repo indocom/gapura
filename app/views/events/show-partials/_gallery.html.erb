@@ -1,7 +1,7 @@
 <section id="gallery" class="section-container">
   <div class="row">
     <div class="title">
-      Our Gallery
+      O U R  G A L L E R Y
     </div>
     <div class="content">
       <div class="customized-container clearfix wow fadeInUp">
@@ -9,7 +9,7 @@
         <% if @more_photos %>
           <div class="load-more-container">
             <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
-            <%= link_to "Load More", "#", class: "load-more", data: { source:
+            <%= link_to image_tag('red-arrow.png',  class: "load-more-arrow"), "#", class: "load-more", data: { source:
               event_load_photos_url(@event.year, format: :js), take: 8 } %>
           </div>
         <% end %>

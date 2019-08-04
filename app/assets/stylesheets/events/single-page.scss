@@ -69,24 +69,13 @@ h3 {
   padding: 10px;
 }
 
-.load-more{
-  font-family: "Raleway", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: 1px;
+.load-more {
   display: inline-block;
-  padding: 12px 32px;
-  transition: 0.5s;
-  color: #ce8536;
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-  border: 2px solid #ce8536;
-  border-radius: 0;
 }
 
-.load-more:hover {
-  background: #ce8536;
-  color: #fff;
+.load-more-arrow {
+  width: 10%;
+  height: 10%;
 }
 
 a:hover,

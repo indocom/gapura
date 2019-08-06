@@ -1,28 +1,32 @@
 <% provide(:custom_css, 'events/overview') %>
-
-<div class="content-box">
-  <div id="fullpage">
-    <% @events.each do |event| %>
-      <div class="content section">
-        <div class="content-container">
-          <h4><%= event.year %></h4>
-          <h3>
-            <%= event.title %><br> 
-            <%= event.subtitle %><br>
-          </h3>
-          <% if event.logo.present? %>
-            <br> <%= event.logo.present? ? image_tag(serve_image_path(event.logo), class: 'logo', alt: 'Tasasek') : '' %> <br>
-          <% end %>
-          <br>
-          <p><%= event.overview %></p>
-          <br>
-          <div class="btn btn-info btn-view-more">
-            <%= link_to "View More", event_path(event.year) %>
+<div class="main-container">
+  <div class="content-box">
+    <div id="fullpage">
+      <% @events.each do |event| %>
+        <div class="content section">
+          <div class="content-container">
+            <div class="nuansa-logo">
+              <%= image_tag('jisoo.png', class: 'head-nuansa-logo') %>
+            </div>
+            <h4><%= event.year %></h4>
+            <h3>
+              <%= event.title %><br> 
+              <%= event.subtitle %><br>
+            </h3>
+            <% if event.logo.present? %>
+              <br> <%= event.logo.present? ? image_tag(serve_image_path(event.logo), class: 'logo', alt: 'Tasasek') : '' %> <br>
+            <% end %>
+            <br>
+            <p><%= event.overview %></p>
+            <br>
+            <div class="btn btn-info btn-view-more">
+              <%= link_to "View More", event_path(event.year) %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-    <div style="clear: both;"></div>
+      <% end %>
+      <div style="clear: both;"></div>
+    </div>
   </div>
 </div>
 

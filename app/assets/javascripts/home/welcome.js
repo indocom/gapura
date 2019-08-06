@@ -30,6 +30,12 @@ jQuery(document).ready(function($) {
     closeColor: '#fff'
   });
 
+  $('#past-nuansa .card').hover(function() {
+    $(this).children('.card-img-overlay').addClass('title-visible');
+  }, function() {
+    $(this).children('.card-img-overlay').removeClass('title-visible');
+  });
+
   // Buy tickets select the ticket type on click
   $('#buy-ticket-modal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);

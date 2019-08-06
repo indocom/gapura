@@ -5,6 +5,7 @@
 @import 'home/partners.scss';
 @import 'home/past_nuansa.scss';
 @import 'home/testimonials.scss';
+@import 'home/gallery.scss';
 
 body {
   background: #fff;
@@ -73,4 +74,36 @@ h6 {
   text-transform: uppercase;
   letter-spacing: 0.4em;
   margin-bottom: 10px;
+}
+
+.container .record {
+  padding: 10px;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+}
+.container .customized-container {
+  top-padding: 10px;
+}
+
+.load-more-container{
+  @extend .container;
+  text-align: center;
+}
+
+.load-more{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  transition: 0.5s;
+  color: #ce8536;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.load-more-arrow {
+  width: 10%;
+  height: 10%;
 }

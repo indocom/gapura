@@ -1,3 +1,17 @@
+function get_more_photos(endpoint, take) {
+  let len_record = $('.record').length;
+  $.ajax({
+    type: "GET",
+    url: endpoint,
+    data: { offset: len_record, take: take },
+    dataType: "script",
+    success() {
+      $('.loading-gif').hide();
+      $('.load-more').show();
+    }
+  })
+}
+
 jQuery(document).ready(function($) {
   // Real view height for mobile devices
   if (window.matchMedia("(max-width: 767px)").matches) {
@@ -20,6 +34,16 @@ jQuery(document).ready(function($) {
         items: 3
       }
     }
+  });
+
+  // when the load more link is clicked
+  $('a.load-more').click(function(e){
+    e.preventDefault();
+
+    $('.load-more').hide();
+    $('.loading-gif').show();
+
+    get_more_photos($(this).data("source"), $(this).data("take"))
   });
 
   // Initialize Venobox

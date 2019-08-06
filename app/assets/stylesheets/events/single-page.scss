@@ -62,3 +62,55 @@ h3 {
   margin: auto;
   width: 80%;
 }
+
+.vdivide > [class*="col-lg-6"]:nth-child(n + 3):after {
+  content: "";
+  background-color: #FFC162;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: -4px; // quickfix to center line between columns
+  }
+  @media (min-width: 768px) {
+    width: 1px;
+    height: auto;
+    left: -1px; // quickfix to hide divider on left side
+  }
+}
+
+.container .record {
+  padding: 10px;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+}
+.container .customized-container {
+  top-padding: 10px;
+}
+
+.load-more-container{
+  @extend .container;
+  text-align: center;
+}
+
+.load-more{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  transition: 0.5s;
+  color: #ce8536;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.load-more-arrow {
+  width: 10%;
+  height: 10%;
+}

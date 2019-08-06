@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'image/:id/serve', to: 'images#serve', as: :serve_image
 
+  resources :gallery_photos, only: :index
+
   devise_scope :user do
     get '/sign_up'   => "users/registrations#new",   :as => :new_user_registration
 
@@ -18,7 +20,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  resources :events, only: [:index, :show], param: :year
+  resources :events, only: [:index, :show], param: :year do
+    get 'load_photos', to: 'events#load_photos', as: :load_photos,
+      constraints: lambda { |req| req.format == :js }
+  end
 
   namespace :admin do
     root 'admin#index'

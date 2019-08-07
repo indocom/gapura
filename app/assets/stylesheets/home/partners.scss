@@ -1,6 +1,10 @@
 #partners {
   padding: 60px 0px;
-  background: #fff;
+  background-color: #fff;
+  background-image: url(image_path('backgrounds/leaf-left-bottom.png')), url(image_path('backgrounds/leaf-right-top.png'));
+  background-position: top left, bottom right;
+  background-size: 180px auto, 180px auto;
+  background-repeat: no-repeat, no-repeat;
 }
 
 #partners h2 {
@@ -28,4 +32,10 @@
 
 #partners img {
   transition: all 0.4s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  #partners {
+    background-size: 360px auto, 360px auto;
+  }
 }

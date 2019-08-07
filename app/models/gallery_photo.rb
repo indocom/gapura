@@ -1,4 +1,6 @@
 class GalleryPhoto < ApplicationRecord
+  default_scope { order('created_at DESC') }
+
   has_one :image, as: :imageable, dependent: :destroy
   belongs_to :event, foreign_key: :year, primary_key: :year, touch: true
 

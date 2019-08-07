@@ -1,15 +1,15 @@
 #testimonials {
-  padding: 60px 0px;
+  padding: 30px 0px;
   background-color: #000;
 }
 
 #testimonials .testimonial-item {
   box-sizing: content-box;
-  padding: 30px 30px 0 30px;
+  padding: 30px 15px;
   margin: 30px 15px;
   text-align: center;
   min-height: 350px;
-  background-color: #fff;
+  background-color: #b55330;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -20,38 +20,32 @@
   margin: 0 auto;
 }
 
-#testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  color: #111;
+#testimonials .testimonial-item .testimony-name {
+  background: image_url('testimonials/brush-stroke.png') top center no-repeat;
+  background-size: 100% auto;
 }
 
-#testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: #999;
+#testimonials .testimonial-item .testimony-name h3 {
+  font-size: 20px;
+  color: #fff;
   margin: 0;
 }
 
-#testimonials .testimonial-item .quote-sign-left {
-  margin-top: -15px;
-  padding-right: 5px;
-  display: inline-block;
-  width: 15px;
+#testimonials .testimonial-item .testimony-title h4 {
+  font-family: "Avenir Medium", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
 }
 
-#testimonials .testimonial-item .quote-sign-right {
-  margin-bottom: -15px;
-  padding-left: 5px;
-  display: inline-block;
-  max-width: 100%;
-  width: 15px;
+#testimonials .testimonial-item .quote {
+  width: 50px;
+  height: auto;
 }
 
 #testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 auto 15px auto;
-  color: #000;
+  font-size: 16px;
+  color: #fff;
 }
 
 #testimonials .owl-nav,

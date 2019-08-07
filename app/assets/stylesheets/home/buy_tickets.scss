@@ -1,6 +1,15 @@
 #buy-tickets {
-  padding: 60px 0px;
+  padding: 0px 0px 120px 0px;
   background-color: #000;
+  background-image: image_url('backgrounds/leaf-left-top.png');
+  background-position: bottom left;
+  background-size: 180px auto;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#buy-tickets .black-overlay {
+  background-color: rgba(0, 0, 0, 0.35);
 }
 
 #buy-tickets .card {
@@ -78,4 +87,42 @@
   background-color: transparent;
   border: 2px solid #ce8536;
   color: #ce8536;
+}
+
+#buy-tickets .witness {
+  background-image: image_url('backgrounds/witness-bg.jpg');
+  background-position: top center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+#buy-tickets .witness img {
+  width: 100%;
+  height: auto;
+}
+
+#buy-tickets .btn {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  transition: 0.5s;
+  color: #ce8536;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #ce8536;
+  border-radius: 0;
+}
+
+#buy-tickets .btn:hover {
+  background: #ce8536;
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  #buy-tickets {
+    background-size: 360px auto;
+  }
 }

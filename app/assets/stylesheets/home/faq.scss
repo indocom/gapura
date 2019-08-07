@@ -1,6 +1,9 @@
 #faq {
   padding: 60px 0px;
-  background-color: #000;
+  background-image: url(image_path('backgrounds/leaf-right-bottom.png'));
+  background-position: top right;
+  background-size: 180px auto;
+  background-repeat: no-repeat;
 }
 
 #faq #faq-list {
@@ -14,6 +17,7 @@
   position: relative;
   padding-right: 20px;
   color: #ce8536;
+  font-family: 'Avenir Medium', 'Raleway', sans-serif;
   transition: 0.4s ease-in-out;
 }
 
@@ -38,4 +42,10 @@
 
 #faq #faq-list p {
   margin-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+  #faq {
+    background-size: 360px auto;
+  }
 }

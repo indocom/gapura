@@ -1,3 +1,17 @@
+function get_more_photos(endpoint, take) {
+  let len_record = $('.record').length;
+  $.ajax({
+    type: "GET",
+    url: endpoint,
+    data: { offset: len_record, take: take },
+    dataType: "script",
+    success() {
+      $('.loading-gif').hide();
+      $('.load-more').show();
+    }
+  })
+}
+
 jQuery(document).ready(function($) {
   // Real view height for mobile devices
   if (window.matchMedia("(max-width: 767px)").matches) {
@@ -6,7 +20,7 @@ jQuery(document).ready(function($) {
 
   // Testimonials carousel (uses the Owl Carousel library)
   $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
+    autoplay: false,
     dots: true,
     loop: true,
     responsive: {
@@ -22,12 +36,28 @@ jQuery(document).ready(function($) {
     }
   });
 
+  // when the load more link is clicked
+  $('a.load-more').click(function(e){
+    e.preventDefault();
+
+    $('.load-more').hide();
+    $('.loading-gif').show();
+
+    get_more_photos($(this).data("source"), $(this).data("take"))
+  });
+
   // Initialize Venobox
   $('.venobox').venobox({
     bgcolor: '',
     overlayColor: 'rgba(6, 12, 34, 0.85)',
     closeBackground: '',
     closeColor: '#fff'
+  });
+
+  $('#past-nuansa .card').hover(function() {
+    $(this).children('.card-img-overlay').addClass('title-visible');
+  }, function() {
+    $(this).children('.card-img-overlay').removeClass('title-visible');
   });
 
   // Buy tickets select the ticket type on click

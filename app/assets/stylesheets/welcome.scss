@@ -5,11 +5,12 @@
 @import 'home/partners.scss';
 @import 'home/past_nuansa.scss';
 @import 'home/testimonials.scss';
+@import 'home/gallery.scss';
 
 body {
   background: #fff;
   color: #fff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Avenir Medium", "Open Sans", sans-serif;
 }
 
 a {
@@ -37,8 +38,7 @@ h4,
 h5,
 h6 {
   color: #fff;
-  font-family: "Raleway", sans-serif;
-  font-weight: 400;
+  font-family: "Porter Bold", "Raleway", sans-serif;
   padding: 0;
   margin: 0 0 20px 0;
 }
@@ -55,7 +55,7 @@ h6 {
 
 .section-header::before {
   content: "";
-  background-color: #ce8536;
+  background-color: #ffc05f;
 
   display: block;
   width: 60px;
@@ -63,15 +63,53 @@ h6 {
 
   position: absolute;
   bottom: 0;
-  left: calc(50% - 25px);
+  left: calc(50% - 30px);
 }
 
 .section-header h2 {
-  color: #fff;
+  color: #ffc05f;
   font-size: 30px;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.4em;
   margin-bottom: 10px;
+}
+
+.container .record {
+  padding: 10px;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+}
+.container .customized-container {
+  top-padding: 10px;
+}
+
+.load-more-container{
+  @extend .container;
+  text-align: center;
+}
+
+.load-more{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  transition: 0.5s;
+  color: #ce8536;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.load-more-arrow {
+  width: 10%;
+  height: 10%;
+}
+
+@media (max-width: 991px) {
+  .section-header h2 {
+    font-size: 20px;
+  }
 }

@@ -22,6 +22,17 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Raleway&display=swap');
 
+@font-face {
+  font-family: 'Avenir Medium';
+  src: font-url('Avenir-Medium.woff') format('woff'),
+       font-url('Avenir-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Porter Bold';
+  src: font-url('Porter-Bold.ttf') format('truetype');
+}
+
 body {
   background-color: black !important;
   max-width: 100vw;

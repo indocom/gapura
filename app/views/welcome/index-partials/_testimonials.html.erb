@@ -6,19 +6,21 @@
 
     <div class="owl-carousel testimonials-carousel">
       <% @testimonies.each do |testimony| %>
-        <div class="testimonial-item">
-          <p>
-            <%= image_tag("testimonials/quote-sign-left.png", class: "quote-sign-left") %>
-            <%= testimony.testimony %>
-            <%= image_tag("testimonials/quote-sign-right.png", class: "quote-sign-left") %>
-          </p>
-          <% if testimony.photo.present? %>
-            <%= image_tag(serve_image_path(testimony.photo), class: "testimonial-img") %>
-          <% end %>
-          <h3><%= testimony.name %></h3>
-          <h4><%= testimony.profession %></h4>
+        <div class="testimonial-item row flex-column align-items-center">
+          <div class="testimony-name col-lg-10 col-md-10 mb-3">
+            <h3 class="p-3"><%= testimony.name %></h3>
+          </div>
+          <div class="testimony-title col-lg-8 col-md-8">
+            <h4><i><%= testimony.profession %></i></h4>
+          </div>
+          <div class="col-lg-3 col-md-3 my-3">
+            <%= image_tag("testimonials/quote.png", class: "quote center-block") %>
+          </div>
+          <div class="col-lg-12 col-md-12 text-justify">
+            <p><%= testimony.testimony %></p>
+          </div>
         </div>
       <% end %>
     </div>
   </div>
-</section><!-- #testimonials -->
+</section>

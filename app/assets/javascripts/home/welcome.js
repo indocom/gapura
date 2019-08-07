@@ -20,7 +20,7 @@ jQuery(document).ready(function($) {
 
   // Testimonials carousel (uses the Owl Carousel library)
   $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
+    autoplay: false,
     dots: true,
     loop: true,
     responsive: {
@@ -52,6 +52,12 @@ jQuery(document).ready(function($) {
     overlayColor: 'rgba(6, 12, 34, 0.85)',
     closeBackground: '',
     closeColor: '#fff'
+  });
+
+  $('#past-nuansa .card').hover(function() {
+    $(this).children('.card-img-overlay').addClass('title-visible');
+  }, function() {
+    $(this).children('.card-img-overlay').removeClass('title-visible');
   });
 
   // Buy tickets select the ticket type on click

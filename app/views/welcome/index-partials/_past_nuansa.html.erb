@@ -1,50 +1,62 @@
 <section id="past-nuansa">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-      </div>
+    <div class="row no-gutters mb-4">
       <div class="col-lg-6">
-        <div class="box wow fadeInLeft">
-          <div class="icon"><%= image_tag('nuansa_logo/2018.jpg', alt: 'Tasasek') %></div>
-          <h4 class="title"><%= link_to "Tasasek: The Courage to Choose", events_path(anchor: "nuansa2018") %></h4>
-          <p class="description">Aims to shine the spotlight on Minangkabau culture, this musical is supported by various unique cultural aspects such as Randai, a dance reserved for special occasions.</p>
-          <%= link_to "Read more...", events_path(anchor: "nuansa2018"), class: "read-more" %>
+        <div class="card">
+          <%= image_tag "mock_datas/past_nuansa_preview_0.jpg", class: "card-img" %>
+          <div class="card-img-overlay title-visible">
+            <div class="row align-items-center justify-content-center position-relative">
+              <div class="col-lg-10 position-static">
+                <h3 class="card-title text-center"><%= link_to "Tasasek: The Courage to Choose",  events_path(anchor: "nuansa2018"), class: "stretched-link" %></h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="col-lg-6">
-        <div class="box wow fadeInRight">
-          <div class="icon"><%= image_tag('nuansa_logo/2017.jpg', alt: 'Galigo') %></div>
-          <h4 class="title"><%= link_to "Galigo: The Chaos Within", events_path(anchor: "nuansa2017") %></h4>
-          <p class="description">A literary adaptation from La Galigo, one of the longest mythical epic ever written. This musical portrays the lives of South Sulawesi people laden with unique social values.</p>
-          <%= link_to "Read more...", events_path(anchor: "nuansa2018"), class: "read-more" %>
+        <div class="card">
+          <%= image_tag "mock_datas/past_nuansa_preview_1.jpg", class: "card-img" %>
+          <div class="card-img-overlay">
+            <div class="row align-items-center justify-content-center position-relative">
+              <div class="col-lg-10 position-static">
+                <h3 class="card-title text-center"><%= link_to "Galigo: The Chaos Within",  events_path(anchor: "nuansa2017"), class: "stretched-link" %></h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="col-lg-6">
-        <div class="box wow fadeInLeft" data-wow-delay="0.2s">
-          <div class="icon"><%= image_tag('nuansa_logo/2015.jpg', alt: 'Flowers of Asmat') %></div>
-          <h4 class="title"><%= link_to "Flowers of Asmat", events_path(anchor: "nuansa2015") %></h4>
-          <p class="description">A rendition of the story of twin sisters Teweraut and Anggrek, set in a rural Asmat village of Ewer. Their lives take an unexpected turn when their father breathes his last.</p>
-          <%= link_to "Read more...", events_path(anchor: "nuansa2018"), class: "read-more" %>
+        <div class="card">
+          <%= image_tag "mock_datas/past_nuansa_preview_2.jpg", class: "card-img" %>
+          <div class="card-img-overlay">
+            <div class="row align-items-center justify-content-center position-relative">
+              <div class="col-lg-10 position-static">
+                <h3 class="card-title text-center"><%= link_to "Flowers of Asmat",  events_path(anchor: "nuansa2015"), class: "stretched-link" %></h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="col-lg-6">
-        <div class="box wow fadeInRight" data-wow-delay="0.2s">
-          <div class="icon"></div>
-          <h4 class="title"><%= link_to "The Priyayi", events_path(anchor: "nuansa2014") %></h4>
-          <p class="description">The show tells the story of Lantip, a boy who grew up in a humble background. He then had to bid farewell to his dear mother when he was adopted into the prestigious "Priyayi" family.</p>
-          <%= link_to "Read more...", events_path(anchor: "nuansa2018"), class: "read-more" %>
+      <div class="preview col-lg-6">
+        <div class="card">
+          <%= image_tag "mock_datas/past_nuansa_preview_3.jpg", class: "card-img" %>
+          <div class="card-img-overlay">
+            <div class="row align-items-center justify-content-center position-relative">
+              <div class="col-lg-10 position-static">
+                <h3 class="card-title text-center"><%= link_to "The Priyayi",  events_path(anchor: "nuansa2014"), class: "stretched-link" %></h3>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-lg-3">
-        <div class="explore">
-          <%= link_to "Explore NUANSA", events_path, class: "btn" %>
-        </div>
+      <div class="col-lg-3 explore text-center">
+        <%= link_to "Explore NUANSA", events_path, class: "btn" %>
       </div>
     </div>
   </div>

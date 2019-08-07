@@ -3,7 +3,7 @@
   background-color: #000;
   background-image: image_url('backgrounds/leaf-left-top.png');
   background-position: bottom left;
-  background-size: 20% auto;
+  background-size: 180px auto;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -119,4 +119,10 @@
 #buy-tickets .btn:hover {
   background: #ce8536;
   color: #fff;
+}
+
+@media (min-width: 992px) {
+  #buy-tickets {
+    background-size: 360px auto;
+  }
 }

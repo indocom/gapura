@@ -63,7 +63,7 @@ h6 {
 
   position: absolute;
   bottom: 0;
-  left: calc(50% - 25px);
+  left: calc(50% - 30px);
 }
 
 .section-header h2 {
@@ -106,4 +106,10 @@ h6 {
 .load-more-arrow {
   width: 10%;
   height: 10%;
+}
+
+@media (max-width: 991px) {
+  .section-header h2 {
+    font-size: 20px;
+  }
 }

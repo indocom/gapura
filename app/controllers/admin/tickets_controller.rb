@@ -19,6 +19,9 @@ module Admin
     end
 
     def claim
+      @ticket = Ticket.includes(:user).find_by!(claim_token: params['claim_token'])
+    rescue
+      not_found
     end
 
     def redeem

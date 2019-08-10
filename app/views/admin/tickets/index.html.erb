@@ -13,6 +13,9 @@
       <th>Claimed By</th>
       <th>Note</th>
       <th>Show</th>
+      <% if current_user.has_role? :superuser %>
+        <th>Claim Page</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -25,8 +28,14 @@
         <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
         <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
         <td>
-          <%= button_to("Show", admin_ticket_path(ticket), method: "get", class: "btn btn-info") %>
+          <%= link_to("Show", admin_ticket_path(ticket), class: "btn btn-info") %>
         </td>
+        <% if current_user.has_role? :superuser %>
+          <td>
+            <%= link_to("Claim Page", admin_claim_ticket_path(claim_token: ticket.claim_token),
+              class: "btn btn-info") %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

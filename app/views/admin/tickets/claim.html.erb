@@ -1,0 +1,17 @@
+<br><br><br><br>
+<p id="notice"><%= notice %></p>
+
+<center>
+  <h1 style="color: white"> SHOW PAGE </h1>
+
+  <%= render "ticket_details", ticket: @ticket %>
+
+  <br>
+  <% if @ticket.claimed? %>
+    TICKET HAS BEEN CLAIMED!
+  <% else %>
+    <%= link_to "Claim this ticket", admin_claim_ticket_path(claim_token: @ticket.claim_token),
+      method: :post, data: { confirm: "Do you want to claim this ticket?" } %>
+  <% end %>
+  <br> <%= link_to "Back to Tickets", admin_tickets_path %>
+</center>

@@ -5,15 +5,14 @@
   </tr>
   <tr>
     <td>Date Purchased</td>
-    <td><%= ticket.created_at %></td>
+    <td><%= ticket.created_at.getlocal %></td>
   </tr>
   <tr>
     <td>Date Claimed</td>
-    <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
-  </tr>
+    <td><%= ticket.claimed? ? ticket.claimed_at.getlocal : 'Not yet claimed' %></td>
   <tr>
     <td>Claimed By</td>
-    <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
+    <td><%= ticket.claimed? ? ticket.claimed_by : 'Not yet claimed' %></td>
   </tr>
   <% if current_user.has_role?(:superuser) && local_assigns[:show_token] %>
     <tr>

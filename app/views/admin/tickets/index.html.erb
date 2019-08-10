@@ -23,9 +23,9 @@
     <% @tickets.each do |ticket| %>
       <tr style="border: 2px solid black">
         <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
-        <td><%= ticket.created_at %></td>
-        <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
-        <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
+        <td><%= ticket.created_at.getlocal %></td>
+        <td><%= ticket.claimed? ? ticket.claimed_at.getlocal : 'Not yet claimed' %></td>
+        <td><%= ticket.claimed? ? ticket.claimed_by : 'Not yet claimed' %></td>
         <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
         <td>
           <%= link_to("Show", admin_ticket_path(ticket), class: "btn btn-info") %>

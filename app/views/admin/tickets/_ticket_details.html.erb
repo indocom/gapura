@@ -1,26 +1,32 @@
 <table width=50% style="background-color: white"
-<tr>
-  <td>Username</td>
-  <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
-</tr>
-<tr>
-  <td>Date Purchased</td>
-  <td><%= ticket.created_at %></td>
-</tr>
-<tr>
-  <td>Date Claimed</td>
-  <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
-</tr>
-<tr>
-  <td>Claimed By</td>
-  <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
-</tr>
-<tr>
-  <td>Note</td>
-  <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
-</tr>
-<tr>
-  <td>Receipt</td>
-  <td><%= ticket.receipt.empty? ? '-' : ticket.receipt %></td>
-</tr>
+  <tr>
+    <td>Username</td>
+    <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
+  </tr>
+  <tr>
+    <td>Date Purchased</td>
+    <td><%= ticket.created_at %></td>
+  </tr>
+  <tr>
+    <td>Date Claimed</td>
+    <td><%= ticket.claimed_at || 'Not yet claimed' %></td>
+  </tr>
+  <tr>
+    <td>Claimed By</td>
+    <td><%= ticket.claimed_by || 'Not yet claimed' %></td>
+  </tr>
+  <% if current_user.has_role?(:superuser) && local_assigns[:show_token] %>
+    <tr>
+      <td>Claim Token</td>
+      <td><%= ticket.claim_token %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>Note</td>
+    <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
+  </tr>
+  <tr>
+    <td>Receipt</td>
+    <td><%= ticket.receipt.empty? ? '-' : ticket.receipt %></td>
+  </tr>
 </table>

@@ -2,7 +2,7 @@
 <center>
   <h1 style="color: white"> SHOW PAGE </h1>
 
-  <%= render "ticket_details", ticket: @ticket %>
+  <%= render "ticket_details", ticket: @ticket, show_token: true %>
 
   <br> <%= button_to("Back to Tickets", admin_tickets_path, method: :get) %>
 </center>

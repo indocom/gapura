@@ -1,6 +1,7 @@
 module Admin
   class TicketsController < ApplicationController
     before_action :ensure_admin
+    before_action :ensure_superuser, only: :destroy
 
     def index
       @tickets = Ticket.includes(:user).order(:created_at)
@@ -34,9 +35,15 @@ module Admin
       @ticket.save
 
       flash[:notice] = "Ticket has been redeemed"
-      redirect_to admin_ticket_path(@ticket)
+      redirect_to admin_ticket_url(@ticket)
     rescue
       not_found
+    end
+
+    def destroy
+      @ticket = Ticket.find(params[:id])
+      @ticket.destroy
+      redirect_to admin_tickets_url, notice: 'Ticket was successfully destroyed.'
     end
   end
 end

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       resources :gallery_photos, only: [:index, :new, :create, :destroy]
     end
 
-    resources :tickets, only: [:create, :index, :show]
+    resources :tickets, only: [:create, :index, :show, :destroy]
     get '/ticket/claim', to: 'tickets#claim', as: 'claim_ticket'
     post '/ticket/claim', to: 'tickets#redeem', as: nil
   end

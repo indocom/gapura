@@ -25,6 +25,18 @@ module Admin
     end
 
     def redeem
+      @ticket = Ticket.includes(:user).find_by!(claim_token: params[:claim_token])
+
+      raise ArgumentError if @ticket.claimed?
+
+      @ticket.claimed_at = DateTime.current
+      @ticket.claimed_by = current_user.username
+      @ticket.save
+
+      flash[:notice] = "Ticket has been redeemed"
+      redirect_to admin_ticket_path(@ticket)
+    rescue
+      not_found
     end
   end
 end

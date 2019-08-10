@@ -14,6 +14,7 @@ module Admin
 
     def create
       ticket = current_user.tickets.create(note: 'Mock Ticket')
+      flash[:notice] = "Ticket has been created!!!"
       redirect_to admin_ticket_url(ticket)
     end
 

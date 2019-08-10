@@ -1,8 +1,19 @@
-<br><br><br><br>
-<center>
-  <h1 style="color: white"> SHOW PAGE </h1>
+<section id="admin-ticket-show" class="section-container">
+  <div class="row">
+    <div class="title">
+      Ticket Show
+    </div>
 
-  <%= render "ticket_details", ticket: @ticket, show_token: true %>
+    <div class="content">
+      <%= render "ticket_details", ticket: @ticket, show_token: true %>
 
-  <br> <%= button_to("Back to Tickets", admin_tickets_path, method: :get) %>
-</center>
+      <br><br>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+          <%= button_to("Back to Tickets", admin_tickets_path, method: :get, class: "btn btn-info") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

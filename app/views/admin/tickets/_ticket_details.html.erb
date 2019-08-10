@@ -1,31 +1,44 @@
-<table width=50% style="background-color: white"
-  <tr>
-    <td>Username</td>
-    <td><%= ticket.user ? ticket.user.username : 'User has been deleted' %></td>
-  </tr>
-  <tr>
-    <td>Date Purchased</td>
-    <td><%= ticket.created_at.getlocal %></td>
-  </tr>
-  <tr>
-    <td>Date Claimed</td>
-    <td><%= ticket.claimed? ? ticket.claimed_at.getlocal : 'Not yet claimed' %></td>
-  <tr>
-    <td>Claimed By</td>
-    <td><%= ticket.claimed? ? ticket.claimed_by : 'Not yet claimed' %></td>
-  </tr>
+<div class="info-fields">
+  <div class="row">
+    <div class="col-lg-2 col-md-12 field-key">Username</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.user ? ticket.user.username : 'User has been deleted' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-12 field-key">Date Purchased</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.created_at.getlocal %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-12 field-key">Date Claimed</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.claimed? ? ticket.claimed_at.getlocal : 'Not yet claimed' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-12 field-key">Claimed By</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.claimed? ? ticket.claimed_by : 'Not yet claimed' %>
+    </div>
+  </div>
   <% if current_user.has_role?(:superuser) && local_assigns[:show_token] %>
-    <tr>
-      <td>Claim Token</td>
-      <td><%= ticket.claim_token %></td>
-    </tr>
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">Claim Token</div>
+      <div class="col-lg-10 col-md-12 field-value"><%= ticket.claim_token %></div>
+    </div>
   <% end %>
-  <tr>
-    <td>Note</td>
-    <td><%= ticket.note.empty? ? '-' : ticket.note %></td>
-  </tr>
-  <tr>
-    <td>Receipt</td>
-    <td><%= ticket.receipt.empty? ? '-' : ticket.receipt %></td>
-  </tr>
-</table>
+  <div class="row">
+    <div class="col-lg-2 col-md-12 field-key">Note</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.note.empty? ? '-' : ticket.note %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-12 field-key">Receipt</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.receipt.empty? ? '-' : ticket.receipt %>
+    </div>
+  </div>
+</div>

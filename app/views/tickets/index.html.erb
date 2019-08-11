@@ -1,0 +1,21 @@
+<br><br><br><br>
+
+<h1 style="color: white">Ticket List</h1>
+
+<table style="background-color: white" width="100%">
+  <tr style="border: 2px solid black">
+    <th>No.</th>
+    <th>Purchased At</th>
+    <th>Claimed At</th>
+    <th>Note</th>
+  </tr>
+
+  <% @tickets.each_with_index do |ticket, index| %>
+    <tr style="border: 2px solid black">
+      <td><%= index + 1 %></td>
+      <td><%= ticket.created_at.getlocal %></td>
+      <td><%= ticket.claimed? ? ticket.claimed_at.getlocal : 'Not yet claimed' %></td>
+      <td><%= ticket.note %></td>
+    </tr>
+  <% end %>
+</table>

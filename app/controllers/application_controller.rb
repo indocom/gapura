@@ -7,14 +7,14 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_admin
-    ensure_login unless user_signed_in? && current_user.has_role?(:admin)
+    unauthorized_access unless user_signed_in? && current_user.has_role?(:admin)
   end
 
   def ensure_superuser
-    ensure_login unless user_signed_in? && current_user.has_role?(:superuser)
+    unauthorized_access unless user_signed_in? && current_user.has_role?(:superuser)
   end
 
-  def ensure_login
+  def unauthorized_access
     user_signed_in? ? not_found : redirect_to(new_user_session_url)
   end
 

@@ -25,7 +25,6 @@ Rails.application.routes.draw do
       constraints: lambda { |req| req.format == :js }
   end
 
-  resources :tickets, only: [:create, :index]
   get '/ticket/claim', to: 'tickets#claim', as: 'claim_ticket'
 
   namespace :admin do

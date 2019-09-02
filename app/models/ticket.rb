@@ -1,5 +1,5 @@
 class Ticket < ApplicationRecord
-  belongs_to :user, inverse_of: :tickets
+  belongs_to :customer, inverse_of: :tickets
   has_secure_token :claim_token
 
   def claimed?

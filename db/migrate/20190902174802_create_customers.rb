@@ -4,8 +4,6 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :email, null: false, default: ""
       t.string :claim_token, null: false, default: ""
       t.boolean :subscribe, null: false, default: true
-
-      t.timestamps
     end
     add_index :customers, :claim_token, unique: true
     add_index :customers, :email, unique: true

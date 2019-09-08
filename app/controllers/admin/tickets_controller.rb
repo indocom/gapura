@@ -20,12 +20,15 @@ module Admin
     end
 
     def claim
-      @ticket = Ticket.includes(:user).find_by!(claim_token: params['claim_token'])
+      @customer = Customer.find_by!(claim_token: params['claim_token'])
+      @tickets = @customer.tickets.order(:purchased_at)
     rescue
       not_found
     end
 
+    # This method is not ready due to the latest changes
     def redeem
+      fail
       @ticket = Ticket.includes(:user).find_by!(claim_token: params[:claim_token])
 
       raise ArgumentError if @ticket.claimed?

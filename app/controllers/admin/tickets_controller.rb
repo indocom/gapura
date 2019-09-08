@@ -4,11 +4,11 @@ module Admin
     before_action :ensure_superuser, only: :destroy
 
     def index
-      @tickets = Ticket.includes(:user).order(:created_at)
+      @tickets = Ticket.includes(:customer).order(:purchased_at)
     end
 
     def show
-      @ticket = Ticket.includes(:user).find(params[:id])
+      @ticket = Ticket.includes(:customer).find(params[:id])
     rescue
       not_found
     end

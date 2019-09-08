@@ -1,14 +1,14 @@
 <div class="info-fields">
   <div class="row">
-    <div class="col-lg-2 col-md-12 field-key">Username</div>
+    <div class="col-lg-2 col-md-12 field-key">Email</div>
     <div class="col-lg-10 col-md-12 field-value">
-      <%= ticket.user ? ticket.user.username : 'User has been deleted' %>
+      <%= ticket.customer ? ticket.customer.email : 'Customer has been deleted' %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-2 col-md-12 field-key">Date Purchased</div>
     <div class="col-lg-10 col-md-12 field-value">
-      <%= ticket.created_at.getlocal %>
+      <%= ticket.purchased_at.getlocal %>
     </div>
   </div>
   <div class="row">
@@ -26,7 +26,9 @@
   <% if current_user.has_role?(:superuser) && local_assigns[:show_token] %>
     <div class="row">
       <div class="col-lg-2 col-md-12 field-key">Claim Token</div>
-      <div class="col-lg-10 col-md-12 field-value"><%= ticket.claim_token %></div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= ticket.customer ? ticket.customer.claim_token : 'No associated customer' %>
+      </div>
     </div>
   <% end %>
   <div class="row">

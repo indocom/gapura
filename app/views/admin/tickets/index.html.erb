@@ -8,7 +8,7 @@
         <% @tickets.each do |ticket| %>
           <div class="row info-fields">
             <div class="col-lg-2 col-md-12 col-xs-12 info-item">
-              <%= ticket.user ? ticket.user.username : 'User has been deleted' %>
+              <%= ticket.customer ? ticket.customer.email : 'Customer has been deleted' %>
             </div>
             <div class="col-lg-4 col-md-12 col-xs-12 info-item">
               <%= ticket.claimed? ? "Claimed at: #{ticket.claimed_at.getlocal}" : 'Not yet claimed' %>
@@ -23,8 +23,8 @@
 
             <% if current_user.has_role? :superuser %>
               <div class="col-lg-2 col-md-12 col-xs-12 info-item">
-                <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token: ticket.claim_token },
-                  class: "btn btn-info", method: :get) %>
+                <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token: ticket.customer ?
+                  ticket.customer.claim_token : '' }, class: "btn btn-info", method: :get) %>
               </div>
 
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">

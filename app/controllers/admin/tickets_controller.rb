@@ -49,5 +49,11 @@ module Admin
       @ticket.destroy
       redirect_to admin_tickets_url, notice: 'Ticket was successfully destroyed.'
     end
+
+    def send_confirmation_email
+      @ticket = Ticket.find(params[:id])
+      ApplicationMailer.with(customer: @ticket.customer).ticket_confirmation.deliver_later
+      redirect_to admin_tickets_url, notice: 'Confirmation ticket has been sent.'
+    end
   end
 end

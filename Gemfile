@@ -95,3 +95,6 @@ gem 'cancancan'
 
 # Add Amazon S3 
 gem "aws-sdk-s3", require: false
+
+# Add QR Code generator
+gem 'rqrcode'

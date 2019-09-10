@@ -24,6 +24,12 @@
             <div class="col-lg-3 col-md-12 col-xs-12 info-item">
               <%= button_to("Send Email Confirmation", admin_ticket_email_confirmation_path(ticket), method: :post, class: "btn btn-info",
                 data: { confirm: 'Do you want to send this ticket confirmation email?' }) %>
+              <br> Last:
+              <% if ticket.customer && ticket.customer.last_confirmation_email %>
+                <%= ticket.customer.last_confirmation_email.getlocal %>
+              <% else %>
+                Not yet sent
+              <% end %>
             </div>
 
             <% if current_user.has_role? :superuser %>

@@ -52,7 +52,10 @@ module Admin
 
     def send_confirmation_email
       @ticket = Ticket.find(params[:id])
-      ApplicationMailer.with(customer: @ticket.customer).ticket_confirmation.deliver_later
+      @customer = @ticket.customer
+      ApplicationMailer.with(customer: @customer).ticket_confirmation.deliver_later
+      @customer.last_confirmation_email = DateTime.now
+      @customer.save
       redirect_to admin_tickets_url, notice: 'Confirmation ticket has been sent.'
     end
   end

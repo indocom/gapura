@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_181739) do
     t.string "email", default: "", null: false
     t.string "claim_token", default: "", null: false
     t.boolean "subscribe", default: true, null: false
+    t.datetime "last_confirmation_email"
     t.index ["claim_token"], name: "index_customers_on_claim_token", unique: true
     t.index ["email"], name: "index_customers_on_email", unique: true
   end

@@ -10,7 +10,7 @@
             <div class="col-lg-2 col-md-12 col-xs-12 info-item">
               <%= ticket.customer ? ticket.customer.email : 'Customer has been deleted' %>
             </div>
-            <div class="col-lg-4 col-md-12 col-xs-12 info-item">
+            <div class="col-lg-2 col-md-12 col-xs-12 info-item">
               <%= ticket.claimed? ? "Claimed at: #{ticket.claimed_at.getlocal}" : 'Not yet claimed' %>
             </div>
             <div class="col-lg-2 col-md-12 col-xs-12 info-item">
@@ -21,8 +21,19 @@
               <%= button_to("Show", admin_ticket_path(ticket), method: :get, class: "btn btn-info") %>
             </div>
 
+            <div class="col-lg-3 col-md-12 col-xs-12 info-item">
+              <%= button_to("Send Email Confirmation", admin_ticket_email_confirmation_path(ticket), method: :post, class: "btn btn-info",
+                data: { confirm: 'Do you want to send this ticket confirmation email?' }) %>
+              <br> Last:
+              <% if ticket.customer && ticket.customer.last_confirmation_email %>
+                <%= ticket.customer.last_confirmation_email.getlocal %>
+              <% else %>
+                Not yet sent
+              <% end %>
+            </div>
+
             <% if current_user.has_role? :superuser %>
-              <div class="col-lg-2 col-md-12 col-xs-12 info-item">
+              <div class="col-lg-1 col-md-12 col-xs-12 info-item">
                 <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token: ticket.customer ?
                   ticket.customer.claim_token : '' }, class: "btn btn-info", method: :get) %>
               </div>

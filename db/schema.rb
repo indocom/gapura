@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_09_22_134544) do
     t.string "booking_reference", default: "", null: false
     t.string "email", default: "", null: false
     t.string "ticket_type", default: "", null: false
+    t.integer "quantity", null: false
   end
 
   create_table "users", force: :cascade do |t|

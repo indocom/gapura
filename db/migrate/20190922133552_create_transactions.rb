@@ -6,6 +6,7 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
       t.string :booking_reference, null: false, default: ""
       t.string :email, null: false, default: ""
       t.string :ticket_type, null: false, default: ""
+      t.integer :quantity, null: false
     end
   end
 end

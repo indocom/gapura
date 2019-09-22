@@ -18,10 +18,6 @@ class ApplicationController < ActionController::Base
     user_signed_in? ? not_found : redirect_to(new_user_session_url)
   end
 
-  def ensure_login
-    redirect_to(new_user_session_url) if !user_signed_in?
-  end
-
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   rescue

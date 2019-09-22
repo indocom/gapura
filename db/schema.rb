@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_144402) do
+ActiveRecord::Schema.define(version: 2019_09_02_181739) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +34,15 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "claim_token", default: "", null: false
+    t.boolean "subscribe", default: true, null: false
+    t.datetime "last_confirmation_email"
+    t.index ["claim_token"], name: "index_customers_on_claim_token", unique: true
+    t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
   create_table "event_info", force: :cascade do |t|
@@ -103,6 +113,16 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.datetime "purchased_at", null: false
+    t.datetime "claimed_at"
+    t.string "claimed_by"
+    t.bigint "customer_id"
+    t.string "note", default: "", null: false
+    t.string "confirmation_code", default: "", null: false
+    t.index ["customer_id"], name: "index_tickets_on_customer_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
@@ -136,4 +156,5 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
   add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
+  add_foreign_key "tickets", "customers"
 end

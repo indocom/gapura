@@ -1,5 +1,6 @@
 <%= form.fields_for field do |image_form| %>
   <div class="row">
+    <div class="col-lg-12"></div>
     <div class="col-lg-2 col-md-12 field-key">
       <%= image_form.label :file, field.to_s.capitalize %>
     </div>
@@ -8,6 +9,7 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-lg-12"></div>
     <div class="col-lg-2 col-md-12 field-key">
       <%= image_form.label :_destroy, "Delete #{field.to_s.capitalize}" %>
     </div>

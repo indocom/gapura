@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_181739) do
+ActiveRecord::Schema.define(version: 2019_09_22_133552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,13 @@ ActiveRecord::Schema.define(version: 2019_09_02_181739) do
     t.string "ticket_type", default: "", null: false
     t.string "booking_reference", default: "", null: false
     t.index ["customer_id"], name: "index_tickets_on_customer_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "purchased_at", null: false
+    t.string "ticket_type", default: "", null: false
+    t.string "booking_reference", default: "", null: false
   end
 
   create_table "users", force: :cascade do |t|

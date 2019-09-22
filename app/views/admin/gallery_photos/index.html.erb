@@ -8,6 +8,7 @@
     <div class="content">
       <div class="col-lg-12">
         <div class="row">
+          <div class="col-md-12"></div>
           <div class="col-md-6">
             <%= button_to("Back to event", admin_event_path(@event.year), method: "get", class: "btn btn-info") %>
           </div>
@@ -19,6 +20,7 @@
         <br><br>
 
         <div class="row">
+          <div class="col-lg-12"></div>
           <% @gallery_photos.each do |gallery_photo| %>
             <div class="col-lg-3 col-md-4 col-xs-12">
               <div class="image-box-4-3">

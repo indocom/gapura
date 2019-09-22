@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_22_133552) do
+ActiveRecord::Schema.define(version: 2019_09_22_134544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,10 @@ ActiveRecord::Schema.define(version: 2019_09_22_133552) do
     t.string "mime_type"
     t.string "filename"
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "last_transactions", id: false, force: :cascade do |t|
+    t.datetime "time", null: false
   end
 
   create_table "roles", force: :cascade do |t|

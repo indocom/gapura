@@ -5,7 +5,7 @@ class CreateTickets < ActiveRecord::Migration[5.2]
       t.datetime :claimed_at
       t.string :claimed_by
       t.references :customer, foreign_key: true
-      t.string :note, null: false, default: ""
+      t.string :ticket_type, null: false, default: ""
       t.string :confirmation_code, null: false, default: ""
     end
   end

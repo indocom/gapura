@@ -14,7 +14,7 @@
               <%= ticket.claimed? ? "Claimed at: #{ticket.claimed_at.getlocal}" : 'Not yet claimed' %>
             </div>
             <div class="col-lg-2 col-md-12 col-xs-12 info-item">
-              <%= ticket.note.empty? ? '-' : ticket.note %>
+              <%= ticket.ticket_type.empty? ? '-' : ticket.ticket_type %>
             </div>
 
             <div class="col-lg-1 col-md-12 col-xs-12 info-item">

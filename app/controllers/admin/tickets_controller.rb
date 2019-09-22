@@ -15,7 +15,7 @@ module Admin
 
     def create
       customer = Customer.find_or_create_by(email: current_user.email)
-      ticket = customer.tickets.create(note: 'Mock Ticket', purchased_at: DateTime.now)
+      ticket = customer.tickets.create(ticket_type: 'Mock', purchased_at: DateTime.now)
       flash[:notice] = "Ticket has been created!!!"
       redirect_to admin_ticket_url(ticket)
     end

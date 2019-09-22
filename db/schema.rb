@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_181739) do
     t.datetime "claimed_at"
     t.string "claimed_by"
     t.bigint "customer_id"
-    t.string "note", default: "", null: false
+    t.string "ticket_type", default: "", null: false
     t.string "confirmation_code", default: "", null: false
     t.index ["customer_id"], name: "index_tickets_on_customer_id"
   end

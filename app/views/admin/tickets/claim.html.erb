@@ -8,6 +8,7 @@
       <div class="col-lg-12">
         <% @tickets.each do |ticket| %>
           <div class="row info-fields">
+            <div class="col-lg-12"></div>
             <div class="col-lg-4 col-md-12 col-xs-12 info-item">
               <%= ticket.claimed? ? "Claimed at: #{ticket.claimed_at.getlocal}" : 'Not yet claimed' %>
             </div>

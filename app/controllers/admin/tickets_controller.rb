@@ -16,6 +16,7 @@ module Admin
     def create
       customer = Customer.find_or_create_by(email: current_user.email)
       ticket = customer.tickets.create(ticket_type: 'Mock', purchased_at: DateTime.now)
+      ticket.send_confirmation_email
       flash[:notice] = "Ticket has been created!!!"
       redirect_to admin_ticket_url(ticket)
     end
@@ -52,10 +53,7 @@ module Admin
 
     def send_confirmation_email
       @ticket = Ticket.find(params[:id])
-      @customer = @ticket.customer
-      ApplicationMailer.with(customer: @customer).ticket_confirmation.deliver_later
-      @customer.last_confirmation_email = DateTime.now
-      @customer.save
+      @ticket.send_confirmation_email
       redirect_to admin_tickets_url, notice: 'Confirmation ticket has been sent.'
     end
   end

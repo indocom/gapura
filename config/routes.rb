@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   get '/ticket/claim', to: 'tickets#claim', as: 'claim_ticket'
+  post '/tickets/synchronize', to: 'tickets#synchronize'
 
   namespace :admin do
     root 'admin#index'

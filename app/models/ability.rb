@@ -10,9 +10,11 @@ class Ability
         can [:create, :update, :destroy], Event
         can [:create, :update, :destroy], FrequentlyAskedQuestion
         can [:create, :update, :destroy], Testimony
+        can [:create, :update], Ticket
       end
       if user.has_role? :superuser
         can [:update, :destroy], User
+        can [:destroy], Ticket
       end
     end
   end

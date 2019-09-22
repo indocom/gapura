@@ -1,0 +1,2 @@
+class LastTransaction < ApplicationRecord
+end

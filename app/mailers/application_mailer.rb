@@ -3,6 +3,7 @@ class ApplicationMailer < ActionMailer::Base
 
   def ticket_confirmation
     @customer = params[:customer]
+    @total_tickets = params[:total_tickets]
 
     claim_url = claim_ticket_url(claim_token: @customer.claim_token)
     attachments.inline['QRCode.png'] = RQRCode::QRCode.new(claim_url).as_png.to_s

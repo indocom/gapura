@@ -20,6 +20,10 @@
             <div class="col-lg-2 col-md-6 col-xs-6 info-item">
               <%= button_to("Add Photo", new_admin_event_gallery_photo_path(event.year), method: "get", class: "btn btn-info") %>
             </div>
+
+            <div class="col-lg-2 col-md-6 col-xs-6 info-item">
+              <%= button_to("Add Event Preview", new_admin_event_event_preview_path(event.year), method: "get", class: "btn btn-info") %>
+            </div>
             
             <div class="col-lg-1 col-md-4 col-xs-4 info-item">
               <%= button_to("Show", admin_event_path(event.year), method: "get", class: "btn btn-info") %>

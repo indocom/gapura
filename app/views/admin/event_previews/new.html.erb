@@ -1,0 +1,26 @@
+<% provide(:custom_css, 'admin/event_previews/form') %>
+
+<section id="admin-form" class="section-container">
+  <div class="row">
+    <div class="title">
+      Add New Photo for NUANSA <%= @event.year %>
+    </div>
+    <div class="content">
+      <%= render 'form', event_preview: @event_preview %>
+      
+      <br><br>
+      
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-4">
+          <%= button_to("Event Menu", admin_events_path, method: "get", class: "btn btn-info") %>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-4">
+          <%= button_to("Event Show", admin_event_path(@event.year), method: "get", class: "btn btn-info") %>
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-4">
+          <%= button_to("Gallery", admin_event_event_previews_path(@event.year), method: "get", class: "btn btn-info") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

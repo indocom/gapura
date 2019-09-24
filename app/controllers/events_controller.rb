@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     set_event
     @gallery_photos = @event.gallery_photos.limit(8)
     @more_photos = @event.gallery_photos.count > 8
+    @event_previews = @event.event_previews;
   end
 
   def load_photos

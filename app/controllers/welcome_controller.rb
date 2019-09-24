@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     @partners = @current_event.sponsors
     @gallery_photos = @current_event.gallery_photos.limit(8)
     @more_photos = @current_event.gallery_photos.count > 8
+    @event_previews = @current_event.event_previews
   rescue
     not_found
   end

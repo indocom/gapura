@@ -1,9 +1,11 @@
+  
 <section id="intro" class="section-container">
   <div class="intro-container">  
     <div id="introCarousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <div class='carousel-background'>
+            <%= image_tag(serve_image_path(@event_previews.first.image_link)) %>
           </div>
           <div class="carousel-container">
             <div class="carousel-content">
@@ -18,12 +20,6 @@
             </div>
           </div>
         </div>
-          <% @event_previews.each do |event_preview| %>
-                <div class="item">
-                <p> event_preview.image_link </p>
-                  <%= image_tag(event_preview.image_link) %>
-                </div>
-          <% end %>
       </div>
 
       <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">

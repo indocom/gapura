@@ -122,6 +122,15 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
     t.index ["year"], name: "index_sponsors_on_year"
   end
 
+  create_table "subscribers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.boolean "receive_important_email"
+    t.boolean "receive_marketing_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "testimonies", force: :cascade do |t|
     t.string "name", null: false
     t.string "profession", null: false

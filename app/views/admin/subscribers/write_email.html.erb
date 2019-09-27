@@ -1,0 +1,93 @@
+<section id="admin-form" class="section-container">
+  <div class="content">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <h1>Write Email</h1>
+      </div>
+    </div>
+    <%= form_with(url: admin_send_email_path, method: "post") do |form| %>
+
+    <div class="form-fields">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 field-key">
+          <%= form.label :title, "Title" %>
+        </div>
+        <div class="col-lg-10 col-md-12 field-value">
+          <%= form.text_field :title, required: true %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-12 field-key">
+          <%= form.label :is_important_email, "Important Email Receiver" %>
+        </div>
+        <div class="col-lg-10 col-md-12 field-value">
+          <%= form.check_box :is_important_email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-12 field-key">
+          <%= form.label :is_marketing_email, "Marketing Email Receiver" %>
+        </div>
+        <div class="col-lg-10 col-md-12 field-value">
+          <%= form.check_box :is_marketing_email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-12 field-key">
+          <%= form.label :body, "Email body" %>
+        </div>
+        <div class="col-lg-10 col-md-12 field-value">
+          <%= form.hidden_field :body%>
+          <div id="editor-container">
+          </div>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <%= form.submit 'Submit', class: "submit-button" %>      
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+      var toolbarOptions = {
+        container: [
+        ['bold', 'italic', 'underline'],
+        ['link'],
+        ],
+        handlers: {
+        // UI improvements. The original had an ugly-looking input field
+        'link': function(value) {
+          if (value) {
+            var href = prompt('Enter the URL');
+            this.quill.format('link', href);
+          } else {
+            this.quill.format('link', false);
+          }
+        }
+      }
+    }
+
+    // Initialises the div with id='editor-container' to be a quill editor, with toolbarOptions specified above
+    var quill = new Quill('#editor-container', {
+      modules: {
+        toolbar: toolbarOptions
+      },
+      placeholder: 'Insert Email body here...',
+      theme: 'snow'
+    });
+
+    /* Copied from StackOverflow, but this is the piece of code that allows any changes in html text
+       from the quill editor to be injected into the hidden_field: 
+       form.hidden_field :body
+       */ 
+       quill.on('text-change', function() {
+        $("#body").val(quill.getText());
+      });
+    </script>
+    <% end %>
+
+
+</section>

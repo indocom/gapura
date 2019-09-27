@@ -4,7 +4,7 @@ class CreateSubscribers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.boolean :receive_important_email
-      t.boolean :receive_unimportant_email
+      t.boolean :receive_marketing_email
 
       t.timestamps
     end

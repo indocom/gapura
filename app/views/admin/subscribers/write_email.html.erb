@@ -10,23 +10,15 @@
     <div class="form-fields">
       <div class="row">
         <div class="col-lg-4 col-md-12 field-key">
-          <%= form.label :title, "Title" %>
+          <%= form.label :subject, "Title" %>
         </div>
         <div class="col-lg-10 col-md-12 field-value">
-          <%= form.text_field :title, required: true %>
+          <%= form.text_field :subject, required: true %>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-12 field-key">
-          <%= form.label :is_important_email, "Important Email Receiver" %>
-        </div>
-        <div class="col-lg-10 col-md-12 field-value">
-          <%= form.check_box :is_important_email %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-12 field-key">
-          <%= form.label :is_marketing_email, "Marketing Email Receiver" %>
+          <%= form.label :is_marketing_email, "Only Send to Marketing Email Subscribers" %>
         </div>
         <div class="col-lg-10 col-md-12 field-value">
           <%= form.check_box :is_marketing_email %>

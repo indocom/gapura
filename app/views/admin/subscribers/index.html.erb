@@ -1,33 +1,28 @@
 <section id="admin" class="section-container">
 	<div class="row">
 		<div class="title">
-			LumiNUS
+			Email Blaster
 		</div>
-		<%= link_to "Send New Email", admin_write_email_path %>
+		<%= button_to("Send New Email", admin_write_email_path, method: "get", class: "btn btn-info") %>
 		<div class="content">
 
 			<br><br>
 
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Name</th>
-						<th scope="col">Email</th>
-						<th scope="col">Receive important email</th>
-						<th scope="col">Receive marketing email</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @subscribers.each do |subscriber| %>
-					<tr>
-						<td><%= subscriber.name %></td>
-						<td><%= subscriber.email %></td>
-						<td><%= subscriber.receive_important_email %></td>
-						<td><%= subscriber.receive_marketing_email %></td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
+			<% @subscribers.each do |subscriber| %>
+
+          		<div class="row info-fields">
+          			<div class="col-lg-3 col-md-12 col-xs-12 info-item"><%= subscriber.name %></div>
+            	<div class="col-lg-4 col-md-12 col-xs-12 info-item"><%= subscriber.email %></div>
+
+            <% if subscriber.receive_marketing_email %>
+
+            <div class="col-lg-4 col-md-4 col-xs-4 info-item">
+              Marketing Email Subscriber
+            </div>
+
+            <% end %>
+        </div>
+        <% end %>
 		</div>
 	</div>
 </section>

@@ -8,7 +8,7 @@ module Admin
     before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
 
     def index
-      @sponsors = @event.sponsors
+      @sponsors = @event.sponsors.order(:type)
     end
 
     def show

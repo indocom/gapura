@@ -11,6 +11,7 @@ class Ability
         can [:create, :update, :destroy], FrequentlyAskedQuestion
         can [:create, :update, :destroy], Testimony
         can [:create, :update], Ticket
+        can [:email], Subscriber
       end
       if user.has_role? :superuser
         can [:update, :destroy], User

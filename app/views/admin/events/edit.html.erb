@@ -21,6 +21,9 @@
           <%= button_to('Gallery', admin_event_gallery_photos_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
         <div class="col-lg-3">
+          <%= button_to('Event Previews', admin_event_event_previews_path(@event.year), method: "get", class: "btn btn-info") %>
+        </div>
+        <div class="col-lg-3">
           <%= button_to('Sponsors', admin_event_sponsors_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
       </div>

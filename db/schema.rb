@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_144402) do
+ActiveRecord::Schema.define(version: 2019_09_15_083109) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +42,13 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.string "video_link"
     t.integer "year"
     t.index ["year"], name: "index_event_info_on_year", unique: true
+  end
+
+  create_table "event_previews", force: :cascade do |t|
+    t.string "image_link"
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.index ["year"], name: "index_event_previews_on_year"
   end
 
   create_table "events", force: :cascade do |t|

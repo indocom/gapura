@@ -11,26 +11,26 @@
           <div class="col-lg-12"></div>
           <div class="col-lg-1 col-md-12 col-xs-12 info-item"><%= event.year %></div>
           <div class="col-lg-2 col-md-12 col-xs-12 info-item"><%= event.title %></div>
-          <div class="col-lg-2 col-md-12 col-xs-12 info-item"><%= event.subtitle %></div>
+          <div class="col-lg-3 col-md-12 col-xs-12 info-item"><%= event.subtitle %></div>
 
-          <div class="col-lg-2 col-md-6 col-xs-6 info-item">
-            <%= button_to("Add Sponsor", new_admin_event_sponsor_path(event.year), method: "get", class: "btn btn-info") %>
+          <div class="col-lg-1 col-md-4 col-xs-4 info-item">
+            <%= button_to("Show", admin_event_path(event.year), method: "get", class: "btn btn-info") %>
           </div>
-
-            <div class="col-lg-2 col-md-6 col-xs-6 info-item">
-              <%= button_to("Add Photo", new_admin_event_gallery_photo_path(event.year), method: "get", class: "btn btn-info") %>
-            </div>
-
-            <div class="col-lg-2 col-md-6 col-xs-6 info-item">
-              <%= button_to("Add Event Preview", new_admin_event_event_preview_path(event.year), method: "get", class: "btn btn-info") %>
-            </div>
-            
-            <div class="col-lg-1 col-md-4 col-xs-4 info-item">
-              <%= button_to("Show", admin_event_path(event.year), method: "get", class: "btn btn-info") %>
-            </div>
 
           <div class="col-lg-1 col-md-4 col-xs-4 info-item">
             <%= button_to("Edit", edit_admin_event_path(event.year), method: "get", class: "btn btn-info") %>
+          </div>
+          
+          <div class="col-lg-1 col-md-4 col-xs-4 info-item">
+            <%= button_to("Previews", admin_event_event_previews_path(event.year), method: "get", class: "btn btn-info") %>
+          </div>
+          
+          <div class="col-lg-1 col-md-4 col-xs-4 info-item">
+            <%= button_to("Sponsors", admin_event_sponsors_path(event.year), method: "get", class: "btn btn-info") %>
+          </div>
+
+          <div class="col-lg-1 col-md-4 col-xs-4 info-item">
+            <%= button_to("Gallery", admin_event_gallery_photos_path(event.year), method: "get", class: "btn btn-info") %>
           </div>
 
           <div class="col-lg-1 col-md-4 col-xs-4 info-item">

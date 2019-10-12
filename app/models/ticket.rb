@@ -1,6 +1,8 @@
 class Ticket < ApplicationRecord
   belongs_to :customer, inverse_of: :tickets
 
+  has_many :claim_histories, dependent: :destroy, inverse_of: :ticket
+
   def claimed?
     return !claimed_at.nil?
   end

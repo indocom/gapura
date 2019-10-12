@@ -5,6 +5,8 @@ class Ticket < ApplicationRecord
 
   has_many :claim_histories, dependent: :destroy, inverse_of: :ticket
 
+  before_validation :titleize_name
+
   def total_claimed
     return claim_histories.sum("claim_quantity")
   end
@@ -18,4 +20,9 @@ class Ticket < ApplicationRecord
     self.last_confirmation_email = DateTime.now
     self.save
   end
+
+  private
+    def titleize_name
+      self.name = name.titleize
+    end
 end

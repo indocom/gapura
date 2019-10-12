@@ -21,6 +21,8 @@ module Admin
       ticket.send_confirmation_email
       flash[:notice] = "Ticket has been created!!!"
       redirect_to admin_ticket_url(ticket)
+    rescue
+      not_found
     end
 
     # This method is currently outdated.

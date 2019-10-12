@@ -34,13 +34,25 @@ class TicketsController < ApplicationController
 
     def create_ticket_from_transaction(transaction)
       customer = Customer.find_or_create_by!(email: transaction.email)
-      ticket = customer.tickets.create!(
-        booking_reference: transaction.booking_reference,
-        ticket_type: transaction.ticket_type,
-        name: transaction.name,
-        quantity: transaction.quantity,
-        purchased_at: transaction.purchased_at,
-      )
+
+      ticket = nil
+      for i in 0..4 do
+        begin
+          ticket = customer.tickets.create!(
+            booking_reference: transaction.booking_reference,
+            ticket_type: transaction.ticket_type,
+            name: transaction.name,
+            quantity: transaction.quantity,
+            purchased_at: transaction.purchased_at,
+          )
+          break
+        rescue
+          if (i == 4)
+            raise
+          end
+        end
+      end
+
       ticket.send_confirmation_email
     end
 end

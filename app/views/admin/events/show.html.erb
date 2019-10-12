@@ -60,6 +60,9 @@
         <div class="col-lg-2 col-md-3 col-xs-6">
           <%= button_to('Gallery', admin_event_gallery_photos_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>
+        <div class="col-lg-2 col-md-3 col-xs-6">
+          <%= button_to("Add Event Previews", new_admin_event_event_preview_path(@event.year), method: "get", class: "btn btn-info") %>
+        </div>
         <div class="col-lg-2 col-md-6 col-xs-6">
           <%= button_to("Edit", edit_admin_event_path(@event.year), method: "get", class: "btn btn-info") %>
         </div>

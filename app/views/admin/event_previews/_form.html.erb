@@ -1,0 +1,38 @@
+<%= form_with(model: event_preview, local: true, url: target_url) do |form| %>
+  <% if event_preview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_preview.errors.count, "error") %> prohibited this event preview from being saved:</h2>
+
+      <ul>
+      <% event_preview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-fields">
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :image_link, "Image Link" %> <br>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.text_field :image_link %>
+      </div>
+    </div>
+    <%= render "admin/image/image_form", form: form, field: :image %>
+    <div class="row">
+      <div class="col-lg-2 col-md-12 field-key">
+        <%= form.label :preview_info, "Preview Info" %> <br>
+      </div>
+      <div class="col-lg-10 col-md-12 field-value">
+        <%= form.text_area :preview_info, required: true %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= form.submit 'Submit', class: "submit-button" %>      
+      </div>
+    </div>
+  </div>
+<% end %>

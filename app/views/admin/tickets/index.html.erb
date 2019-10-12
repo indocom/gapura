@@ -36,7 +36,7 @@
             <% if current_user.has_role? :superuser %>
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">
                 <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token: ticket.customer ?
-                  ticket.customer.claim_token : '' }, class: "btn btn-info", method: :get) %>
+                  ticket.customer.claim_token : '' }, class: "btn btn-info", method: :get, disabled: true) %>
               </div>
 
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">
@@ -55,7 +55,7 @@
             <%= button_to("Back", admin_root_path, method: "get", class: "btn btn-info") %>
           </div>
           <div class="col-lg-6">
-            <%= button_to("Buy Ticket (Mock Ticket)", admin_tickets_path, method: "post", class: "btn btn-info") %>
+            <%= button_to("Buy Ticket (Mock Ticket)", admin_tickets_path, method: "post", class: "btn btn-info", disabled: true) %>
           </div>
         </div>
       </div>

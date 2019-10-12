@@ -13,7 +13,9 @@ module Admin
       not_found
     end
 
+    # This method is currently outdated.
     def create
+      fail
       customer = Customer.find_or_create_by(email: current_user.email)
       ticket = customer.tickets.create(ticket_type: 'Mock', purchased_at: DateTime.now)
       ticket.send_confirmation_email
@@ -21,14 +23,16 @@ module Admin
       redirect_to admin_ticket_url(ticket)
     end
 
+    # This method is currently outdated.
     def claim
+      fail
       @customer = Customer.find_by!(claim_token: params['claim_token'])
       @tickets = @customer.tickets.order(:purchased_at)
     rescue
       not_found
     end
 
-    # This method is not ready due to the latest changes
+    # This method is currently outdated.
     def redeem
       fail
     end

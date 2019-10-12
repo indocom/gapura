@@ -65,3 +65,18 @@
     </div>
   <% end %>
 </div>
+
+<% if ticket.claim_histories.count != 0 %>
+  <center> <h1> Ticket claim history </h1> </center>
+  <div class="info-fields">
+    <% ticket.claim_histories.each_with_index do |history, idx| %>
+      <div class="row">
+        <div class="col-lg-12"></div>
+        <div class="col-lg-3 col-md-12 field-key">No <%= idx + 1 %>.</div>
+        <div class="col-lg-3 col-md-12 field-key"><%= history.claimed_by %></div>
+        <div class="col-lg-3 col-md-12 field-key"><%= history.claimed_at.getlocal %></div>
+        <div class="col-lg-3 col-md-12 field-key"><%= history.claim_quantity %></div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

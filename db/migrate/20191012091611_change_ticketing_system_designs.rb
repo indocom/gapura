@@ -13,5 +13,6 @@ class ChangeTicketingSystemDesigns < ActiveRecord::Migration[5.2]
     add_column :tickets, :last_confirmation_email, :datetime
     remove_column :tickets, :claimed_at
     remove_column :tickets, :claimed_by
+    add_index :tickets, [:booking_reference, :ticket_type], unique: true
   end
 end

@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_094723) do
     t.string "claim_token", default: "", null: false
     t.integer "quantity", null: false
     t.datetime "last_confirmation_email"
+    t.index ["booking_reference", "ticket_type"], name: "index_tickets_on_booking_reference_and_ticket_type", unique: true
     t.index ["claim_token"], name: "index_tickets_on_claim_token", unique: true
     t.index ["customer_id"], name: "index_tickets_on_customer_id"
   end

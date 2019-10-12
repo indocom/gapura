@@ -14,9 +14,8 @@ class Ticket < ApplicationRecord
   end
 
   def send_confirmation_email
-    ApplicationMailer.with(customer: customer, total_tickets: customer.tickets.count)
-        .ticket_confirmation.deliver_later
-    customer.last_confirmation_email = DateTime.now
-    customer.save
+    ApplicationMailer.with(ticket: self).ticket_confirmation.deliver_later
+    self.last_confirmation_email = DateTime.now
+    self.save
   end
 end

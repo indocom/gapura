@@ -1,9 +1,30 @@
 <div class="info-fields">
   <div class="row">
     <div class="col-lg-12"></div>
+    <div class="col-lg-2 col-md-12 field-key">Name</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12"></div>
     <div class="col-lg-2 col-md-12 field-key">Email</div>
     <div class="col-lg-10 col-md-12 field-value">
       <%= ticket.customer ? ticket.customer.email : 'Customer has been deleted' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12"></div>
+    <div class="col-lg-2 col-md-12 field-key">Booking Reference</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.booking_reference %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12"></div>
+    <div class="col-lg-2 col-md-12 field-key">Ticket Type</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.ticket_type %>
     </div>
   </div>
   <div class="row">
@@ -15,16 +36,23 @@
   </div>
   <div class="row">
     <div class="col-lg-12"></div>
-    <div class="col-lg-2 col-md-12 field-key">Date Claimed</div>
+    <div class="col-lg-2 col-md-12 field-key">Quantity</div>
     <div class="col-lg-10 col-md-12 field-value">
-      <%= ticket.claimed? ? ticket.claimed_at.getlocal : 'Not yet claimed' %>
+      <%= ticket.quantity %>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-12"></div>
-    <div class="col-lg-2 col-md-12 field-key">Claimed By</div>
+    <div class="col-lg-2 col-md-12 field-key">Total Claimed</div>
     <div class="col-lg-10 col-md-12 field-value">
-      <%= ticket.claimed? ? ticket.claimed_by : 'Not yet claimed' %>
+      <%= ticket.total_claimed %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12"></div>
+    <div class="col-lg-2 col-md-12 field-key">Total Unclaimed</div>
+    <div class="col-lg-10 col-md-12 field-value">
+      <%= ticket.total_unclaimed %>
     </div>
   </div>
   <% if current_user.has_role?(:superuser) && local_assigns[:show_token] %>
@@ -32,22 +60,8 @@
       <div class="col-lg-12"></div>
       <div class="col-lg-2 col-md-12 field-key">Claim Token</div>
       <div class="col-lg-10 col-md-12 field-value">
-        <%= ticket.customer ? ticket.customer.claim_token : 'No associated customer' %>
+        <%= ticket.claim_token %>
       </div>
     </div>
   <% end %>
-  <div class="row">
-    <div class="col-lg-12"></div>
-    <div class="col-lg-2 col-md-12 field-key">Ticket Type</div>
-    <div class="col-lg-10 col-md-12 field-value">
-      <%= ticket.ticket_type.empty? ? '-' : ticket.ticket_type %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12"></div>
-    <div class="col-lg-2 col-md-12 field-key">Booking Reference</div>
-    <div class="col-lg-10 col-md-12 field-value">
-      <%= ticket.booking_reference.empty? ? '-' : ticket.booking_reference %>
-    </div>
-  </div>
 </div>

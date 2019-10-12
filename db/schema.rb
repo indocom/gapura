@@ -123,11 +123,14 @@ ActiveRecord::Schema.define(version: 2019_10_12_094723) do
 
   create_table "tickets", force: :cascade do |t|
     t.datetime "purchased_at", null: false
-    t.datetime "claimed_at"
-    t.string "claimed_by"
     t.bigint "customer_id"
     t.string "ticket_type", default: "", null: false
     t.string "booking_reference", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "claim_token", default: "", null: false
+    t.integer "quantity", null: false
+    t.datetime "last_confirmation_email"
+    t.index ["claim_token"], name: "index_tickets_on_claim_token", unique: true
     t.index ["customer_id"], name: "index_tickets_on_customer_id"
   end
 

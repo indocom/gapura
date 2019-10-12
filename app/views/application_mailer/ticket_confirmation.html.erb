@@ -1,0 +1,7 @@
+<p>Hi <%= @ticket.name %>. Thank you for buying NUANSA ticket</p>
+
+<p>Here is your ticket's QR Code: </p>
+<p>Booking Reference: <%= @ticket.booking_reference %></p>
+<p>Ticket Type: <%= @ticket.ticket_type %></p>
+
+<%= image_tag attachments['QRCode.png'].url, size: "200x200" %>

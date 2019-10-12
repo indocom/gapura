@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_144402) do
+ActiveRecord::Schema.define(version: 2019_10_12_094723) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +34,19 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "claim_histories", force: :cascade do |t|
+    t.bigint "ticket_id"
+    t.string "claimed_by", null: false
+    t.datetime "claimed_at", null: false
+    t.integer "claim_quantity", null: false
+    t.index ["ticket_id"], name: "index_claim_histories_on_ticket_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
   create_table "event_info", force: :cascade do |t|
@@ -75,6 +89,10 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
   end
 
+  create_table "last_transactions", id: false, force: :cascade do |t|
+    t.datetime "time", null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -101,6 +119,31 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
     t.text "testimony", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.datetime "purchased_at", null: false
+    t.bigint "customer_id"
+    t.string "ticket_type", default: "", null: false
+    t.string "booking_reference", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "claim_token", default: "", null: false
+    t.integer "quantity", null: false
+    t.datetime "last_confirmation_email"
+    t.index ["booking_reference", "ticket_type"], name: "index_tickets_on_booking_reference_and_ticket_type", unique: true
+    t.index ["claim_token"], name: "index_tickets_on_claim_token", unique: true
+    t.index ["customer_id"], name: "index_tickets_on_customer_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "purchased_at", null: false
+    t.string "booking_reference", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "ticket_type", default: "", null: false
+    t.integer "quantity", null: false
+    t.string "name", default: "", null: false
+    t.index ["booking_reference", "ticket_type"], name: "index_transactions_on_booking_reference_and_ticket_type", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -133,7 +176,9 @@ ActiveRecord::Schema.define(version: 2019_07_14_144402) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "claim_histories", "tickets"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
   add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
+  add_foreign_key "tickets", "customers"
 end

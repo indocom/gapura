@@ -5,8 +5,12 @@ class Ticket < ApplicationRecord
 
   has_many :claim_histories, dependent: :destroy, inverse_of: :ticket
 
-  def claimed?
-    return !claimed_at.nil?
+  def total_claimed
+    return claim_histories.sum("claim_quantity")
+  end
+
+  def total_unclaimed
+    return quantity - total_claimed
   end
 
   def send_confirmation_email

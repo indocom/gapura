@@ -4,7 +4,7 @@ class CreateClaimHistories < ActiveRecord::Migration[5.2]
       t.references :ticket, foreign_key: true
       t.string :claimed_by, null: false
       t.datetime :claimed_at, null: false
-      t.string :claim_quantity, null: false
+      t.integer :claim_quantity, null: false
     end
   end
 end

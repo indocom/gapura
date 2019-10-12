@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_094723) do
     t.bigint "ticket_id"
     t.string "claimed_by", null: false
     t.datetime "claimed_at", null: false
-    t.string "claim_quantity", null: false
+    t.integer "claim_quantity", null: false
     t.index ["ticket_id"], name: "index_claim_histories_on_ticket_id"
   end
 

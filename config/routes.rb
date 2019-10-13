@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :gallery_photos, only: :index
 
+  resources :event_previews, only: :index
+
   devise_scope :user do
     get '/sign_up'   => "users/registrations#new",   :as => :new_user_registration
 
@@ -38,6 +40,7 @@ Rails.application.routes.draw do
     resources :events, param: 'year' do
       resources :sponsors
       resources :gallery_photos, only: [:index, :new, :create, :destroy]
+      resources :event_previews
     end
 
     resources :tickets, only: [:create, :index, :show, :destroy]

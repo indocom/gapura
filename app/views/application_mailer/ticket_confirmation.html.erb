@@ -71,13 +71,13 @@
 <div class="email-content">
   <div class="header-line"></div>
   <div class="intro-name">
-    Dear Steven Wijaya,
+    Dear <%= @ticket.name %>,
   </div>
   <div class="intro-thanks">
     T H A N K &nbsp;&nbsp; Y O U
   </div>
   <div class="intro-text">
-    for purchasing <b>NUANSA 2019: Lukisan Jati</b>&#39;s <%= 'ticket'.pluralize(@total_tickets) %>.
+    for purchasing <b>NUANSA 2019: Lukisan Jati</b>&#39;s <%= 'ticket'.pluralize(@ticket.quantity) %>.
     We have successfully received your booking and payment.
   </div>
   <div class="header-line"></div>
@@ -91,23 +91,27 @@
     </tr>
     <tr>
       <td>Time</td>
-      <td>: 2.30 PM</td>
+      <% if @ticket.ticket_type.downcase == "night" %>
+        <td>: 7.30 PM</td>
+      <% else %>
+        <td>: 2.30 PM</td>
+      <% end %>
     </tr>
     <tr>
       <td>Booking code</td>
-      <td>: ABCDEF</td>
+      <td>: <%= @ticket.booking_reference %></td>
     </tr>
     <tr>
       <td>Ticket type</td>
-      <td>: Matinee</td>
+      <td>: <%= @ticket.ticket_type.titleize %></td>
     </tr>
     <tr>
       <td>Quantity</d>
-      <td>: 1</td>
+      <td>: <%= @ticket.quantity %></td>
     </tr>
   </table>
   <p>Do note that the show is free-seating, so do come early to get the best seats!</p>
-  <p>Kindly scan this QR code at NUANSA 2019&#39;s ticket booth upon arriving at the venue to redeem your <%= 'ticket'.pluralize(@total_tickets) %>:</p>
+  <p>Kindly scan this QR code at NUANSA 2019&#39;s ticket booth upon arriving at the venue to redeem your <%= 'ticket'.pluralize(@ticket.quantity) %>:</p>
   <div class="qr-code">
     <%= image_tag attachments['QRCode.png'].url, size: "250x250" %>
   </div>

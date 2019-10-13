@@ -1,18 +1,20 @@
 <section id="admin" class="section-container">
-	<div class="row">
-		<div class="title">
-			Email Blaster
-		</div>
-		<%= button_to("Send New Email", admin_write_email_path, method: "get", class: "btn btn-info") %>
-		<div class="content">
+  <div class="row">
+    <div class="title">
+      Email Blaster
+    </div>
+    <% can?(:email, Subscriber) %>
+      <%= button_to("Send New Email", admin_write_email_path, method: "get", class: "btn btn-info") %>
+    <% end %>
+    <div class="content">
 
-			<br><br>
+      <br><br>
 
-			<% @subscribers.each do |subscriber| %>
+      <% @subscribers.each do |subscriber| %>
 
-          		<div class="row info-fields">
-          			<div class="col-lg-3 col-md-12 col-xs-12 info-item"><%= subscriber.name %></div>
-            	<div class="col-lg-4 col-md-12 col-xs-12 info-item"><%= subscriber.email %></div>
+              <div class="row info-fields">
+                <div class="col-lg-3 col-md-12 col-xs-12 info-item"><%= subscriber.name %></div>
+              <div class="col-lg-4 col-md-12 col-xs-12 info-item"><%= subscriber.email %></div>
 
             <% if subscriber.receive_marketing_email %>
 
@@ -23,6 +25,6 @@
             <% end %>
         </div>
         <% end %>
-		</div>
-	</div>
+    </div>
+  </div>
 </section>

@@ -1,6 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-	layout 'mailer'
-
+  layout 'mailer'
 
   def ticket_confirmation
     @ticket = params[:ticket]
@@ -15,40 +14,35 @@ class ApplicationMailer < ActionMailer::Base
 		@customer = params[:customer]
 		@total_tickets = params[:total_tickets]
 
-		claim_url = claim_ticket_url(claim_token: @customer.claim_token)
-		attachments.inline['QRCode.png'] = RQRCode::QRCode.new(claim_url).as_png.to_s
+    claim_url = claim_ticket_url(claim_token: @customer.claim_token)
+    attachments.inline['QRCode.png'] = RQRCode::QRCode.new(claim_url).as_png.to_s
 
-		mail(to: @customer.email, subject: 'NUANSA Ticket QR Code')
-	end
+    mail(to: @customer.email, subject: 'NUANSA Ticket QR Code')
+  end
 
-	def blast_email
-		@body = params[:body]
+  def blast_email
+    subscribers = get_subscribers(params[:is_marketing_email])
 
-		subscribers = get_subscribers(params[:is_marketing_email])
+    subscribers.each do |subscriber|
+      mail_personal(subscriber, params[:body], params[:subject])
+    end
+  end
 
-		mail(to: generate_email_array(subscribers), 
-			subject: params[:subject])
+  def mail_personal(subscriber, body, subject)
+    @body = params[:body]
+    @subscriber = subscriber
 
-	end
+    mail(to: subscriber.email, subject: params[:subject])
+  end
 
-	# Helper function that returns an array of subscribers
-	def get_subscribers(is_marketing_email)
-		if is_marketing_email == '1'
-			target_subscribers = Subscriber.where(receive_marketing_email: true)
-		else
-			target_subscribers = Subscriber.all
-		end
+  # Helper function that returns an array of subscribers
+  def get_subscribers(is_marketing_email)
+    if is_marketing_email == '1'
+      target_subscribers = Subscriber.where(receive_marketing_email: true)
+    else
+      target_subscribers = Subscriber.all
+    end
 
-		return target_subscribers
-	end
-
-	# Returns an array of the emails of subscribers in a given array
-	def generate_email_array(target_subscribers)
-		email_array = []
-		target_subscribers.each do |subscriber|
-			email_array.push(subscriber.email)
-		end
-
-		return email_array
-	end
+    return target_subscribers
+  end
 end

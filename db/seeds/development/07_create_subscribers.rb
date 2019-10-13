@@ -1,2 +1,0 @@
-Subscriber.create(name: 'Francisco', email:'chensanfrancisco@gmail.com', receive_important_email: true, receive_marketing_email: false)
-Subscriber.create(name: 'Elon Musk', email:'e0407688@u.nus.edu', receive_important_email: true, receive_marketing_email: true)

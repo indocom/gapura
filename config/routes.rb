@@ -33,10 +33,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'admin#index'
 
-    get 'subscribers/write_email', to: 'subscribers#write_email', :as => :write_email
-    post 'subscribers/send_email', to: 'subscribers#send_email', :as => :send_email
-    get 'subscribers/confirm_email_sent', to: 'subscribers#confirm_email_sent', :as => :confirm_email_sent
-
     resources :users, except: [:new, :create]
     resources :frequently_asked_questions, except: :show
     resources :testimonies
@@ -53,5 +49,9 @@ Rails.application.routes.draw do
     post '/ticket/confirmation_email/:id', to: 'tickets#send_confirmation_email', as: 'ticket_email_confirmation'
 
     resources :subscribers, only: [:index]
+    get 'subscribers/write_email', to: 'subscribers#write_email', :as => :write_email
+    post 'subscribers/send_email', to: 'subscribers#send_email', :as => :send_email
+    get 'subscribers/confirm_email_sent', to: 'subscribers#confirm_email_sent', :as => :confirm_email_sent
+    get 'subscribers/unsubscribe/:id', to: 'subscribers#unsubscribe', :as => :unsubscribe
   end
 end

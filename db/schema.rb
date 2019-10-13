@@ -36,11 +36,16 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "claim_histories", force: :cascade do |t|
+    t.bigint "ticket_id"
+    t.string "claimed_by", null: false
+    t.datetime "claimed_at", null: false
+    t.integer "claim_quantity", null: false
+    t.index ["ticket_id"], name: "index_claim_histories_on_ticket_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
-    t.string "claim_token", default: "", null: false
-    t.datetime "last_confirmation_email"
-    t.index ["claim_token"], name: "index_customers_on_claim_token", unique: true
     t.index ["email"], name: "index_customers_on_email", unique: true
   end
 
@@ -127,11 +132,15 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
 
   create_table "tickets", force: :cascade do |t|
     t.datetime "purchased_at", null: false
-    t.datetime "claimed_at"
-    t.string "claimed_by"
     t.bigint "customer_id"
     t.string "ticket_type", default: "", null: false
     t.string "booking_reference", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "claim_token", default: "", null: false
+    t.integer "quantity", null: false
+    t.datetime "last_confirmation_email"
+    t.index ["booking_reference", "ticket_type"], name: "index_tickets_on_booking_reference_and_ticket_type", unique: true
+    t.index ["claim_token"], name: "index_tickets_on_claim_token", unique: true
     t.index ["customer_id"], name: "index_tickets_on_customer_id"
   end
 
@@ -142,6 +151,8 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
     t.string "email", default: "", null: false
     t.string "ticket_type", default: "", null: false
     t.integer "quantity", null: false
+    t.string "name", default: "", null: false
+    t.index ["booking_reference", "ticket_type"], name: "index_transactions_on_booking_reference_and_ticket_type", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -174,6 +185,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "claim_histories", "tickets"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
   add_foreign_key "event_previews", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"

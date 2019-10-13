@@ -3,12 +3,15 @@
   <div class="intro-container">  
     <div id="introCarousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
-        <% imgs = [] %>
+        <% imgs = []%>
+        <% txts = []%>
         <% @event_previews.each do |event_preview| %>  
           <% imgs.push(event_preview.image_link) %>
+          <% txts.push(event_preview.preview_info) %>
         <% end %>
           <% if imgs.length == 0 %>
             <% imgs.push(serve_image_path(@event.logo)) %>
+            <% txts.push(@event.overview) %>
           <% end %>
           <% imgs.each_with_index do |img, index| %>
           <div class="<%= index == 0 ? 'item active' : 'item' %>">
@@ -22,7 +25,7 @@
                   <%= @event.title %> <br>
                   <%= @event.subtitle %> <br>   
                 </h2>
-                <p class="animated fadeInUp"><%= @event.overview %></p>
+                <p class="animated fadeInUp"><%=txts[index]%></p>
                 <%= link_to "Trailer", @event.event_info.video_link, class: "venobox btn-get-started animated fadeInUp", 
                       data: {vbtype: "video", autoplay: "true"} %>
               </div>

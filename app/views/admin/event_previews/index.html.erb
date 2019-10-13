@@ -29,9 +29,21 @@
                   <%= image_tag(event_preview.image_link, width: "100%") %>
                 </div>
               </div>
-              <div class="delete-button">
-                <%= button_to('Delete', admin_event_event_preview_path(@event.year, event_preview),
-                    method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info") %>
+              <div class="row">
+                <div class="col-12">
+                  <div class="info-fields">
+                    <%= event_preview.preview_info %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <%= button_to('Delete', admin_event_event_preview_path(@event.year, event_preview),
+                      method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info") %>
+                </div>
+                <div class="col-6">
+                  <%= button_to("Edit", edit_admin_event_event_preview_path(@event.year, event_preview), method: "get", class: "btn btn-info") %>
+                </div>
               </div>
             </div>
           <% end %>

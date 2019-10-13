@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :events, param: 'year' do
       resources :sponsors
       resources :gallery_photos, only: [:index, :new, :create, :destroy]
-      resources :event_previews, only: [:index, :new, :create, :destroy]
+      resources :event_previews
     end
 
     resources :tickets, only: [:create, :index, :show, :destroy]

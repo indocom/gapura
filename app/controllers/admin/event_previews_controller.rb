@@ -13,6 +13,10 @@ module Admin
         @event_preview = @event.event_previews.build
         @event_preview.build_image
       end
+
+      def edit
+        @event_preview = @event.event_previews.find(params[:id])
+      end
   
       def create
         @event_preview = @event.event_previews.build(event_preview_params)
@@ -23,7 +27,16 @@ module Admin
           render :new
         end
       end
-  
+      
+      def update
+        @event_preview = @event.event_previews.find(params[:id])
+        if @event_preview.update(event_preview_params)
+          redirect_to admin_event_event_previews_path, notice: 'Event was successfully updated.'
+        else
+          render :edit
+        end
+      end
+
       def destroy
         @event_preview = @event.event_previews.find(params[:id])
         @event_preview.destroy
@@ -32,7 +45,7 @@ module Admin
   
       private
         def event_preview_params
-          params.require(:event_preview).permit(:image_link, image_attributes: [:id, :file, :_destroy])
+          params.require(:event_preview).permit(:preview_info, :image_link, image_attributes: [:id, :file, :_destroy])
         end
     end
   end

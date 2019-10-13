@@ -56,5 +56,6 @@ class TicketsController < ApplicationController
       rescue
         # Admin will check for this manually
       end
+      ticket.send_confirmation_email
     end
 end

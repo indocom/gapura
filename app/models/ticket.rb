@@ -16,7 +16,7 @@ class Ticket < ApplicationRecord
   end
 
   def send_confirmation_email
-    ApplicationMailer.with(ticket: self).ticket_confirmation.deliver_later
+    ApplicationMailer.with(ticket: self).ticket_confirmation.deliver_now
     self.last_confirmation_email = DateTime.now
     self.save
   end

@@ -33,7 +33,7 @@ class TicketsController < ApplicationController
     end
 
     def create_ticket_from_transaction(transaction)
-      customer = Customer.find_or_create_by!(email: transaction.email)
+      customer = Customer.find_or_create_by!(email: transaction.email.downcase)
       ticket = nil
       for i in 0..4 do
         begin
@@ -51,6 +51,10 @@ class TicketsController < ApplicationController
           end
         end
       end
-      ticket.send_confirmation_email
+      begin
+        ticket.send_confirmation_email
+      rescue
+        # Admin will check for this manually
+      end
     end
 end

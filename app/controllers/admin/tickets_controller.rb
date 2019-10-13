@@ -49,6 +49,8 @@ module Admin
       @ticket = Ticket.find(params[:id])
       @ticket.send_confirmation_email
       redirect_to admin_tickets_url, notice: 'Confirmation ticket has been sent.'
+    rescue
+      redirect_to admin_tickets_url, flash: { popup_alert: 'Confirmation email failed to be sent.' }
     end
   end
 end

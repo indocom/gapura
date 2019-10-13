@@ -12,5 +12,8 @@ class Event < ApplicationRecord
   has_many :gallery_photos, dependent: :destroy, foreign_key: :year,
     primary_key: :year, inverse_of: :event
 
+  has_many :event_previews, dependent: :destroy, foreign_key: :year,
+    primary_key: :year, inverse_of: :event
+
   validates :year, :title, :overview, presence: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_094723) do
+ActiveRecord::Schema.define(version: 2019_10_12_130449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2019_10_12_094723) do
     t.string "video_link"
     t.integer "year"
     t.index ["year"], name: "index_event_info_on_year", unique: true
+  end
+
+  create_table "event_previews", force: :cascade do |t|
+    t.string "image_link"
+    t.integer "year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "preview_info"
+    t.index ["year"], name: "index_event_previews_on_year"
   end
 
   create_table "events", force: :cascade do |t|
@@ -178,6 +187,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_094723) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "claim_histories", "tickets"
   add_foreign_key "event_info", "events", column: "year", primary_key: "year"
+  add_foreign_key "event_previews", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
   add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
   add_foreign_key "tickets", "customers"

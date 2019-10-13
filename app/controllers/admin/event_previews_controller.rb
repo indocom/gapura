@@ -6,7 +6,7 @@ module Admin
       before_action :set_event
 
       def index
-        @event_previews = @event.event_previews.order(created_at: :desc)
+        @event_previews = @event.event_previews
       end
   
       def new
@@ -16,6 +16,7 @@ module Admin
 
       def edit
         @event_preview = @event.event_previews.find(params[:id])
+        @event_preview.build_image if @event_preview.image.nil?
       end
   
       def create
@@ -31,7 +32,7 @@ module Admin
       def update
         @event_preview = @event.event_previews.find(params[:id])
         if @event_preview.update(event_preview_params)
-          redirect_to admin_event_event_previews_path, notice: 'Event was successfully updated.'
+          redirect_to admin_event_event_previews_path, notice: 'Event preview was successfully updated.'
         else
           render :edit
         end

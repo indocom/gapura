@@ -4,7 +4,8 @@ class CreateEventPreviews < ActiveRecord::Migration[5.2]
       t.string :image_link
       t.integer :year, null: false
       t.foreign_key :events, column: :year, primary_key: "year"
-      t.datetime :created_at, null: false
+      
+      t.timestamps
     end
     add_index :event_previews, :year
   end

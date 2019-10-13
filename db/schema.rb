@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_094723) do
+ActiveRecord::Schema.define(version: 2019_10_12_130449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_10_12_094723) do
     t.string "image_link"
     t.integer "year", null: false
     t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "preview_info"
     t.index ["year"], name: "index_event_previews_on_year"
   end
 

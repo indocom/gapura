@@ -1,13 +1,15 @@
 <% provide(:custom_css, 'admin/events/form') %>
 
-<section id="admin-form" class="section-container">
+<section class="section-container">
   <div class="row">
     <div class="title">
       New Event
     </div>
     <div class="content">
-      <%= render 'form', event: @event, target_url: admin_events_path %>
-      
+      <div id="admin-form">
+        <%= render 'form', event: @event, target_url: admin_events_path %>
+      </div>
+
       <br><br>
       
       <div class="row">

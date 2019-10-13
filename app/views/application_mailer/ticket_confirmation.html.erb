@@ -1,6 +1,131 @@
-<p>Thank you for buying NUANSA ticket</p>
-<p>Currently you have bought <%= "#{@total_tickets} " + 'ticket'.pluralize(@total_tickets)%></p>
+<style>
+  .intro-name {
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
 
-<p>Here is your ticket's QR Code: </p>
+  .intro-thanks {
+    font-weight: bold;
+    font-size: 30px;
+    color: #EE5525;
+    padding: 5px;
+    text-align: center;
+    text-shadow: -2px 2px #FBD219;
+  }
 
-<%= image_tag attachments['QRCode.png'].url, size: "200x200" %>
+  .intro-text {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .email-content {
+    margin: 0 auto;
+    max-width: 450px;
+    border: 2px solid #EE5525;
+    padding: 20px;
+  }
+
+  .email-footer {
+    margin: 0 auto;
+    max-width: 450px;
+    border: 2px solid #EE5525;
+    padding: 20px;
+    background-color: #EE5525;
+
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+
+  .header-line {
+    height: 3px;
+    background-color: #FBD219;;
+  }
+  
+  .social-links a {
+    font-size: 25px;
+    padding: 5px 5px;
+  }
+
+  .fa-instagram:before {
+    color: white;
+  }
+  .fa-facebook-square:before {
+    color: white;
+  }
+  .fa-link:before {
+    color: white;
+  }
+  .fa-youtube:before {
+    color: white;
+  }
+
+  .qr-code {
+    text-align: center;
+  }
+</style>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+<div class="email-content">
+  <div class="header-line"></div>
+  <div class="intro-name">
+    Dear <%= @ticket.name %>,
+  </div>
+  <div class="intro-thanks">
+    T H A N K &nbsp;&nbsp; Y O U
+  </div>
+  <div class="intro-text">
+    for purchasing <b>NUANSA 2019: Lukisan Jati</b>&#39;s <%= 'ticket'.pluralize(@ticket.quantity) %>.
+    We have successfully received your booking and payment.
+  </div>
+  <div class="header-line"></div>
+  
+  <p>Here are your booking details:</p>
+
+  <table>
+    <tr>
+      <td>Date</td>
+      <td>: Monday, 28th October 2019</td>
+    </tr>
+    <tr>
+      <td>Time</td>
+      <% if @ticket.ticket_type.downcase == "night" %>
+        <td>: 7.30 PM</td>
+      <% else %>
+        <td>: 2.30 PM</td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>Booking code</td>
+      <td>: <%= @ticket.booking_reference %></td>
+    </tr>
+    <tr>
+      <td>Ticket type</td>
+      <td>: <%= @ticket.ticket_type.titleize %></td>
+    </tr>
+    <tr>
+      <td>Quantity</d>
+      <td>: <%= @ticket.quantity %></td>
+    </tr>
+  </table>
+  <p>Do note that the show is free-seating, so do come early to get the best seats!</p>
+  <p>Kindly scan this QR code at NUANSA 2019&#39;s ticket booth upon arriving at the venue to redeem your <%= 'ticket'.pluralize(@ticket.quantity) %>:</p>
+  <div class="qr-code">
+    <%= image_tag attachments['QRCode.png'].url, size: "250x250" %>
+  </div>
+
+  <p>We look forward to seeing you on the show day!</p>
+
+  <p>If you have any further questions, please contact us through <a href = "mailto: support@nuansacp.com">support@nuansacp.com</a>.</p>
+</div>
+<div class="email-footer">
+  <p> F I N D &nbsp;&nbsp; U S &nbsp;&nbsp; O N </p>
+  <div class="social-links">
+    <a href="https://www.facebook.com/nuansa.culturalproductions/" class="facebook"><i class="fa fa-facebook-square"></i></a>
+    <a href="https://www.instagram.com/nuansacp/" class="instagram"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.youtube.com/user/NUANSAcp" class="youtube"><i class="fa fa-youtube"></i></a>
+    <a href="http://www.nuansacp.com" class="link"><i class="fa fa-link"></i></a>
+  </div>
+</div>

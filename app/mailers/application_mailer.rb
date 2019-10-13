@@ -20,29 +20,10 @@ class ApplicationMailer < ActionMailer::Base
     mail(to: @customer.email, subject: 'NUANSA Ticket QR Code')
   end
 
-  def blast_email
-    subscribers = get_subscribers(params[:is_marketing_email])
-
-    subscribers.each do |subscriber|
-      mail_personal(subscriber, params[:body], params[:subject])
-    end
-  end
-
-  def mail_personal(subscriber, body, subject)
+  def mail_personal
     @body = params[:body]
-    @subscriber = subscriber
+    @subscriber = params[:subscriber]
 
-    mail(to: subscriber.email, subject: params[:subject])
-  end
-
-  # Helper function that returns an array of subscribers
-  def get_subscribers(is_marketing_email)
-    if is_marketing_email == '1'
-      target_subscribers = Subscriber.where(receive_marketing_email: true)
-    else
-      target_subscribers = Subscriber.all
-    end
-
-    return target_subscribers
+    mail(to: params[:subscriber].customer.email, subject: params[:subject])
   end
 end

@@ -123,11 +123,12 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
   end
 
   create_table "subscribers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
     t.boolean "receive_marketing_email"
+    t.bigint "customer_id"
+    t.string "unsubscribe_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_subscribers_on_customer_id"
   end
 
   create_table "testimonies", force: :cascade do |t|
@@ -159,8 +160,11 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
     t.string "email", default: "", null: false
     t.string "ticket_type", default: "", null: false
     t.integer "quantity", null: false
+<<<<<<< HEAD
     t.string "name", default: "", null: false
     t.index ["booking_reference", "ticket_type"], name: "index_transactions_on_booking_reference_and_ticket_type", unique: true
+=======
+>>>>>>> 	modified:   app/controllers/admin/subscribers_controller.rb
   end
 
   create_table "users", force: :cascade do |t|
@@ -198,5 +202,6 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
   add_foreign_key "event_previews", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
   add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
+  add_foreign_key "subscribers", "customers"
   add_foreign_key "tickets", "customers"
 end

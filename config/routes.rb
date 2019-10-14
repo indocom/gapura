@@ -55,5 +55,4 @@ Rails.application.routes.draw do
   end
 
   get '/unsubscribe', to: 'admin/subscribers#unsubscribe', :as => :unsubscribe
-
 end

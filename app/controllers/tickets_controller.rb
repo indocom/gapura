@@ -10,12 +10,16 @@ class TicketsController < ApplicationController
   def synchronize
     not_found && return unless params[:sync_token] == ENV['TICKET_SYNC_TOKEN']
 
+    tickets = []
     ActiveRecord::Base.transaction do
       new_transactions = fetch_new_transactions
       for transaction in new_transactions
-        create_ticket_from_transaction(transaction)
+        new_ticket = create_ticket_from_transaction(transaction)
+        tickets.push(new_ticket)
       end
     end
+
+    send_confirmation_emails(tickets)
 
     flash[:notice] = 'Tickets have successfully been synchronized!'
     redirect_to root_path
@@ -35,7 +39,7 @@ class TicketsController < ApplicationController
     def create_ticket_from_transaction(transaction)
       customer = Customer.find_or_create_by!(email: transaction.email.downcase)
       ticket = nil
-      for i in 0..4 do
+      5.times do |index|
         begin
           ticket = customer.tickets.create!(
             booking_reference: transaction.booking_reference,
@@ -46,15 +50,20 @@ class TicketsController < ApplicationController
           )
           break
         rescue
-          if (i == 4)
-            raise
-          end
+          raise if (index == 4)
         end
       end
-      begin
-        ticket.send_confirmation_email
-      rescue
-        # Admin will check for this manually
+
+      return ticket
+    end
+
+    def send_confirmation_emails(tickets)
+      tickets.each do |ticket|
+        begin
+          ticket.send_confirmation_email
+        rescue
+          # Admin will check for this manually
+        end
       end
     end
 end

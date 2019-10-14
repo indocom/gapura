@@ -17,27 +17,32 @@
   <table>
     <tr>
       <td>Date</td>
-      <td>: Monday, 28th October 2019</td>
+      <td>:</td>
+      <td>Monday, 28th October 2019</td>
     </tr>
     <tr>
       <td>Time</td>
+      <td>:</td>
       <% if @ticket.ticket_type.downcase == "night" %>
-        <td>: 7.30 PM</td>
+        <td>7.30 PM</td>
       <% else %>
-        <td>: 2.30 PM</td>
+        <td>2.30 PM</td>
       <% end %>
     </tr>
     <tr>
       <td>Booking code</td>
-      <td>: <%= @ticket.booking_reference %></td>
+      <td>:</td>
+      <td><%= @ticket.booking_reference %></td>
     </tr>
     <tr>
       <td>Ticket type</td>
-      <td>: <%= @ticket.ticket_type.titleize %></td>
+      <td>:</td>
+      <td><%= @ticket.ticket_type.titleize %></td>
     </tr>
     <tr>
       <td>Quantity</d>
-      <td>: <%= @ticket.quantity %></td>
+      <td>:</td>
+      <td><%= @ticket.quantity %></td>
     </tr>
   </table>
   <p>Do note that the show is free-seating, so do come early to get the best seats!</p>
@@ -48,12 +53,12 @@
 
   <p>We look forward to seeing you on the show day!</p>
 
-  <p>If you have any further questions, please contact us through <a href = "mailto: support@nuansacp.com">support@nuansacp.com</a>.</p>
+  <p>If you have any further questions, please contact us through <a href = "mailto:support@nuansacp.com">support@nuansacp.com</a>.</p>
 </div>
 <div style="margin: 0 auto;max-width: 450px;border: 2px solid #EE5525;padding: 20px;background-color: #EE5525;text-align: center;color: white;font-weight: bold;">
   <p> F I N D &nbsp;&nbsp; U S &nbsp;&nbsp; O N </p>
-  <a href="https://www.facebook.com/nuansa.culturalproductions/" style="color: white;font-size: 15px;padding: 5px 5px;text-decoration: none;">Facebook</a> •
-  <a href="https://www.instagram.com/nuansacp/" style="color: white;font-size: 15px;padding: 5px 5px;text-decoration: none;">Instagram</a> •
-  <a href="https://www.youtube.com/user/NUANSAcp" style="color: white;font-size: 15px;padding: 5px 5px;text-decoration: none;">Youtube</a> •
-  <a href="http://www.nuansacp.com" style="color: white;font-size: 15px;padding: 5px 5px;text-decoration: none;">Website</a>
+  <a href="https://www.facebook.com/nuansa.culturalproductions/" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Facebook</a> •
+  <a href="https://www.instagram.com/nuansacp/" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Instagram</a> •
+  <a href="https://www.youtube.com/user/NUANSAcp" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Youtube</a> •
+  <a href="http://www.nuansacp.com" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Website</a>
 </div>

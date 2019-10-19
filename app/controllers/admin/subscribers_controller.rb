@@ -44,4 +44,12 @@ class Admin::SubscribersController < ApplicationController
     Subscriber.find_by(unsubscribe_code: params[:code]).destroy
     redirect_to '/', notice: 'You have successfully unsubscribed.'
   end
+
+  def sync_with_customer
+    customers = Customer.all
+
+    customers.each do |customer|
+      
+    end
+  end
 end

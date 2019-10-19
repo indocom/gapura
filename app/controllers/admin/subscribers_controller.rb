@@ -49,7 +49,9 @@ class Admin::SubscribersController < ApplicationController
     customers = Customer.all
 
     customers.each do |customer|
-      
+      Subscriber.find_or_create_by(customer: customer)
     end
+
+    redirect_to admin_subscribers_path
   end
 end

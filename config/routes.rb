@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     get 'subscribers/write_email', to: 'subscribers#write_email', :as => :write_email
     post 'subscribers/send_email', to: 'subscribers#send_email', :as => :send_email
     get 'subscribers/confirm_email_sent', to: 'subscribers#confirm_email_sent', :as => :confirm_email_sent
+    get 'subscribers/sync_with_customer', to: 'subscribers#sync_with_customer', :as => :sync_with_customer
   end
 
   get '/unsubscribe', to: 'admin/subscribers#unsubscribe', :as => :unsubscribe

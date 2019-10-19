@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
   end
 
   create_table "subscribers", force: :cascade do |t|
-    t.boolean "receive_marketing_email"
     t.bigint "customer_id"
+    t.boolean "receive_marketing_email"
     t.string "unsubscribe_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -160,11 +160,8 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
     t.string "email", default: "", null: false
     t.string "ticket_type", default: "", null: false
     t.integer "quantity", null: false
-<<<<<<< HEAD
     t.string "name", default: "", null: false
     t.index ["booking_reference", "ticket_type"], name: "index_transactions_on_booking_reference_and_ticket_type", unique: true
-=======
->>>>>>> 	modified:   app/controllers/admin/subscribers_controller.rb
   end
 
   create_table "users", force: :cascade do |t|

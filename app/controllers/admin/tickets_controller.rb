@@ -25,11 +25,8 @@ module Admin
       not_found
     end
 
-    # This method is currently outdated.
     def claim
-      fail
-      @customer = Customer.find_by!(claim_token: params['claim_token'])
-      @tickets = @customer.tickets.order(:purchased_at)
+      @ticket = Ticket.find_by!(claim_token: params['claim_token'])
     rescue
       not_found
     end

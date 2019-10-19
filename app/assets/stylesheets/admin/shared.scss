@@ -153,3 +153,31 @@ a:link, a:visited {
   text-align: center;
   word-wrap: break-word;
 }
+
+#admin-ticket-claim {
+  input {
+    color: black;
+  }
+
+  .info-fields {
+    margin: 0px;
+    padding: 0px 10px;
+  }
+  
+  .info-fields .row {
+    padding: 5px 5px;
+    border: 1px solid black;
+  }
+  
+  .info-fields .field-key {
+    margin: 5px 0px;
+  }
+  
+  .info-fields .field-value {
+    margin: 5px 0px;
+  }
+  
+  .info-fields .field-item {
+    margin: 5px 0px;
+  }
+}

@@ -48,7 +48,7 @@ module Admin
     end
 
     def clear_mock_tickets
-      Ticket.where(ticket_type: "MOCK").destroy_all!
+      Ticket.where(ticket_type: "MOCK").destroy_all
       redirect_to admin_tickets_url, notice: 'All mock tickets have been successfully destroyed.'
     rescue
       redirect_to admin_tickets_url, flash: { popup_alert: 'Failed to destroy all mock tickets.' }

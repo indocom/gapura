@@ -25,18 +25,24 @@ module Admin
       not_found
     end
 
-    # This method is currently outdated.
     def claim
-      fail
-      @customer = Customer.find_by!(claim_token: params['claim_token'])
-      @tickets = @customer.tickets.order(:purchased_at)
+      @ticket = Ticket.find_by!(claim_token: params['claim_token'])
     rescue
       not_found
     end
 
-    # This method is currently outdated.
     def redeem
-      fail
+      @ticket = Ticket.find_by!(claim_token: params[:claim_token])
+      total_claim = params[:quantity]
+
+      @ticket.claim_histories.create!(claimed_by: current_user.username, claimed_at: DateTime.now,
+          claim_quantity: total_claim)
+
+      redirect_to admin_claim_ticket_url(claim_token: @ticket.claim_token), notice: "You are claiming for"\
+          " #{total_claim} #{'people'.pluralize(total_claim)}"
+    rescue
+      redirect_to admin_claim_ticket_url(claim_token: @ticket.claim_token), flash: { popup_alert:
+          "There is an error in claiming the ticket." }
     end
 
     def destroy

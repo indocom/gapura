@@ -1,7 +1,7 @@
 module Admin
   class TicketsController < ApplicationController
     before_action :ensure_admin
-    before_action :ensure_superuser, only: :destroy
+    before_action :ensure_superuser, only: [:destroy, :new, :create]
 
     def index
       @tickets = Ticket.includes(:customer).order(:purchased_at)
@@ -45,6 +45,13 @@ module Admin
       @ticket = Ticket.find(params[:id])
       @ticket.destroy
       redirect_to admin_tickets_url, notice: 'Ticket was successfully destroyed.'
+    end
+
+    def clear_mock_tickets
+      Ticket.where(ticket_type: "MOCK").destroy_all!
+      redirect_to admin_tickets_url, notice: 'All mock tickets have been successfully destroyed.'
+    rescue
+      redirect_to admin_tickets_url, flash: { popup_alert: 'Failed to destroy all mock tickets.' }
     end
 
     def send_confirmation_email

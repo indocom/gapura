@@ -47,5 +47,6 @@ Rails.application.routes.draw do
     get '/ticket/claim', to: 'tickets#claim', as: 'claim_ticket'
     post '/ticket/claim', to: 'tickets#redeem', as: nil
     post '/ticket/confirmation_email/:id', to: 'tickets#send_confirmation_email', as: 'ticket_email_confirmation'
+    post '/tickets/clear_mock_tickets', to: 'tickets#clear_mock_tickets', as: 'clear_mock_tickets'
   end
 end

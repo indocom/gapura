@@ -39,7 +39,7 @@
             <% if current_user.has_role? :superuser %>
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">
                 <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token:
-                  ticket.claim_token }, class: "btn btn-info", method: :get, disabled: true) %>
+                  ticket.claim_token }, class: "btn btn-info", method: :get) %>
               </div>
 
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">

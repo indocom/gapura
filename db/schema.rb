@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
 
   create_table "subscribers", force: :cascade do |t|
     t.bigint "customer_id"
-    t.boolean "receive_marketing_email"
+    t.boolean "receive_marketing_email", default: true
     t.string "unsubscribe_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

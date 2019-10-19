@@ -1,9 +1,9 @@
 <%= form_with(model: ticket, local: true, url: admin_tickets_path) do |form| %>
   <% if ticket.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited the ticket from being created:</h2>
       <ul>
-      <% user.errors.full_messages.each do |message| %>
+      <% ticket.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

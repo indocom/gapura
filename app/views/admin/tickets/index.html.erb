@@ -25,18 +25,18 @@
               <%= button_to("Show", admin_ticket_path(ticket), method: :get, class: "btn btn-info") %>
             </div>
 
-            <div class="col-lg-4 col-md-12 col-xs-12 info-item">
-              <%= button_to("Send Email Confirmation", admin_ticket_email_confirmation_path(ticket), method: :post, class: "btn btn-info",
-                data: { confirm: 'Do you want to send this ticket confirmation email?' }) %>
-              <br> Last:
-              <% if ticket.last_confirmation_email %>
-                <%= ticket.last_confirmation_email.getlocal %>
-              <% else %>
-                Not yet sent
-              <% end %>
-            </div>
-
             <% if current_user.has_role? :superuser %>
+              <div class="col-lg-4 col-md-12 col-xs-12 info-item">
+                <%= button_to("Send Email Confirmation", admin_ticket_email_confirmation_path(ticket), method: :post, class: "btn btn-info",
+                  data: { confirm: 'Do you want to send this ticket confirmation email?' }) %>
+                <br> Last:
+                <% if ticket.last_confirmation_email %>
+                  <%= ticket.last_confirmation_email.getlocal %>
+                <% else %>
+                  Not yet sent
+                <% end %>
+              </div>
+              
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">
                 <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token:
                   ticket.claim_token }, class: "btn btn-info", method: :get) %>
@@ -54,12 +54,21 @@
 
         <div class="row">
           <div class="col-lg-12"></div>
-          <div class="col-lg-6">
-            <%= button_to("Back", admin_root_path, method: "get", class: "btn btn-info") %>
-          </div>
-          <div class="col-lg-6">
-            <%= button_to("Buy Ticket (Mock Ticket)", admin_tickets_path, method: "post", class: "btn btn-info", disabled: true) %>
-          </div>
+          <% if current_user.has_role?(:superuser) %>
+            <div class="col-lg-4">
+              <%= button_to("Back", admin_root_path, method: "get", class: "btn btn-info") %>
+            </div>
+            <div class="col-lg-4">
+              <%= button_to("Create Mock Ticket", new_admin_ticket_path, method: "get", class: "btn btn-info") %>
+            </div>
+            <div class="col-lg-4">
+              <%= button_to("Clear Mock Tickets", admin_clear_mock_tickets_path, method: "post", class: "btn btn-info") %>
+            </div>
+          <% else %>
+            <div class="col-lg-12">
+              <%= button_to("Back", admin_root_path, method: "get", class: "btn btn-info") %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

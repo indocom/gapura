@@ -25,18 +25,18 @@
               <%= button_to("Show", admin_ticket_path(ticket), method: :get, class: "btn btn-info") %>
             </div>
 
-            <div class="col-lg-4 col-md-12 col-xs-12 info-item">
-              <%= button_to("Send Email Confirmation", admin_ticket_email_confirmation_path(ticket), method: :post, class: "btn btn-info",
-                data: { confirm: 'Do you want to send this ticket confirmation email?' }) %>
-              <br> Last:
-              <% if ticket.last_confirmation_email %>
-                <%= ticket.last_confirmation_email.getlocal %>
-              <% else %>
-                Not yet sent
-              <% end %>
-            </div>
-
             <% if current_user.has_role? :superuser %>
+              <div class="col-lg-4 col-md-12 col-xs-12 info-item">
+                <%= button_to("Send Email Confirmation", admin_ticket_email_confirmation_path(ticket), method: :post, class: "btn btn-info",
+                  data: { confirm: 'Do you want to send this ticket confirmation email?' }) %>
+                <br> Last:
+                <% if ticket.last_confirmation_email %>
+                  <%= ticket.last_confirmation_email.getlocal %>
+                <% else %>
+                  Not yet sent
+                <% end %>
+              </div>
+              
               <div class="col-lg-1 col-md-12 col-xs-12 info-item">
                 <%= button_to("Claim Page", admin_claim_ticket_path, params: { claim_token:
                   ticket.claim_token }, class: "btn btn-info", method: :get, disabled: true) %>

@@ -1,7 +1,7 @@
 module Admin
   class TicketsController < ApplicationController
     before_action :ensure_admin
-    before_action :ensure_superuser, only: [:destroy, :new, :create]
+    before_action :ensure_superuser, only: [:destroy, :new, :create, :send_confirmation_email]
 
     def index
       @tickets = Ticket.includes(:customer).order(:purchased_at)

@@ -13,14 +13,16 @@ module Admin
       not_found
     end
 
-    # This method is currently outdated.
+    def new
+      @ticket = Ticket.new
+    end 
+
     def create
-      fail
-      customer = Customer.find_or_create_by(email: current_user.email)
-      ticket = customer.tickets.create(ticket_type: 'Mock', purchased_at: DateTime.now)
-      ticket.send_confirmation_email
-      flash[:notice] = "Ticket has been created!!!"
-      redirect_to admin_ticket_url(ticket)
+      new_ticket = create_ticket_from_mock_data(mock_ticket_params)
+      new_ticket.send_confirmation_email
+
+      flash[:notice] = 'Ticket has been created!!!'
+      redirect_to admin_ticket_url(new_ticket)
     rescue
       not_found
     end
@@ -52,5 +54,31 @@ module Admin
     rescue
       redirect_to admin_tickets_url, flash: { popup_alert: 'Confirmation email failed to be sent.' }
     end
+
+    private 
+      def mock_ticket_params
+        params.require(:ticket).permit(:name, :email, :quantity)
+      end
+
+      def create_ticket_from_mock_data(ticket_info)
+        customer = Customer.find_or_create_by!(email: ticket_info[:email].downcase)
+        ticket = nil
+        5.times do |index|
+          begin
+            ticket = customer.tickets.create!(
+              booking_reference: SecureRandom.base58(5),
+              ticket_type: "MOCK",
+              name: ticket_info[:name],
+              quantity: ticket_info[:quantity],
+              purchased_at: DateTime.now
+            )
+            break
+          rescue
+            raise if (index == 4)
+          end 
+        end
+
+        return ticket
+      end
   end
 end

@@ -43,7 +43,7 @@ Rails.application.routes.draw do
       resources :event_previews
     end
 
-    resources :tickets, only: [:create, :index, :show, :destroy]
+    resources :tickets, only: [:create, :new, :index, :show, :destroy]
     get '/ticket/claim', to: 'tickets#claim', as: 'claim_ticket'
     post '/ticket/claim', to: 'tickets#redeem', as: nil
     post '/ticket/confirmation_email/:id', to: 'tickets#send_confirmation_email', as: 'ticket_email_confirmation'

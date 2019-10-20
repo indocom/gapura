@@ -6,6 +6,9 @@
     <% if can?(:email, Subscriber) %>
       <%= button_to("Send New Email", admin_write_email_path, method: "get", class: "btn btn-info") %>
     <% end %>
+    <% if can?(:email, Subscriber) %>
+      <%= button_to("Sync with Customer", admin_sync_with_customer_path, method: "get", class: "btn btn-info") %>
+    <% end %>
     <div class="content">
       <br><br>
       <% @subscribers.each do |subscriber| %>

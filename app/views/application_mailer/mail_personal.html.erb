@@ -9,6 +9,7 @@
   <div style="height: 3px;background-color: #FBD219;"></div>
   
   <div>
+  	<br>
   	<%= @body.html_safe %>
   </div>
 
@@ -20,6 +21,6 @@
   <a href="https://www.youtube.com/user/NUANSAcp" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Youtube</a> •
   <a href="https://www.nuansacp.com" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Website</a>
 </div>
-<div style="margin: 0 auto;max-width: 450px;text-align: center; font-size: 12px">
-<a href="<%= unsubscribe_url %>?code=<%= @subscriber.unsubscribe_code %>">Unsubscribe</a>
+<div style="margin: 0 auto;max-width: 450px;text-align: center; border: 2px solid #EE5525; padding: 5px 20px;">
+<a href="<%= unsubscribe_url %>?code=<%= @subscriber.unsubscribe_code %>" style="font-size: 12px; text-decoration: none; color: grey;">Unsubscribe</a>
 </div>

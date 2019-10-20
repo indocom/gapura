@@ -1,4 +1,6 @@
 class Admin::SubscribersController < ApplicationController
+  before_action :ensure_superuser, except: :unsubscribe
+
   def index
     @subscribers = Subscriber.all
   end

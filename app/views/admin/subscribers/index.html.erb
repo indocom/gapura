@@ -15,9 +15,9 @@
         <div class="row info-fields">
           <div class="col-lg-4 col-md-12 col-xs-12 info-item"><%= subscriber.customer.email %></div>
 
-          <% if subscriber.receive_marketing_email %>
+          <% if subscriber.unsubscribed %>
             <div class="col-lg-4 col-md-4 col-xs-4 info-item">
-              Marketing Email Subscriber
+              UNSUBSCRIBED
             </div>
           <% end %>
         </div>

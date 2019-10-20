@@ -9,30 +9,20 @@ class Admin::SubscribersController < ApplicationController
   # Receive POST request from the form, and sends the email with the
   # POST parameters.
   def send_email
-    blast_email(params[:is_marketing_email], params[:body],
-      params[:subject])
+    blast_email(params[:body], params[:subject])
+
+    puts params[:body]
 
     redirect_to admin_confirm_email_sent_path
   end
 
-  def blast_email(is_marketing_email, body, subject)
-    subscribers = get_subscribers(is_marketing_email)
+  def blast_email(body, subject)
+    subscribers = Subscriber.where(unsubscribed: false)
 
     subscribers.each do |subscriber|
       ApplicationMailer.with(subscriber: subscriber, body: body,
         subject: subject).mail_personal.deliver_later
     end
-  end
-
-  # Helper function that returns an array of subscribers
-  def get_subscribers(is_marketing_email)
-    if is_marketing_email == '1'
-      target_subscribers = Subscriber.where(receive_marketing_email: true)
-    else
-      target_subscribers = Subscriber.all
-    end
-
-    return target_subscribers
   end
 
   # Displays some text to let the user know that the email has been successfully
@@ -42,7 +32,7 @@ class Admin::SubscribersController < ApplicationController
 
   def unsubscribe
     subscriber = Subscriber.find_by(unsubscribe_code: params[:code])
-    subscriber.receive_marketing_email = false
+    subscriber.unsubscribed = true
     subscriber.save()
     redirect_to '/', notice: 'You have successfully unsubscribed.'
   end

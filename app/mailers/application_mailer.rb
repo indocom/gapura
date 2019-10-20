@@ -9,4 +9,12 @@ class ApplicationMailer < ActionMailer::Base
 
     mail(to: @ticket.customer.email, subject: 'NUANSA 2019: Lukisan Jati E-Ticket')
   end
+
+  def mail_personal
+    @subscriber = params[:subscriber]
+    @greeting = params[:greeting]
+    @body = params[:body]
+
+    mail(to: params[:subscriber].customer.email, subject: params[:subject])
+  end
 end

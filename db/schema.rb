@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_130449) do
+ActiveRecord::Schema.define(version: 2019_10_20_045617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,15 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
     t.index ["year"], name: "index_sponsors_on_year"
   end
 
+  create_table "subscribers", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.boolean "unsubscribed", default: false
+    t.string "unsubscribe_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_subscribers_on_customer_id"
+  end
+
   create_table "testimonies", force: :cascade do |t|
     t.string "name", null: false
     t.string "profession", null: false
@@ -190,5 +199,6 @@ ActiveRecord::Schema.define(version: 2019_10_12_130449) do
   add_foreign_key "event_previews", "events", column: "year", primary_key: "year"
   add_foreign_key "gallery_photos", "events", column: "year", primary_key: "year"
   add_foreign_key "sponsors", "events", column: "year", primary_key: "year"
+  add_foreign_key "subscribers", "customers"
   add_foreign_key "tickets", "customers"
 end

@@ -15,6 +15,7 @@ class Ability
       if user.has_role? :superuser
         can [:update, :destroy], User
         can [:destroy], Ticket
+        can [:email], Subscriber
       end
     end
   end

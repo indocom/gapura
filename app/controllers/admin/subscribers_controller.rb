@@ -22,7 +22,7 @@ class Admin::SubscribersController < ApplicationController
     subscribers.each do |subscriber|
       ApplicationMailer.with(subscriber: subscriber, 
         greeting: greeting, body: body, 
-        subject: subject).mail_personal.deliver_later
+        subject: subject).mail_personal.deliver_now
     end
   end
 

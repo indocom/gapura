@@ -32,10 +32,12 @@ class Admin::SubscribersController < ApplicationController
   end
 
   def unsubscribe
-    subscriber = Subscriber.find_by(unsubscribe_code: params[:code])
+    subscriber = Subscriber.find_by!(unsubscribe_code: params[:code])
     subscriber.unsubscribed = true
     subscriber.save()
     redirect_to '/', notice: 'You have successfully unsubscribed.'
+  rescue
+    not_found
   end
 
   def sync_with_customer

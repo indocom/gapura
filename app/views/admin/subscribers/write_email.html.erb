@@ -68,7 +68,7 @@
        form.hidden_field :body
        */ 
        quill.on('text-change', function() {
-        $("#body").val(quill.getText());
+        $("#body").val(quill.container.firstChild.innerHTML);
       });
     </script>
     <% end %>

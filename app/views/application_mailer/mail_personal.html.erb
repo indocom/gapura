@@ -1,0 +1,26 @@
+<div style="margin: 0 auto;max-width: 450px;border: 2px solid #EE5525;padding: 20px;">
+  <div style="height: 3px;background-color: #FBD219;"></div>
+  <div style="font-weight: bold;padding: 10px;text-align: center;">
+    <%= @greeting %>
+  </div>
+  <div style="font-weight: bold;font-size: 30px;color: #EE5525;padding: 5px;text-align: center;text-shadow: -2px 2px #FBD219;">
+    <%= @title %>
+  </div>
+  <div style="height: 3px;background-color: #FBD219;"></div>
+  
+  <div>
+  	<br>
+  	<%= @body.html_safe %>
+  </div>
+
+</div>
+<div style="margin: 0 auto;max-width: 450px;border: 2px solid #EE5525;padding: 20px;background-color: #EE5525;text-align: center;color: white;font-weight: bold;">
+  <p> F I N D &nbsp;&nbsp; U S &nbsp;&nbsp; O N </p>
+  <a href="https://www.facebook.com/nuansa.culturalproductions/" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Facebook</a> •
+  <a href="https://www.instagram.com/nuansacp/" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Instagram</a> •
+  <a href="https://www.youtube.com/user/NUANSAcp" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Youtube</a> •
+  <a href="https://www.nuansacp.com" style="color: white;font-size: 12px;padding: 5px 5px;text-decoration: none;">Website</a>
+</div>
+<div style="margin: 0 auto;max-width: 450px;text-align: center; border: 2px solid #EE5525; padding: 5px 20px;">
+<a href="<%= unsubscribe_url %>?code=<%= @subscriber.unsubscribe_code %>" style="font-size: 12px; text-decoration: none; color: grey;">Unsubscribe</a>
+</div>

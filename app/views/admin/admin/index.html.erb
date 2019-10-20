@@ -43,6 +43,13 @@
                 <%= link_to "Manage Ticket", admin_tickets_path %>
               </div>
             </div>
+          <% end %> 
+          <% if can?(:email, Subscriber) %>
+            <div class="col-lg-6 col-md-12">
+              <div class="action-button">
+                <%= link_to "Email Blaster", admin_subscribers_path %>
+              </div>
+            </div>
           <% end %>
         </div>
       </div>

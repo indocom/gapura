@@ -74,3 +74,6 @@ Rails.application.config.assets.precompile += %w(
                                                   fullpage/vendors/scrolloverflow.min.js
                                                   fullpage/vendors/scrolloverflow.min.js.map
                                                 )
+
+Rails.application.config.assets.precompile += %w( admin/subscribers.css 
+                                                  admin/subscribers.js)

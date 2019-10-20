@@ -5,6 +5,7 @@ class ApplicationMailerPreview < ActionMailer::Preview
 
   def mail_personal
   	ApplicationMailer.with(subscriber: Subscriber.second, 
-  		subject: "Test Subject", body: "<b>Hi!</b>").mail_personal
+  		greeting: "hello", subject: "Test Subject", 
+  		body: "<b>Hi!</b>").mail_personal
   end
 end

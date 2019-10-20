@@ -11,8 +11,9 @@ class ApplicationMailer < ActionMailer::Base
   end
 
   def mail_personal
-    @body = params[:body]
     @subscriber = params[:subscriber]
+    @greeting = params[:greeting]
+    @body = params[:body]
 
     mail(to: params[:subscriber].customer.email, subject: params[:subject])
   end

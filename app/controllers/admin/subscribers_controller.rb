@@ -11,18 +11,17 @@ class Admin::SubscribersController < ApplicationController
   # Receive POST request from the form, and sends the email with the
   # POST parameters.
   def send_email
-    blast_email(params[:body], params[:subject])
-
-    puts params[:body]
+    blast_email(params[:greeting], params[:body], params[:subject])
 
     redirect_to admin_confirm_email_sent_path
   end
 
-  def blast_email(body, subject)
+  def blast_email(greeting, body, subject)
     subscribers = Subscriber.where(unsubscribed: false)
 
     subscribers.each do |subscriber|
-      ApplicationMailer.with(subscriber: subscriber, body: body,
+      ApplicationMailer.with(subscriber: subscriber, 
+        greeting: greeting, body: body, 
         subject: subject).mail_personal.deliver_later
     end
   end

@@ -41,8 +41,9 @@ class Admin::SubscribersController < ApplicationController
   end
 
   def unsubscribe
-    Subscriber.find_by(unsubscribe_code: params[:code])
-    .receive_marketing_email = false
+    subscriber = Subscriber.find_by(unsubscribe_code: params[:code])
+    subscriber.receive_marketing_email = false
+    subscriber.save()
     redirect_to '/', notice: 'You have successfully unsubscribed.'
   end
 

@@ -1,76 +1,6 @@
 <section id="buy-tickets">
   <div class="container-fluid mb-5">
     <div class="section-header"></div>
-
-    <!-- Commented just in case to be used in the future -->
-    <%# <div class="row">
-      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-        <div class="card mb-5 mb-lg-0">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Presale Admission</h5>
-            <h6 class="card-price text-center">$20</h6>
-            <hr>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Community Access</li>
-              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
-              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
-            </ul>
-            <hr>
-            <div class="text-center">
-              <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="standard-access">BUY NOW</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-        <div class="card mb-5 mb-lg-0">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">General Admission</h5>
-            <h6 class="card-price text-center">$40</h6>
-            <hr>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
-              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
-              <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
-            </ul>
-            <hr>
-            <div class="text-center">
-              <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">BUY NOW</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Pro Tier -->
-      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title text-muted text-uppercase text-center">Bundle Promo</h5>
-            <h6 class="card-price text-center">$100</h6>
-            <hr>
-            <ul class="fa-ul">
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>Workshop Access</li>
-              <li><span class="fa-li"><i class="fa fa-check"></i></span>After Party</li>
-            </ul>
-            <hr>
-            <div class="text-center">
-              <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">BUY NOW</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div> %>
-
     <div class="row witness">
       <div class="col black-overlay">
         <div class="row flex-column align-items-center justify-content-center">
@@ -79,46 +9,10 @@
           </div>
           <div class="col-lg-3 text-center mb-5">
             <%= link_to "Matinee", "https://nusfastpay.nus.edu.sg/NUANSA2019MATINEE", class: "btn ticket-btn" %>
-            <%= link_to "Night", "https://nusfastpay.nus.edu.sg/NUANSA2019NIGHT", class: "btn ticket-btn" %>
+            <%= link_to "Night", sold_out_night_path, class: "btn ticket-btn" %>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Modal Order Form -->
-  <div id="buy-ticket-modal" class="modal fade">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Buy Tickets</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form method="POST" action="#">
-            <div class="form-group">
-              <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-            </div>
-            <div class="form-group">
-              <select id="ticket-type" name="ticket-type" class="form-control" >
-                <option value="">-- Select Your Ticket Type --</option>
-                <option value="standard-access">Presale Admission</option>
-                <option value="pro-access">General Admission</option>
-                <option value="premium-access">Bundle Promo</option>
-              </select>
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn">PURCHASE</button>
-            </div>
-          </form>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
 </section>

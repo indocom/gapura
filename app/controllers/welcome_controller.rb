@@ -11,4 +11,8 @@ class WelcomeController < ApplicationController
   rescue
     not_found
   end
+
+  def sold_out_night
+  end
+  
 end

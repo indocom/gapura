@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   get '/ticket/claim', to: 'tickets#claim', as: 'claim_ticket'
   post '/tickets/synchronize', to: 'tickets#synchronize'
 
+  get '/sold_out_night', to: 'welcome#sold_out_night', as: 'sold_out_night'
+
   namespace :admin do
     root 'admin#index'
 

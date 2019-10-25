@@ -113,3 +113,23 @@ h6 {
     font-size: 20px;
   }
 }
+
+#sold-out-night {
+  margin-top: 50px;
+  height: 50vw;
+  width: 100vw;
+  background: image-url('backgrounds/sold-out-night.jpg');
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+@media (max-width: 680px) {
+  #sold-out-night {
+      height: 200vw;
+      background: image-url('backgrounds/mobile-sold-out-night.jpg');
+      background-size:     cover;
+      background-repeat:   no-repeat;
+      background-position: center center;
+  }
+}

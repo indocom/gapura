@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'image/:id/serve', to: 'images#serve', as: :serve_image
+  get 'booklet', to: 'welcome#serve_booklet', as: :serve_booklet
 
   resources :gallery_photos, only: :index
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
 
   get '/sold_out_night', to: 'welcome#sold_out_night', as: 'sold_out_night'
   get '/sold_out_matinee', to: 'welcome#sold_out_matinee', as: 'sold_out_matinee'
+  get '/buy_special', to: 'welcome#buy_special', as: 'buy_special'
 
   namespace :admin do
     root 'admin#index'

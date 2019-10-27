@@ -15,4 +15,6 @@ class WelcomeController < ApplicationController
   def sold_out_night
   end
   
+  def sold_out_matinee
+  end
 end

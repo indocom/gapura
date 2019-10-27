@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   post '/tickets/synchronize', to: 'tickets#synchronize'
 
   get '/sold_out_night', to: 'welcome#sold_out_night', as: 'sold_out_night'
+  get '/sold_out_matinee', to: 'welcome#sold_out_matinee', as: 'sold_out_matinee'
 
   namespace :admin do
     root 'admin#index'

@@ -17,5 +17,4 @@ class WelcomeController < ApplicationController
   
   def sold_out_matinee
   end
-
 end

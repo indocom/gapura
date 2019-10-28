@@ -22,6 +22,6 @@ class WelcomeController < ApplicationController
   end
 
   def serve_booklet
-    send_file 'public/booklet.pdf', type: :pdf, disposition: 'inline'
+    redirect_to 'https://drive.google.com/file/d/1hJBw_ELtPFxLiCPpJ3-zLQ2Vpo-ooWNp/view?usp=sharing'
   end
 end

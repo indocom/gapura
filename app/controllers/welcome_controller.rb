@@ -17,4 +17,11 @@ class WelcomeController < ApplicationController
   
   def sold_out_matinee
   end
+
+  def buy_special
+  end
+
+  def serve_booklet
+    send_file 'public/booklet.pdf', type: :pdf, disposition: 'inline'
+  end
 end

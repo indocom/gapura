@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'image/:id/serve', to: 'images#serve', as: :serve_image
-  get 'booklet', to: 'welcome#serve_booklet', as: :serve_booklet
+  get 'e-booklet', to: 'welcome#serve_booklet', as: :serve_booklet
 
   resources :gallery_photos, only: :index
 

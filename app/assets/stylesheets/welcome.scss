@@ -134,6 +134,16 @@ h6 {
   background-position: center center;
 }
 
+#buy-special{
+  margin-top: 80px;
+  height: 50vw;
+  width: 100vw;
+  background: image-url('backgrounds/buy-special.png');
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
 @media (max-width: 680px) {
   #sold-out-night {
       height: 200vw;
@@ -146,6 +156,14 @@ h6 {
   #sold-out-matinee {
       height: 200vw;
       background: image-url('backgrounds/mobile-sold-out-matinee.jpg');
+      background-size:     cover;
+      background-repeat:   no-repeat;
+      background-position: center center;
+  }
+
+  #buy-special {
+      height: 200vw;
+      background: image-url('backgrounds/buy-special-mobile.png');
       background-size:     cover;
       background-repeat:   no-repeat;
       background-position: center center;

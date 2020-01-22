@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :ensure_superuser, except: [:new, :create, :cancel]
+  before_action :ensure_superuser, except: %i[new create cancel]
 
   # GET /resource/sign_up
   def new
@@ -17,9 +17,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
+  # rubocop:todo Metrics/PerceivedComplexity
+  # rubocop:todo Metrics/MethodLength
   def create
     if params[:from_provider]
-      @user = create_user_from_provider_data(session[:provider_data], configure_user_data_from_params)
+      @user =
+        create_user_from_provider_data(
+          session[:provider_data],
+          configure_user_data_from_params
+        )
 
       if @user.persisted?
         sign_in(@user, scope: :user)
@@ -32,13 +38,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
       unauthorized_access && return
       super
       if resource.persisted?
-        flash[:popup_alert] = 'Thank you for registering!\n'\
-          'Please confirm your account in your email'
+        flash[:popup_alert] =
+          'Thank you for registering!\n' \
+            'Please confirm your account in your email'
       end
     end
-  rescue
+  rescue StandardError
     not_found
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/PerceivedComplexity
 
   # GET /resource/edit
   # def edit
@@ -79,7 +88,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       user.skip_confirmation!
     end
   end
-  
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:user])
@@ -97,6 +106,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  #   super(resource) # rubocop:todo Metrics/AbcSize
 end

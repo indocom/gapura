@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   include EventsHelper
   include UrlHelper
@@ -26,8 +28,6 @@ class EventsController < ApplicationController
     @gallery_photos = event.gallery_photos.offset(offset).limit(take)
     @more_photos = (offset + take) < event.gallery_photos.count
 
-    respond_to do |format|
-      format.js
-    end
-  end
+    respond_to(&:js)
+  end # rubocop:todo Metrics/AbcSize
 end

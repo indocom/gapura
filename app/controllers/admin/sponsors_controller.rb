@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class SponsorsController < ApplicationController
     include EventsHelper
@@ -5,14 +7,13 @@ module Admin
 
     before_action :ensure_admin
     before_action :set_event
-    before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
+    before_action :set_sponsor, only: %i[show edit update destroy]
 
     def index
       @sponsors = @event.sponsors.order(:type)
     end
 
-    def show
-    end
+    def show; end
 
     def new
       @sponsor = @event.sponsors.build
@@ -27,7 +28,8 @@ module Admin
       @sponsor = @event.sponsors.build(sponsor_params)
 
       if @sponsor.save
-        redirect_to admin_event_sponsor_url(@event.year, @sponsor), notice: 'Sponsor was successfully created.'
+        redirect_to admin_event_sponsor_url(@event.year, @sponsor),
+                    notice: 'Sponsor was successfully created.'
       else
         render :new
       end
@@ -35,7 +37,8 @@ module Admin
 
     def update
       if @sponsor.update(sponsor_params)
-        redirect_to admin_event_sponsor_url(@event.year, @sponsor), notice: 'Sponsor was successfully updated.'
+        redirect_to admin_event_sponsor_url(@event.year, @sponsor),
+                    notice: 'Sponsor was successfully updated.'
       else
         render :edit
       end
@@ -43,16 +46,23 @@ module Admin
 
     def destroy
       @sponsor.destroy
-      redirect_to admin_event_sponsors_path(@event.year), notice: 'Sponsor was successfully destroyed.'
+      redirect_to admin_event_sponsors_path(@event.year),
+                  notice: 'Sponsor was successfully destroyed.'
     end
 
     private
-      def set_sponsor
-        @sponsor = @event.sponsors.find(params[:id])
-      end
 
-      def sponsor_params
-        params.require(:sponsor).permit(:type, :name, :link, logo_attributes: [:id, :file, :_destroy])
-      end
+    def set_sponsor
+      @sponsor = @event.sponsors.find(params[:id])
+    end
+
+    def sponsor_params
+      params.require(:sponsor).permit(
+        :type,
+        :name,
+        :link,
+        logo_attributes: %i[id file _destroy]
+      )
+    end
   end
 end

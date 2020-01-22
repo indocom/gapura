@@ -4,18 +4,24 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    # rubocop:todo Metrics/MethodLength
     can :read, Event
     if user.present?
-      if user.has_role? :admin or user.has_role? :superuser
-        can [:create, :update, :destroy], Event
-        can [:create, :update, :destroy], FrequentlyAskedQuestion
-        can [:create, :update, :destroy], Testimony
-        can [:create, :update], Ticket
+      if # rubocop:todo Style/GuardClause
+         user.has_role?(:admin) ||
+           user.has_role?(:superuser)
+        # rubocop:todo Layout/ConditionPosition
+
+        # rubocop:enable Layout/ConditionPosition
+        can %i[create update destroy], Event
+        can %i[create update destroy], FrequentlyAskedQuestion
+        can %i[create update destroy], Testimony
+        can %i[create update], Ticket
       end
       if user.has_role? :superuser
-        can [:update, :destroy], User
-        can [:destroy], Ticket
-        can [:email], Subscriber
+        can %i[update destroy], User
+        can %i[destroy], Ticket
+        can %i[email], Subscriber
       end
     end
   end

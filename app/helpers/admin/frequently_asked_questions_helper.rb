@@ -1,2 +1,3 @@
-module Admin::FrequentlyAskedQuestionsHelper
-end
+# frozen_string_literal: true
+
+module Admin::FrequentlyAskedQuestionsHelper; end

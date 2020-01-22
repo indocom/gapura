@@ -1,2 +1,3 @@
-module Admin::GalleryPhotosHelper
-end
+# frozen_string_literal: true
+
+module Admin::GalleryPhotosHelper; end

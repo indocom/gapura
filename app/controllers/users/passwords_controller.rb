@@ -23,13 +23,13 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   protected
-  
+
   def ensure_superuser
     if !user_signed_in? || !current_user.has_role?(:superuser)
       redirect_to(root_path)
-      return false;
+      return false
     end
-    return true
+    true
   end
 
   # def after_resetting_password_path_for(resource)

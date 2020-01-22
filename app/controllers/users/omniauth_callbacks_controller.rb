@@ -27,8 +27,9 @@ module Users
           set_flash_message(:notice, :success, kind: 'Google')
         end
       else
-        flash[:error] = 'There was a problem signing you in through Google.' \
-          ' Please register or try signing in later.'
+        flash[:error] =
+          'There was a problem signing you in through Google.' \
+            ' Please register or try signing in later.'
         redirect_to new_user_registration_url
       end
     end
@@ -42,23 +43,23 @@ module Users
 
     def set_user
       @provider_data = filter_provider_data
-      @user = User.find_by(
-        provider: @provider_data['provider'], uid: @provider_data['uid']
-      )
+      @user =
+        User.find_by(
+          provider: @provider_data['provider'], uid: @provider_data['uid']
+        )
 
       create_new_user unless @user
     end
 
     def filter_provider_data
       request.env['omniauth.auth'].slice('provider', 'uid', 'info')
-             .tap do |data|
-        data['info'] = data['info'].slice('name', 'email')
-      end
+        .tap { |data| data['info'] = data['info'].slice('name', 'email') }
     end
 
     def create_new_user
       if User.exists?(email: @provider_data['info']['email'])
-        flash[:error] = 'You have signed up with another provider.\n' \
+        flash[:error] =
+          'You have signed up with another provider.\n' \
             'Please login using the other providers!'
         return redirect_to new_user_session_url
       end
@@ -69,6 +70,6 @@ module Users
     # The path used when OmniAuth fails
     # def after_omniauth_failure_path_for(scope)
     #   super(scope)
-    # end
+    # end # rubocop:todo Metrics/MethodLength
   end
 end

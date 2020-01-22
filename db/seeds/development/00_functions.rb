@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def get_mock_file_path(filename)
   Rails.root.join('app', 'assets', 'images', 'mock_datas', filename)
 end

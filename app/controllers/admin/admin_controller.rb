@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class Admin::AdminController < ApplicationController
   before_action :ensure_admin
 
-  def index
-  end
+  def index; end
 end

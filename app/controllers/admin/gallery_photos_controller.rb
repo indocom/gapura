@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class GalleryPhotosController < ApplicationController
     include EventsHelper
@@ -17,7 +19,8 @@ module Admin
     def create
       @gallery_photo = @event.gallery_photos.build(gallery_photo_params)
       if @gallery_photo.save
-        redirect_to admin_event_gallery_photos_path, notice: 'Gallery photo was successfully created.'
+        redirect_to admin_event_gallery_photos_path,
+                    notice: 'Gallery photo was successfully created.'
       else
         @gallery_photo.build_image
         render :new
@@ -27,12 +30,17 @@ module Admin
     def destroy
       @gallery_photo = @event.gallery_photos.find(params[:id])
       @gallery_photo.destroy
-      redirect_to admin_event_gallery_photos_path(@event.year), notice: 'Gallery photo was successfully destroyed.'
+      redirect_to admin_event_gallery_photos_path(@event.year),
+                  notice: 'Gallery photo was successfully destroyed.'
     end
 
     private
-      def gallery_photo_params
-        params.require(:gallery_photo).permit(:image_link, image_attributes: [:id, :file, :_destroy])
-      end
+
+    def gallery_photo_params
+      params.require(:gallery_photo).permit(
+        :image_link,
+        image_attributes: %i[id file _destroy]
+      )
+    end
   end
 end

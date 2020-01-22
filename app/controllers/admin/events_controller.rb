@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 module Admin
   class EventsController < ApplicationController
     include EventsHelper
 
     before_action :ensure_admin
-    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :set_event, only: %i[show edit update destroy]
 
     def index
       get_all_event
     end
 
-    def show
-    end
+    def show; end
 
     def new
       @event = Event.new
@@ -26,7 +27,8 @@ module Admin
       @event = Event.new(event_params)
 
       if @event.save
-        redirect_to admin_event_path(@event.year), notice: 'Event was successfully created.'
+        redirect_to admin_event_path(@event.year),
+                    notice: 'Event was successfully created.'
       else
         render :new
       end
@@ -34,7 +36,8 @@ module Admin
 
     def update
       if @event.update(event_params)
-        redirect_to admin_event_path(@event.year), notice: 'Event was successfully updated.'
+        redirect_to admin_event_path(@event.year),
+                    notice: 'Event was successfully updated.'
       else
         render :edit
       end
@@ -46,17 +49,22 @@ module Admin
     end
 
     private
-      def ensure_admin
-        super || return
-      end
 
-      def event_params
-        params.require(:event).permit(:title, :subtitle, :overview, :year, :logo,
-          event_info_attributes: [:id, :synopsis, :description, :video_link],
-          logo_attributes: [:id, :file, :_destroy])
-          .tap do|event_params|
-            event_params.require(:event_info_attributes)
-          end
-      end
+    def ensure_admin
+      super || return
+    end
+
+    def event_params
+      params.require(:event).permit(
+        :title,
+        :subtitle,
+        :overview,
+        :year,
+        :logo,
+        event_info_attributes: %i[id synopsis description video_link],
+        logo_attributes: %i[id file _destroy]
+      )
+        .tap { |event_params| event_params.require(:event_info_attributes) }
+    end
   end
 end

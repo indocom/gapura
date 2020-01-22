@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "admin/tickets/edit", type: :view do
-  before(:each) do
-    @admin_ticket = assign(:admin_ticket, Admin::Ticket.create!())
-  end
+RSpec.describe 'admin/tickets/edit', type: :view do
+  before(:each) { @admin_ticket = assign(:admin_ticket, Admin::Ticket.create!) }
 
-  it "renders the edit admin_ticket form" do
+  it 'renders the edit admin_ticket form' do
     render
 
-    assert_select "form[action=?][method=?]", admin_ticket_path(@admin_ticket), "post" do
+    assert_select 'form[action=?][method=?]',
+                  admin_ticket_path(@admin_ticket),
+                  'post' do
     end
   end
 end

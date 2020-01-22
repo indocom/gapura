@@ -1,3 +1,5 @@
-for i in Customer.count..4 do
-  Customer.create(email: "Customer#{i + 1}@gmail.com");
+# frozen_string_literal: true
+
+(Customer.count..4).each do |i|
+  Customer.create(email: "Customer#{i + 1}@gmail.com")
 end

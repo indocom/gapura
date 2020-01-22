@@ -1,2 +1,3 @@
-module Admin::TicketsHelper
-end
+# frozen_string_literal: true
+
+module Admin::TicketsHelper; end

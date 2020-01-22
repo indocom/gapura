@@ -7,9 +7,7 @@ RSpec.describe Users::SessionsController, type: :controller do
 
   describe 'GET #new' do
     context 'for authenticated user' do
-      before do
-        sign_in create(:user)
-      end
+      before { sign_in create(:user) }
 
       it 'should not render sign in page' do
         get :new
@@ -29,18 +27,18 @@ RSpec.describe Users::SessionsController, type: :controller do
   describe 'POST #create' do
     it 'should allow sign in for correct credentials' do
       user = create(:user)
-      expect do
-        post :create, params: {
-          user: { email: user.email, password: user.password }
-        }
-      end.to change { subject.current_user }.from(nil).to(user)
+      expect {
+        post :create,
+             params: { user: { email: user.email, password: user.password } }
+      }.to change { subject.current_user }.from(nil).to(user)
       assert_redirected_to root_path
     end
 
     it 'should not allow sign in for wrong credentials' do
-      post :create, params: {
-        user: { email: 'wrong@example.com', password: 'wrong pass' }
-      }
+      post :create,
+           params: {
+             user: { email: 'wrong@example.com', password: 'wrong pass' }
+           }
       assert_response :success
       assert_template :new
       expect(subject.current_user).to eq(nil)
@@ -48,14 +46,12 @@ RSpec.describe Users::SessionsController, type: :controller do
 
     it 'should not allow more than one sign in' do
       user = create(:user)
-      post :create, params: {
-        user: { email: user.email, password: user.password }
-      }
+      post :create,
+           params: { user: { email: user.email, password: user.password } }
       expect do
         user2 = create(:user)
-        post :create, params: {
-          user: { email: user2.email, password: user2.password }
-        }
+        post :create,
+             params: { user: { email: user2.email, password: user2.password } }
       end.not_to(change { subject.current_user })
     end
   end

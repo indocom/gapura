@@ -1,2 +1,3 @@
-class Transaction < ApplicationRecord
-end
+# frozen_string_literal: true
+
+class Transaction < ApplicationRecord; end

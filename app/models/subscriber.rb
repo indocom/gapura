@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Subscriber < ApplicationRecord
   before_create :generate_random_id
 
@@ -5,7 +7,8 @@ class Subscriber < ApplicationRecord
   validates :customer, uniqueness: true
 
   private
+
   def generate_random_id
-  	self.unsubscribe_code = SecureRandom.uuid
+    self.unsubscribe_code = SecureRandom.uuid
   end
 end

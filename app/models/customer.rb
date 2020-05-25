@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Customer < ApplicationRecord
   has_many :tickets, inverse_of: :customer, dependent: :nullify
 
@@ -5,12 +7,12 @@ class Customer < ApplicationRecord
   after_create :create_subscriber
 
   private
-    def downcase_email
-      self.email = email.downcase
-    end
 
-    def create_subscriber
-      Subscriber.create(customer: self)
-    end
+  def downcase_email
+    self.email = email.downcase
+  end
 
+  def create_subscriber
+    Subscriber.create(customer: self)
+  end
 end

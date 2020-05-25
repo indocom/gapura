@@ -21,8 +21,9 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # The path used after resending confirmation instructions.
   def after_resending_confirmation_instructions_path_for(resource_name)
     super(resource_name)
-    flash[:popup_alert] = 'A confirmation email has been resent.\n' \
-    'Please check your email again.'
+    flash[:popup_alert] =
+      'A confirmation email has been resent.\n' \
+        'Please check your email again.'
     root_path
   end
 

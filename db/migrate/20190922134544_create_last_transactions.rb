@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateLastTransactions < ActiveRecord::Migration[5.2]
   def change
     create_table :last_transactions, id: false do |t|

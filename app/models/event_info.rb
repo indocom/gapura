@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class EventInfo < ApplicationRecord
-  self.table_name = "event_info"
-  belongs_to  :event, foreign_key: :year, primary_key: :year, touch: true
+  self.table_name = 'event_info'
+  belongs_to :event, foreign_key: :year, primary_key: :year, touch: true
 
   validates :description, :synopsis, presence: true
 end

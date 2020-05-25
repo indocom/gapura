@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::SubscribersController < ApplicationController
   before_action :ensure_superuser, except: :unsubscribe
 
@@ -5,8 +7,7 @@ class Admin::SubscribersController < ApplicationController
     @subscribers = Subscriber.all
   end
 
-  def write_email
-  end
+  def write_email; end
 
   # Receive POST request from the form, and sends the email with the
   # POST parameters.
@@ -20,23 +21,24 @@ class Admin::SubscribersController < ApplicationController
     subscribers = Subscriber.where(unsubscribed: false)
 
     subscribers.each do |subscriber|
-      ApplicationMailer.with(subscriber: subscriber, 
-        greeting: greeting, body: body, 
-        subject: subject).mail_personal.deliver_now
+      ApplicationMailer.with(
+        subscriber: subscriber, greeting: greeting, body: body, subject: subject
+      )
+        .mail_personal
+        .deliver_now
     end
   end
 
   # Displays some text to let the user know that the email has been successfully
   # sent.
-  def confirm_email_sent
-  end
+  def confirm_email_sent; end
 
   def unsubscribe
     subscriber = Subscriber.find_by!(unsubscribe_code: params[:code])
     subscriber.unsubscribed = true
-    subscriber.save()
+    subscriber.save
     redirect_to '/', notice: 'You have successfully unsubscribed.'
-  rescue
+  rescue StandardError
     not_found
   end
 

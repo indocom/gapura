@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+
   def current_year
-    2019
+    2_019
   end
 
   def ensure_admin
@@ -11,7 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_superuser
-    unauthorized_access unless user_signed_in? && current_user.has_role?(:superuser)
+    # rubocop:todo Style/GuardClause
+    unless user_signed_in? && current_user.has_role?(:superuser)
+      unauthorized_access
+    end
+    # rubocop:enable Style/GuardClause
   end
 
   def unauthorized_access
@@ -19,8 +26,8 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
-  rescue
+    raise ActionController::RoutingError, 'Not Found'
+  rescue StandardError
     render_404
   end
 
@@ -29,8 +36,17 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :password, :password_confirmation, :current_password])
-   end
+    devise_parameter_sanitizer.permit(
+      :sign_up,
+      keys: %i[username email password password_confirmation]
+    )
+    devise_parameter_sanitizer.permit(
+      :sign_in,
+      keys: %i[login password password_confirmation]
+    )
+    devise_parameter_sanitizer.permit(
+      :account_update,
+      keys: %i[username email password password_confirmation current_password]
+    )
+  end # rubocop:todo Metrics/MethodLength
 end

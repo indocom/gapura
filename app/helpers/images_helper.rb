@@ -1,2 +1,3 @@
-module ImagesHelper
-end
+# frozen_string_literal: true
+
+module ImagesHelper; end

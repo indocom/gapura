@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateClaimHistories < ActiveRecord::Migration[5.2]
   def change
     create_table :claim_histories do |t|

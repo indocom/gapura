@@ -1,2 +1,3 @@
-module Admin::SubscriberHelper
-end
+# frozen_string_literal: true
+
+module Admin::SubscriberHelper; end

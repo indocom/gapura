@@ -20,6 +20,8 @@ class WelcomeController < ApplicationController
 
   def buy_special; end
 
+  def donation; end
+
   def serve_booklet
     redirect_to 'https://drive.google.com/file/d/1hJBw_ELtPFxLiCPpJ3-zLQ2Vpo-ooWNp/view?usp=sharing'
   end

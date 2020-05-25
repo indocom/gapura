@@ -15,6 +15,7 @@
             "partners" => "Partners",
             "faq" => "FAQ",
             "events" => "Past NUANSA",
+            "donation" => "Donation",
             "buy-tickets" => "Buy Tickets"
           }
 
@@ -32,6 +33,8 @@
             case key
             when "events"
               str += (link_to value, events_path)
+            when "donation"
+              str += (link_to value, donation_path)
             else
               str += (link_to value, root_path(anchor: key))
             end

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get '/sold_out_matinee',
       to: 'welcome#sold_out_matinee', as: 'sold_out_matinee'
   get '/buy_special', to: 'welcome#buy_special', as: 'buy_special'
+  get '/donation', to: 'welcome#donation', as: 'donation'
 
   namespace :admin do
     root 'admin#index'

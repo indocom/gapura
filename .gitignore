@@ -40,3 +40,4 @@
 
 # Vendor
 vendor/bundle
+vendor/cache
